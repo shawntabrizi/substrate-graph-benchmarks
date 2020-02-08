@@ -1,5 +1,6 @@
 async function parseCsv(input) {
   let text = await d3.text(input);
+  let pallet_json = await d3.json('./pallet-identity/meta.json');
 
   let charts = document.getElementsByClassName('chart');
 
@@ -30,18 +31,16 @@ async function parseCsv(input) {
 
   let csv = await d3.csvParse(data);
 
-  createTable(csv);
+  createTable(csv, pallet_json);
 
   let split_data = splitBenchmarks(csv, repeat);
 
   let keys = Object.keys(split_data);
 
-  createCharts(split_data, keys, metadata);
+  createCharts(split_data, keys, metadata, pallet_json);
 }
 
-async function createTable(data) {
-  let json = await d3.json('./pallet-identity/meta.json');
-
+function createTable(data, pallet_json) {
   let keys = Object.keys(data[0]);
 
   let table = document.getElementById('raw-data');
@@ -57,7 +56,7 @@ async function createTable(data) {
   let tr = document.createElement('tr');
   for (key of keys) {
     let th = document.createElement('th');
-    th.innerText = key + ' (' + json['components'][key] + ')';
+    th.innerText = key + ' (' + pallet_json['components'][key] + ')';
 
     tr.appendChild(th);
   }
@@ -101,7 +100,7 @@ function splitBenchmarks(data, repeat) {
   return split_data;
 }
 
-function createCharts(split_data, keys, metadata) {
+function createCharts(split_data, keys, metadata, pallet_json) {
   let extrinsic = metadata[3];
 
   var counter = 0;
@@ -125,6 +124,8 @@ function createCharts(split_data, keys, metadata) {
       name: key
     };
 
+    let keyName = key + ' (' + pallet_json.components[key] + ')';
+
     let fixed_data = keys
       .filter(x => {
         return x != key;
@@ -140,11 +141,11 @@ function createCharts(split_data, keys, metadata) {
 
     var layout = {
       title: {
-        text: extrinsic + ' over ' + key + fixed_data
+        text: extrinsic + ' over ' + keyName + fixed_data
       },
       xaxis: {
         title: {
-          text: key
+          text: keyName
         }
       },
       yaxis: {
