@@ -1,5 +1,5 @@
 {
-  "extrinsics": ["transfer_worst_case"],
+  "extrinsics": ["transfer_worst_case", "transfer_best_case"],
   "components": {
     "E": "# of Existential Deposits",
     "U": "User Seed",
