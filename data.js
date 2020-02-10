@@ -222,7 +222,7 @@ function createCharts(split_data, keys, metadata, pallet_json) {
       }
     };
 
-    var chart = [trace, average, median, min, max];
+    var chart = [trace, min, median, average, max];
 
     Plotly.newPlot('myChart' + counter, chart, layout);
   }
