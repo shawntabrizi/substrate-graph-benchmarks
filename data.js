@@ -119,12 +119,76 @@ function createCharts(split_data, keys, metadata, pallet_json) {
       return row['time'] / 1000000;
     });
 
-    var trace1 = {
+    var trace = {
       x: x,
       y: time,
       mode: 'markers',
       type: 'scatter',
-      name: key
+      name: 'Raw Values',
+      marker: { size: 6, color: 'grey' },
+      hoverinfo: 'skip'
+    };
+
+    var average = {
+      type: 'scatter',
+      x: x,
+      y: time,
+      transforms: [
+        {
+          type: 'aggregate',
+          groups: x,
+          aggregations: [{ target: 'y', func: 'avg', enabled: true }]
+        }
+      ],
+      name: 'Average',
+      line: { color: 'orange' }
+    };
+
+    var median = {
+      type: 'scatter',
+      x: x,
+      y: time,
+      transforms: [
+        {
+          type: 'aggregate',
+          groups: x,
+          aggregations: [{ target: 'y', func: 'median', enabled: true }]
+        }
+      ],
+      name: 'Median',
+      line: { color: 'yellow' }
+    };
+
+    var min = {
+      type: 'scatter',
+      mode: 'markers',
+      x: x,
+      y: time,
+      transforms: [
+        {
+          type: 'aggregate',
+          groups: x,
+          aggregations: [{ target: 'y', func: 'min', enabled: true }]
+        }
+      ],
+      name: 'Min',
+      marker: { size: 4, color: 'green' }
+    };
+
+    var max = {
+      type: 'scatter',
+      mode: 'markers',
+      x: x,
+      y: time,
+      transforms: [
+        {
+          type: 'aggregate',
+          groups: x,
+          aggregations: [{ target: 'y', func: 'max', enabled: true }]
+        }
+      ],
+      name: 'Max',
+      marker: { size: 4, color: 'red' }
     };
 
     let keyName = key + ' (' + pallet_json.components[key] + ')';
@@ -158,7 +222,7 @@ function createCharts(split_data, keys, metadata, pallet_json) {
       }
     };
 
-    var chart = [trace1];
+    var chart = [trace, average, median, min, max];
 
     Plotly.newPlot('myChart' + counter, chart, layout);
   }
