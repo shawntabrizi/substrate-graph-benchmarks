@@ -1,6 +1,9 @@
 async function parseCsv(input) {
   let text = await d3.text(input);
-  let pallet_json = await d3.json('./pallet-identity/meta.json');
+  // This is a total hack, TODO fix
+  let path_parts = input.split('/');
+  path_parts[path_parts.length - 1] = 'meta.json';
+  let pallet_json = await d3.json(path_parts.join('/'));
 
   let charts = document.getElementsByClassName('chart');
 
