@@ -1,6 +1,25 @@
+// Detect Querystrings
+function parseQueryStrings() {
+  var queryStrings = {};
+  //Parse URL
+  var url = window.location.search.substring(1);
+  if (url) {
+    //split querystrings
+    var pairs = url.split('&');
+    for (pair in pairs) {
+      pairArray = pairs[pair].split('=');
+      queryStrings[pairArray[0]] = pairArray[1];
+    }
+  }
+
+  return queryStrings;
+}
+
 // On load, check if querystrings are present
 window.onload = async function() {
-  if (window.location.hash) {
-    parseCsv('./pallet-identity/' + window.location.hash.substring(1) + '.txt');
+  var queryStrings = parseQueryStrings();
+
+  if (queryStrings['p'] && queryStrings['e']) {
+    parseCsv('./' + queryStrings['p'] + '/' + queryStrings['e'] + '.txt');
   }
 };

@@ -1,0 +1,8 @@
+{
+  "extrinsics": ["transfer_worst_case"],
+  "components": {
+    "E": "# of Existential Deposits",
+    "U": "User Seed",
+    "time": "nanoseconds"
+  }
+}
