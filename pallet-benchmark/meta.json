@@ -1,0 +1,7 @@
+{
+  "extrinsics": ["read_value"],
+  "components": {
+    "N": "Number of Reads",
+    "time": "nanoseconds"
+  }
+}
