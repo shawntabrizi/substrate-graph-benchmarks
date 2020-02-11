@@ -1,5 +1,5 @@
 async function createSidebar() {
-  let metas = ['./pallet-identity/meta.json', './pallet-balances/meta.json'];
+  let metas = ['./pallet-balances/meta.json', './pallet-balances-lazy-reaping/meta.json', './pallet-identity/meta.json'];
   for (meta of metas) {
     let json = await d3.json(meta);
 
