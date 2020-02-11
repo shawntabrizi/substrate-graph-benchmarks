@@ -6,7 +6,7 @@ async function createSidebar() {
     'pallet-identity'
   ];
   for (folder of folders) {
-    let meta = '/' + folder + '/' + 'meta.json';
+    let meta = './' + folder + '/' + 'meta.json';
 
     let json = await d3.json(meta);
 
@@ -35,7 +35,7 @@ async function createSidebar() {
       a.href = '?p=' + folder + '&e=' + item;
       a.innerText = item;
       a.onclick = function() {
-        parseCsv('/' + folder + '/' + this.innerText + '.txt');
+        parseCsv('./' + folder + '/' + this.innerText + '.txt');
       };
 
       li.appendChild(a);
