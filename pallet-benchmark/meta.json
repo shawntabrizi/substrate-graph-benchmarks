@@ -1,14 +1,14 @@
 {
   "extrinsics": [
-	"time_host",
-	"do_nothing",
-	"read_value",
-	"put_value",
-	"exists_value",
-	"remove_value",
-	"read_map",
-	"insert_map",
-	"contains_key_map",
+    "time_host",
+    "do_nothing",
+    "read_value",
+    "put_value",
+    "exists_value",
+    "remove_value",
+    "read_map",
+    "insert_map",
+    "contains_key_map",
     "add_member_list",
     "add_member_list_append"
   ],
@@ -16,6 +16,7 @@
     "N": "Number of operations",
     "L": "Number of Host Calls",
     "M": "Number of Members",
+    "R": "Repeat",
     "time": "nanoseconds"
   }
 }

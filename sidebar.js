@@ -3,7 +3,8 @@ async function createSidebar() {
     'pallet-benchmark',
     'pallet-balances',
     'pallet-balances-lazy-reaping',
-    'pallet-identity'
+    'pallet-identity',
+    'pallet-timestamp'
   ];
   for (folder of folders) {
     let meta = './' + folder + '/' + 'meta.json';
