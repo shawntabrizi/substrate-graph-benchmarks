@@ -60,4 +60,6 @@ async function createSidebar() {
   }
 }
 
-createSidebar();
+createSidebar().then(() => {
+  document.getElementsByClassName('nav-link active')[0].scrollIntoView();
+});

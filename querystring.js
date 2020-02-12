@@ -16,10 +16,10 @@ function parseQueryStrings() {
 }
 
 // On load, check if querystrings are present
-window.onload = async function() {
+window.addEventListener('load', async function() {
   var queryStrings = parseQueryStrings();
 
   if (queryStrings['p'] && queryStrings['e']) {
     parseCsv('./' + queryStrings['p'] + '/' + queryStrings['e'] + '.txt');
   }
-};
+});
