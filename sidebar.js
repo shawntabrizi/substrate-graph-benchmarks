@@ -1,4 +1,12 @@
 async function createSidebar() {
+  var queryStrings = parseQueryStrings();
+  let pallet = '';
+  let extrinsic = '';
+  if (queryStrings['p'] && queryStrings['e']) {
+    pallet = queryStrings['p'];
+    extrinsic = queryStrings['e'];
+  }
+
   let folders = [
     'pallet-benchmark',
     'pallet-balances',
@@ -34,6 +42,9 @@ async function createSidebar() {
       li.classList.add('nav-item');
       let a = document.createElement('a');
       a.classList.add('nav-link');
+      if (folder == pallet && item == extrinsic) {
+        a.classList.add('active');
+      }
       a.href = '?p=' + folder + '&e=' + item;
       a.innerText = item;
       a.onclick = function() {
