@@ -1,0 +1,12 @@
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic time_host -s 1000 -r 1000 > time_host.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic do_nothing -s 100 -r 20 > do_nothing.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic read_value -s 100 -r 20 > read_value.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic put_value -s 100 -r 20 > put_value.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic exists_value -s 100 -r 20 > exists_value.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic remove_value -s 100 -r 20 > remove_value.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic read_map -s 100 -r 20 > read_map.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic insert_map -s 100 -r 20 > insert_map.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic contains_key_map -s 100 -r 20 > contains_key_map.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic remove_prefix -s 10 -r 10 > remove_prefix.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic add_member_list -s 100 -r 20 > add_member_list.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic add_member_list_append -s 100 -r 20 > add_member_list_append.txt

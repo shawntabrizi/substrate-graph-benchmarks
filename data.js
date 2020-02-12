@@ -89,6 +89,12 @@ function splitBenchmarks(data, repeat) {
     split_data[key] = [];
   }
 
+  // Handle the trivial case
+  if (keys.length == 1) {
+    split_data[key] = data;
+    return split_data
+  }
+
   for (let i = 0; i < data.length; i += repeat) {
     for (key of keys) {
       if (data[i + repeat]) {
