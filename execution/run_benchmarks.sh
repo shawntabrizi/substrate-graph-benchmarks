@@ -1,0 +1,3 @@
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer -s 100 -r 10 > compiled.txt           
+./target/release/substrate benchmark --chain dev --execution=wasm --pallet balances --extrinsic transfer -s 100 -r 10 > wasmi.txt   
+./target/release/substrate benchmark --chain dev --execution=native --pallet balances --extrinsic transfer -s 100 -r 10 > native.txt

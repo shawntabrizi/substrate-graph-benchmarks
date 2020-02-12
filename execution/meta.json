@@ -1,0 +1,13 @@
+{
+	"extrinsics": [
+	  "wasmi",
+	  "compiled",
+	  "native"
+	],
+	"components": {
+	  "E": "# of Existential Deposits",
+	  "U": "User Seed",
+	  "time": "nanoseconds"
+	}
+  }
+  
