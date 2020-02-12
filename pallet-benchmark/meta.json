@@ -6,9 +6,11 @@
     "put_value",
     "exists_value",
     "remove_value",
-    "read_map",
+	"read_map",
+	"read_map2",
     "insert_map",
-    "contains_key_map",
+	"contains_key_map",
+	"contains_key_map2",
     "add_member_list",
     "add_member_list_append"
   ],
