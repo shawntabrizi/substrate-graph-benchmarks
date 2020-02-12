@@ -1,7 +1,14 @@
 {
-  "extrinsics": ["read_value"],
+  "extrinsics": [
+    "time_host",
+    "read_value",
+    "add_member_list",
+    "add_member_list_append"
+  ],
   "components": {
     "N": "Number of Reads",
+    "L": "Number of Host Calls",
+    "M": "Number of Members",
     "time": "nanoseconds"
   }
 }
