@@ -11,6 +11,8 @@
     "insert_map",
 	"contains_key_map",
 	"contains_key_map2",
+	"contains_key_hash_map",
+	"contains_key_hash_map2",
     "add_member_list",
     "add_member_list_append"
   ],
