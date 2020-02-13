@@ -20,6 +20,6 @@ window.addEventListener('load', async function() {
   var queryStrings = parseQueryStrings();
 
   if (queryStrings['p'] && queryStrings['e']) {
-    parseCsv('./' + queryStrings['p'] + '/' + queryStrings['e'] + '.txt');
+    parseCsv('./data/' + queryStrings['p'] + '/' + queryStrings['e'] + '.txt');
   }
 });
