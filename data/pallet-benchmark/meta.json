@@ -10,7 +10,9 @@
     "insert_map",
     "contains_key_map",
     "add_member_list",
-    "add_member_list_append"
+    "add_member_list_append",
+    "encode_accounts",
+    "decode_accounts"
   ],
   "components": {
     "N": "Number of Elements",
