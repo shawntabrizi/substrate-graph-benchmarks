@@ -13,7 +13,8 @@
     "add_member_list_append"
   ],
   "components": {
-    "N": "Number of operations",
+    "N": "Number of Elements",
+    "C": "Number of Contains Calls",
     "L": "Number of Host Calls",
     "M": "Number of Members",
     "R": "Repeat",
