@@ -1,0 +1,11 @@
+{
+  "extrinsics": ["submit_election_solution"],
+  "components": {
+    "N": "# Nominators",
+    "V": "# Validator candidates",
+    "E": "# To elect from candidates",
+    "Z": "# Edge per nominator",
+    "M": "Mode",
+    "time": "nanoseconds"
+  }
+}

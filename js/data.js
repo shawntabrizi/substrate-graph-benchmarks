@@ -92,7 +92,7 @@ function splitBenchmarks(data, repeat) {
   // Handle the trivial case
   if (keys.length == 1) {
     split_data[key] = data;
-    return split_data
+    return split_data;
   }
 
   for (let i = 0; i < data.length; i += repeat) {
@@ -114,8 +114,6 @@ function createCharts(split_data, keys, metadata, pallet_json) {
 
   var counter = 0;
   for (key of keys) {
-    counter += 1;
-
     let data = split_data[key];
 
     let x = data.map(row => {
@@ -230,6 +228,13 @@ function createCharts(split_data, keys, metadata, pallet_json) {
 
     var chart = [trace, min, median, average, max];
 
+    let chartDiv = document.createElement('div');
+    chartDiv.id = 'myChart' + counter;
+    chartDiv.classList.add('my-4', 'w-100', 'chart');
+
+    document.getElementById('charts').appendChild(chartDiv);
+
     Plotly.newPlot('myChart' + counter, chart, layout);
+    counter += 1;
   }
 }

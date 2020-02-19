@@ -13,6 +13,7 @@ async function createSidebar() {
     'pallet-balances-lazy-reaping',
     'pallet-identity',
     'pallet-timestamp',
+    'pallet-staking',
     'execution'
   ];
   for (folder of folders) {
