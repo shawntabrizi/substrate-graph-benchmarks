@@ -1,6 +1,7 @@
 {
   "extrinsics": [
     "time_host",
+    "storage_recalc",
     "do_nothing",
     "read_value",
     "put_value",
@@ -19,7 +20,9 @@
     "C": "Number of Contains Calls",
     "L": "Number of Host Calls",
     "M": "Number of Members",
-    "R": "Repeat",
-    "time": "nanoseconds"
+    "r": "Repeat",
+    "time": "nanoseconds",
+    "extrinsic_time": "nanoseconds",
+    "storage_root_time": "nanoseconds"
   }
 }

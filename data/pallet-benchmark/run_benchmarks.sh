@@ -1,4 +1,5 @@
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic time_host -s 1000 -r 1000 > time_host.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic current_time -s 1000 -r 1000 > current_time.txt
+./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic storage_recalc -s 100 -r 1000 > storage_recalc.txt
 ./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic do_nothing -s 100 -r 20 > do_nothing.txt
 ./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic read_value -s 100 -r 20 > read_value.txt
 ./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet benchmark --extrinsic put_value -s 100 -r 20 > put_value.txt

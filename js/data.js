@@ -81,8 +81,9 @@ function createTable(data, pallet_json) {
 
 function splitBenchmarks(data, repeat) {
   let keys = Object.keys(data[0]);
-  // Remove the time object
-  keys.pop();
+
+  // Remove known column names
+  keys = keys.filter(item => item !== "time" && item !== "extrinsic_time" && item !== "storage_root_time")
 
   let split_data = {};
   for (key of keys) {
@@ -114,127 +115,140 @@ function createCharts(split_data, keys, metadata, pallet_json) {
 
   var counter = 0;
   for (key of keys) {
-    let data = split_data[key];
+    let time_names = ["extrinsic_time", "storage_root_time"];
+    for (time_name of time_names) {
+      let data = split_data[key];
 
-    let x = data.map(row => {
-      return row[key];
-    });
-    let time = data.map(row => {
-      return row['time'] / 1000000;
-    });
+      let x = data.map(row => {
+        return row[key];
+      });
 
-    var trace = {
-      x: x,
-      y: time,
-      mode: 'markers',
-      type: 'scatter',
-      name: 'Raw Values',
-      marker: { size: 6, color: 'grey' },
-      hoverinfo: 'skip'
-    };
-
-    var average = {
-      type: 'scatter',
-      x: x,
-      y: time,
-      transforms: [
-        {
-          type: 'aggregate',
-          groups: x,
-          aggregations: [{ target: 'y', func: 'avg', enabled: true }]
-        }
-      ],
-      name: 'Average',
-      line: { color: 'orange' }
-    };
-
-    var median = {
-      type: 'scatter',
-      x: x,
-      y: time,
-      transforms: [
-        {
-          type: 'aggregate',
-          groups: x,
-          aggregations: [{ target: 'y', func: 'median', enabled: true }]
-        }
-      ],
-      name: 'Median',
-      line: { color: 'yellow' }
-    };
-
-    var min = {
-      type: 'scatter',
-      mode: 'markers',
-      x: x,
-      y: time,
-      transforms: [
-        {
-          type: 'aggregate',
-          groups: x,
-          aggregations: [{ target: 'y', func: 'min', enabled: true }]
-        }
-      ],
-      name: 'Min',
-      marker: { size: 4, color: 'green' }
-    };
-
-    var max = {
-      type: 'scatter',
-      mode: 'markers',
-      x: x,
-      y: time,
-      transforms: [
-        {
-          type: 'aggregate',
-          groups: x,
-          aggregations: [{ target: 'y', func: 'max', enabled: true }]
-        }
-      ],
-      name: 'Max',
-      marker: { size: 4, color: 'red' }
-    };
-
-    let keyName = key + ' (' + pallet_json.components[key] + ')';
-
-    let fixed_data = keys
-      .filter(x => {
-        return x != key;
-      })
-      .map(x => {
-        return x + ': ' + data[0][x];
-      })
-      .join(', ');
-
-    if (fixed_data) {
-      fixed_data = ' (' + fixed_data + ')';
-    }
-
-    var layout = {
-      title: {
-        text: extrinsic + ' over ' + keyName + fixed_data
-      },
-      xaxis: {
-        title: {
-          text: keyName
-        }
-      },
-      yaxis: {
-        title: {
-          text: 'Time (ms)'
+      // backwards compatibility hack; TODO DELETE THIS
+      if ('time' in row) {
+        if (time_name == "extrinsic_time") {
+          time_name = 'time'
+        } else {
+          continue;
         }
       }
-    };
 
-    var chart = [trace, min, median, average, max];
+      let time = data.map(row => {
+        return row[time_name] / 1000000;
+      });
 
-    let chartDiv = document.createElement('div');
-    chartDiv.id = 'myChart' + counter;
-    chartDiv.classList.add('my-4', 'w-100', 'chart');
+      var trace = {
+        x: x,
+        y: time,
+        mode: 'markers',
+        type: 'scatter',
+        name: 'Raw Values',
+        marker: { size: 6, color: 'grey' },
+        hoverinfo: 'skip'
+      };
 
-    document.getElementById('charts').appendChild(chartDiv);
+      var average = {
+        type: 'scatter',
+        x: x,
+        y: time,
+        transforms: [
+          {
+            type: 'aggregate',
+            groups: x,
+            aggregations: [{ target: 'y', func: 'avg', enabled: true }]
+          }
+        ],
+        name: 'Average',
+        line: { color: 'orange' }
+      };
 
-    Plotly.newPlot('myChart' + counter, chart, layout);
-    counter += 1;
+      var median = {
+        type: 'scatter',
+        x: x,
+        y: time,
+        transforms: [
+          {
+            type: 'aggregate',
+            groups: x,
+            aggregations: [{ target: 'y', func: 'median', enabled: true }]
+          }
+        ],
+        name: 'Median',
+        line: { color: 'yellow' }
+      };
+
+      var min = {
+        type: 'scatter',
+        mode: 'markers',
+        x: x,
+        y: time,
+        transforms: [
+          {
+            type: 'aggregate',
+            groups: x,
+            aggregations: [{ target: 'y', func: 'min', enabled: true }]
+          }
+        ],
+        name: 'Min',
+        marker: { size: 4, color: 'green' }
+      };
+
+      var max = {
+        type: 'scatter',
+        mode: 'markers',
+        x: x,
+        y: time,
+        transforms: [
+          {
+            type: 'aggregate',
+            groups: x,
+            aggregations: [{ target: 'y', func: 'max', enabled: true }]
+          }
+        ],
+        name: 'Max',
+        marker: { size: 4, color: 'red' }
+      };
+
+      let keyName = key + ' (' + pallet_json.components[key] + ')';
+
+      let fixed_data = keys
+        .filter(x => {
+          return x != key;
+        })
+        .map(x => {
+          return x + ': ' + data[0][x];
+        })
+        .join(', ');
+
+      if (fixed_data) {
+        fixed_data = ' (' + fixed_data + ')';
+      }
+
+      var layout = {
+        title: {
+          text: extrinsic + ' over ' + keyName + fixed_data
+        },
+        xaxis: {
+          title: {
+            text: keyName
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'Time (ms)'
+          }
+        }
+      };
+
+      var chart = [trace, min, median, average, max];
+
+      let chartDiv = document.createElement('div');
+      chartDiv.id = 'myChart' + counter;
+      chartDiv.classList.add('my-4', 'w-100', 'chart');
+
+      document.getElementById('charts').appendChild(chartDiv);
+
+      Plotly.newPlot('myChart' + counter, chart, layout);
+      counter += 1;
+    }
   }
 }
