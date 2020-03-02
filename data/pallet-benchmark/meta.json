@@ -20,7 +20,8 @@
     "C": "Number of Contains Calls",
     "L": "Number of Host Calls",
     "M": "Number of Members",
-    "r": "Repeat",
+    "R": "Repeat",
+    "r": "Number of storage keys added to trie",
     "time": "nanoseconds",
     "extrinsic_time": "nanoseconds",
     "storage_root_time": "nanoseconds"
