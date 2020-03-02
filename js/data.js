@@ -136,6 +136,11 @@ function createCharts(split_data, keys, metadata, pallet_json) {
         return row[time_name] / 1000000;
       });
 
+      const someIsNotZero = time.some(item => item !== 0);
+      if (!someIsNotZero) {
+        continue;
+      }
+
       var trace = {
         x: x,
         y: time,
@@ -225,7 +230,7 @@ function createCharts(split_data, keys, metadata, pallet_json) {
 
       var layout = {
         title: {
-          text: extrinsic + ' over ' + keyName + fixed_data
+          text: time_name + ': ' + extrinsic + ' over ' + keyName + fixed_data
         },
         xaxis: {
           title: {
