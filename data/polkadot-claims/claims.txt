@@ -1,6 +1,6 @@
 Pallet: "claims", Extrinsic: "claim", Lowest values: [], Highest values: [], Steps: [50], Repeat: 50
 u,extrinsic_time,storage_root_time
-0,4700000,963000
+0,376000,42000
 0,376000,42000
 0,520000,54000
 0,398000,45000
