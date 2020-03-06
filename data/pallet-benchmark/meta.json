@@ -2,6 +2,7 @@
   "extrinsics": [
     "time_host",
     "storage_recalc",
+    "storage_root",
     "do_nothing",
     "read_value",
     "put_value",

@@ -8,6 +8,7 @@ async function createSidebar() {
   }
 
   let folders = [
+    'polkadot-claims',
     'pallet-benchmark',
     'pallet-balances',
     'pallet-balances-lazy-reaping',

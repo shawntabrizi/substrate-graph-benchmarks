@@ -1,0 +1,5 @@
+./target/release/polkadot benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet claims --extrinsic claim --steps 50 --repeat 50 > claim.txt
+./target/release/polkadot benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet claims --extrinsic mint_claim --steps 50 --repeat 50 > mint-claim.txt
+./target/release/polkadot benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet claims --extrinsic validate_unsigned --steps 50 --repeat 50 > validate-unsigned.txt
+./target/release/polkadot benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet claims --extrinsic keccak256 --steps 50 --repeat 50 > keccak256.txt
+./target/release/polkadot benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet claims --extrinsic eth_recover --steps 50 --repeat 50 > eth-recover.txt
