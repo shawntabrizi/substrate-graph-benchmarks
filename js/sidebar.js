@@ -15,6 +15,7 @@ async function createSidebar() {
     'pallet-identity',
     'pallet-timestamp',
     'pallet-staking',
+    'pallet-vesting',
     'execution'
   ];
   for (folder of folders) {

@@ -1,0 +1,14 @@
+{
+    "extrinsics": [
+        "vest",
+        "vest-other",
+        "vested-transfer"
+    ],
+    "components": {
+        "l": "Number of Locks",
+        "b": "Block Number",
+        "u": "User Seed",
+        "extrinsic_time": "nanoseconds",
+        "storage_root_time": "nanoseconds"
+    }
+}
