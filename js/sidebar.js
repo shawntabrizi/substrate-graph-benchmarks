@@ -11,7 +11,6 @@ async function createSidebar() {
     'polkadot-claims',
     'pallet-benchmark',
     'pallet-balances',
-    'pallet-balances-lazy-reaping',
     'pallet-identity',
     'pallet-timestamp',
     'pallet-staking',
