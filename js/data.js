@@ -115,7 +115,7 @@ function createCharts(split_data, keys, metadata, pallet_json) {
 
   var counter = 0;
   for (key of keys) {
-    let time_names = ["extrinsic_time", "storage_root_time", "commit_db_time"];
+    let time_names = ["extrinsic_time", "storage_root_time"];
     for (time_name of time_names) {
       let data = split_data[key];
 
