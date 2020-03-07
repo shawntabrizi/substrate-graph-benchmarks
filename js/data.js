@@ -24,7 +24,7 @@ async function parseCsv(input) {
 
   document.getElementById('dashboard-title').innerText = metadata.join(' ');
 
-  let repeat =  parseInt(metadata[metadata.findIndex((e) => e == "Repeat:") + 1]);
+  let repeat = parseInt(metadata[metadata.findIndex((e) => e == "Repeat:") + 1]);
 
   // The actual CSV data
   let data = text
@@ -83,7 +83,7 @@ function splitBenchmarks(data, repeat) {
   let keys = Object.keys(data[0]);
 
   // Remove known column names
-  keys = keys.filter(item => item !== "time" && item !== "extrinsic_time" && item !== "storage_root_time")
+  keys = keys.filter(item => item !== "time" && item !== "extrinsic_time" && item !== "storage_root_time" && item !== "commit_db_time")
 
   let split_data = {};
   for (key of keys) {
