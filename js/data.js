@@ -24,7 +24,7 @@ async function parseCsv(input) {
 
   document.getElementById('dashboard-title').innerText = metadata.join(' ');
 
-  let repeat = parseInt(metadata[7]);
+  let repeat =  parseInt(metadata[metadata.findIndex((e) => e == "Repeat:") + 1]);
 
   // The actual CSV data
   let data = text
