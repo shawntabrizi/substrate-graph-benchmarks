@@ -44,4 +44,8 @@ Here is an example of a full benchmark:
 
 * `--repeat`: The number of times to repeat the exact same benchmark with the exact same input parameters. Total number of benchmarks will be `steps` * `repeat`.
 
+* `---lowest_range_values`: A comma seperated list of numbers which control the lower range of the different params used in `steps`
+
+* `---highest_range_values`: A comma seperated list of numbers which control the lower range of the different params used in `steps`
+
 Output will _mostly_ be in CSV format (with two lines of metadata at the top). You can output this to a txt file for ingestion.
