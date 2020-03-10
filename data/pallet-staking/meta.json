@@ -6,7 +6,9 @@
     "submit_election_solution",
     "nominate",
     "payout-validator",
-    "payout-nominator"
+    "payout-nominator",
+    "rebond",
+    "reap-stash"
   ],
   "components": {
     "n": "nominators",
