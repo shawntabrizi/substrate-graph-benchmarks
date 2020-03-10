@@ -10,40 +10,38 @@ cd ../../../..
 # Destination directory for results
 mkdir -p out
 
+## Convenience function for running benchmarks
 # Arguments:
 # - pallet
 # - extrinsic
 run_bench () {
-	echo -ne "Benchmarkin => pallet: $1, extrinsic: $2\n  - "
+	echo -ne "Benchmarking => pallet: $1, extrinsic: $2\n  - "
 	./substrate/target/release/substrate benchmark\
-	--chain dev\
-	--execution=wasm\
-	--wasm-execution=compiled\
-	--pallet $1\
-	--extrinsic $2\
-	--steps 100\
-	--repeat 10\
-	> out/$1.txt
+		--chain dev\
+		--execution=wasm\
+		--wasm-execution=compiled\
+		--pallet $1\
+		--extrinsic $2\
+		--steps 100\
+		--repeat 10\
+		> out/$1_$2.txt
 }
 
 # Run benchmarks
-run_bench "pallet-balances" "transfer"
+run_bench "pallet-balances" "transfer" # worst case
+run_bench "pallet-balances" "transfer_best_case"
+run_bench "pallet-balances" "transfer_keep_alive"
+run_bench "pallet-balances" "set_balance"
+run_bench "pallet-balances" "set_balance_killing"
+run_bench "pallet-identity" "add_registrar"
+run_bench "pallet-identity" "set_identity"
+run_bench "pallet-identity" "set_subs"
+run_bench "pallet-identity" "clear_identity"
+run_bench "pallet-identity" "request_judgement"
+run_bench "pallet-identity" "cancel_request"
+run_bench "pallet-identity" "set_fee"
+run_bench "pallet-identity" "set_account_id"
+run_bench "pallet-identity" "set_fields"
+run_bench "pallet-identity" "provide_judgement"
+run_bench "pallet-identity" "kill_identity"
 
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic transfer --steps 100 --repeat 10 > out/transfer_worst_case.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic transfer_best_case --steps 100 --repeat 10 > out/transfer_best_case.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic transfer_keep_alive --steps 100 --repeat 10 > out/transfer_keep_alive.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic set_balance --steps 100 --repeat 10 > out/set_balance_creating.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic set_balance_killing --steps 100 --repeat 10 > out/set_balance_killing.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic add_registrar --steps 100 --repeat 10 > out/add_registrar.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_identity --steps 100 --repeat 10 > out/set_identity.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_subs --steps 100 --repeat 10 > out/set_subs.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic clear_identity --steps 100 --repeat 10 > out/clear_identity.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic request_judgement --steps 100 --repeat 10 > out/request_judgement.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic cancel_request --steps 100 --repeat 10 > out/cancel_request.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_fee --steps 100 --repeat 10 > out/set_fee.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_account_id --steps 100 --repeat 10 > out/set_account_id.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_fields --steps 100 --repeat 10 > out/set_fields.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic provide_judgement --steps 100 --repeat 10 > out/provide_judgement.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic kill_identity --steps 100 --repeat 10 > out/kill_identity.txt
-
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-benchmarks --extrinsic add_member_list --steps 100 --repeat 10 > out/add_member_list.txt
