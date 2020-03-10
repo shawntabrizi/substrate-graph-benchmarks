@@ -1,15 +1,16 @@
+# Setup dependencies, skip installation
 curl https://getsubstrate.io -sSf | bash -s -- --fast
 
+# Download and compile Substrate with benchmarking features
 git clone https://github.com/paritytech/substrate
-
 cd substrate/bin/node/cli
-
 cargo build --release --features=runtime-benchmarks
-
 cd ../../../..
 
+# Destination directory for results
 mkdir -p out
 
+# Run benchmarks
 ./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer -s 100 -r 10 > out/transfer_worst_case.txt
 ./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer_best_case -s 100 -r 10 > out/transfer_best_case.txt
 ./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer_keep_alive -s 100 -r 10 > out/transfer_keep_alive.txt
