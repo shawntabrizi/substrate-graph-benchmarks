@@ -5,7 +5,8 @@
     "unbond",
     "submit_election_solution",
     "nominate",
-    "payout_validator"
+    "payout-validator",
+    "payout-nominator"
   ],
   "components": {
     "n": "nominators",
