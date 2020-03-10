@@ -1,6 +1,15 @@
 {
-  "extrinsics": ["submit_election_solution"],
+  "extrinsics": [
+    "bond",
+    "bond-extra",
+    "unbond",
+    "submit_election_solution",
+    "nominate",
+    "payout_validator"
+  ],
   "components": {
+    "n": "nominators",
+    "v": "validators",
     "N": "# Nominators",
     "V": "# Validator candidates",
     "E": "# To elect from candidates",
