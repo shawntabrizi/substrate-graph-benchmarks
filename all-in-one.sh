@@ -10,12 +10,30 @@ cd ../../../..
 # Destination directory for results
 mkdir -p out
 
+# Arguments:
+# - pallet
+# - extrinsic
+run_bench () {
+	echo -ne "Benchmarkin => pallet: $1, extrinsic: $2\n  - "
+	./substrate/target/release/substrate benchmark\
+	--chain dev\
+	--execution=wasm\
+	--wasm-execution=compiled\
+	--pallet $1\
+	--extrinsic $2\
+	--steps 100\
+	--repeat 10\
+	> out/$1.txt
+}
+
 # Run benchmarks
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer --steps 100 --repeat 10 > out/transfer_worst_case.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer_best_case --steps 100 --repeat 10 > out/transfer_best_case.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer_keep_alive --steps 100 --repeat 10 > out/transfer_keep_alive.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic set_balance --steps 100 --repeat 10 > out/set_balance_creating.txt
-./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic set_balance_killing --steps 100 --repeat 10 > out/set_balance_killing.txt
+run_bench "pallet-balances" "transfer"
+
+./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic transfer --steps 100 --repeat 10 > out/transfer_worst_case.txt
+./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic transfer_best_case --steps 100 --repeat 10 > out/transfer_best_case.txt
+./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic transfer_keep_alive --steps 100 --repeat 10 > out/transfer_keep_alive.txt
+./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic set_balance --steps 100 --repeat 10 > out/set_balance_creating.txt
+./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-balances --extrinsic set_balance_killing --steps 100 --repeat 10 > out/set_balance_killing.txt
 ./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic add_registrar --steps 100 --repeat 10 > out/add_registrar.txt
 ./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_identity --steps 100 --repeat 10 > out/set_identity.txt
 ./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_subs --steps 100 --repeat 10 > out/set_subs.txt
@@ -27,3 +45,5 @@ mkdir -p out
 ./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_fields --steps 100 --repeat 10 > out/set_fields.txt
 ./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic provide_judgement --steps 100 --repeat 10 > out/provide_judgement.txt
 ./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic kill_identity --steps 100 --repeat 10 > out/kill_identity.txt
+
+./substrate/target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-benchmarks --extrinsic add_member_list --steps 100 --repeat 10 > out/add_member_list.txt
