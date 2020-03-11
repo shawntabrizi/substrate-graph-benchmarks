@@ -8,7 +8,9 @@
     "payout-validator",
     "payout-nominator",
     "rebond",
-    "reap-stash"
+    "reap-stash",
+    "set-history-depth",
+    "cancel-deferred-slash"
   ],
   "components": {
     "n": "nominators",
