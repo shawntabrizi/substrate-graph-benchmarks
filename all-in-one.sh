@@ -8,7 +8,7 @@ cargo build --release --features=runtime-benchmarks
 cd ../../../..
 
 # Destination directory for results
-mkdir -p out
+mkdir -p out/
 
 ## Convenience function for running benchmarks
 # Arguments:
@@ -22,10 +22,17 @@ run_bench () {
 		--wasm-execution=compiled\
 		--pallet $1\
 		--extrinsic $2\
-		--steps 100\
-		--repeat 10\
+		--steps 1\
+		--repeat 1\
 		> out/$1_$2.txt
 }
+
+# TEMP
+run_bench "pallet-identity" "set_subs"
+run_bench "pallet-identity" "clear_identity"
+run_bench "pallet-identity" "kill_identity"
+
+exit 0
 
 # Run benchmarks
 run_bench "pallet-balances" "transfer" # worst case
@@ -44,4 +51,7 @@ run_bench "pallet-identity" "set_account_id"
 run_bench "pallet-identity" "set_fields"
 run_bench "pallet-identity" "provide_judgement"
 run_bench "pallet-identity" "kill_identity"
+run_bench "pallet-vesting" "vest"
+run_bench "pallet-vesting" "vest_other"
+run_bench "pallet-vesting" "vested_transfer"
 
