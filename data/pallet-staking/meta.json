@@ -10,7 +10,9 @@
     "rebond",
     "reap-stash",
     "set-history-depth",
-    "cancel-deferred-slash"
+    "cancel-deferred-slash",
+    "do-slash",
+    "new-era"
   ],
   "components": {
     "n": "nominators",
