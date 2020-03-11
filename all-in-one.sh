@@ -28,9 +28,9 @@ run_bench () {
 }
 
 # TEMP
-run_bench "pallet-identity" "set_subs"
-run_bench "pallet-identity" "clear_identity"
-run_bench "pallet-identity" "kill_identity"
+#run_bench "pallet-identity" "set_subs"
+#run_bench "pallet-identity" "clear_identity"
+#run_bench "pallet-identity" "kill_identity"
 
 exit 0
 
@@ -54,4 +54,5 @@ run_bench "pallet-identity" "kill_identity"
 run_bench "pallet-vesting" "vest"
 run_bench "pallet-vesting" "vest_other"
 run_bench "pallet-vesting" "vested_transfer"
+run_bench "pallet-timestamp" "set"
 
