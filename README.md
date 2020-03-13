@@ -25,7 +25,15 @@ Make sure to run your benchmark with the following flags:
 Here is an example of a full benchmark:
 
 ```
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer -steps 100 -repeat 10 > transfer_worst_case.txt
+./target/release/substrate benchmark \
+    --chain dev \
+    --execution=wasm \
+    --wasm-execution=compiled \
+    --pallet balances \
+    --extrinsic transfer \
+    --steps 100 \
+    --repeat 10 \
+    > transfer_worst_case.txt
 ```
 
 # CLI Flags
