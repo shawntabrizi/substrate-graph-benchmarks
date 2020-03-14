@@ -10,6 +10,10 @@
   "components": {
     "E": "# of Existential Deposits",
     "U": "User Seed",
+    "u": "User Seed",
+    "e": "# of Existential Deposits",
+    "extrinsic_time": "nanoseconds",
+    "storage_root_time": "nanoseconds",
     "time": "nanoseconds"
   }
 }
