@@ -1,5 +1,6 @@
 # Setup dependencies, skip installation
 curl https://getsubstrate.io -sSf | bash -s -- --fast
+source ~/.cargo/env
 
 # Download and compile Substrate with benchmarking features
 git clone https://github.com/paritytech/substrate
