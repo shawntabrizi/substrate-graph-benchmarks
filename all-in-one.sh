@@ -22,9 +22,9 @@ run_bench () {
 		--wasm-execution=compiled\
 		--pallet $1\
 		--extrinsic $2\
-		--steps 1\
-		--repeat 1\
-		> out/$1_$2.txt
+		--steps 100\
+		--repeat 10\
+		> out/$1.$2.txt
 }
 
 # Run benchmarks
@@ -77,32 +77,4 @@ run_bench "pallet-staking" "set_history_depth"
 run_bench "pallet-staking" "reap_stash"
 run_bench "pallet-staking" "new_era"
 run_bench "pallet-staking" "do_slash"
-
-run_bench "pallet-session-benchmarking" "set_keys"
-run_bench "pallet-session-benchmarking" "purge_keys"
-
-run_bench "pallet-example" "accumulate_dummy"
-run_bench "pallet-example" "set_dummy"
-run_bench "pallet-example" "another_set_dummy"
-run_bench "pallet-example" "sort_vector"
-
-run_bench "frame-benchmarking" "dummy"
-run_bench "frame-benchmarking" "other_name"
-run_bench "frame-benchmarking" "sort_vector"
-
-run_bench "pallet-benchmark" "add_member_list"
-run_bench "pallet-benchmark" "append_member_list"
-run_bench "pallet-benchmark" "read_value"
-run_bench "pallet-benchmark" "put_value"
-run_bench "pallet-benchmark" "exists_value"
-run_bench "pallet-benchmark" "remove_value"
-run_bench "pallet-benchmark" "read_map"
-run_bench "pallet-benchmark" "insert_map"
-run_bench "pallet-benchmark" "contains_key_map"
-run_bench "pallet-benchmark" "remove_prefix"
-run_bench "pallet-benchmark" "do_nothing"
-run_bench "pallet-benchmark" "encode_accounts"
-run_bench "pallet-benchmark" "decode_accounts"
-run_bench "pallet-benchmark" "storage_root"
-run_bench "pallet-benchmark" "current_time"
 
