@@ -1,18 +1,20 @@
 # Device Info
 
-Device: ThinkPad X1 Extreme
-OS: Ubuntu 19.10
-OS type: 64-bit
-Memory: 15.1 GB
-Processor: Intel Core i7-8750H CPU @ 2.20GHz * 12 
-Graphics: GeForce GTX 1050 Ti with Max-Q Design/PCIe/SSE2
-Disk: 256.1 GB
+- Device: ThinkPad X1 Extreme
+- OS: Ubuntu 19.10
+- OS type: 64-bit
+- Memory: 15.1 GB
+- Processor: Intel Core i7-8750H CPU @ 2.20GHz * 12 
+- Graphics: GeForce GTX 1050 Ti with Max-Q Design/PCIe/SSE2
+- Disk: 256.1 GB
 
 # Versions
-rustc: 1.42.0 (b8cedc004 2020-03-09)
-substrate: 2.0.0-alpha.4-9fa8589d9-x86_64-linux-gnu
+
+- rustc: 1.42.0 (b8cedc004 2020-03-09)
+- substrate: 2.0.0-alpha.4-9fa8589d9-x86_64-linux-gnu
 
 # Benchmark Output:
+
 ```bash
 Benchmarking => pallet: pallet-balances, extrinsic: transfer
   - Done.
