@@ -1,11 +1,11 @@
 # Device Info
 
-- Location: North Europe
-- VPS type: Standard B1s
+- Location: West Europe
+- VPS type: Standard B1ms
 - OS: Ubuntu 18.04
 - OS type: 64-bit
 - Processor: 1 vCPU
-- Memory: 1 GiB memory
+- Memory: 2 GiB memory
 - Disk: 1024 GiB Premium SSD (NVMe)
 
 # Versions
