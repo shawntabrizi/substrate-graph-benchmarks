@@ -4,6 +4,29 @@
     - list.yml
 
   tasks:
+    - name: install required software
+      when: ansible_os_family == "Debian"
+      become: true
+      apt:
+        pkg:
+          - curl
+          - git
+          - util-linux
+        state: latest
+        update_cache: true
+
+    - name: install required software
+      when: ansible_os_family == "Redhat"
+      become: true
+      yum:
+        name:
+          - curl
+          - git
+          - lscpu
+          - lsb_release
+        state: latest
+        update_cache: true
+
     - name: create working directory for benchmarking tool
       file:
         path: '{{work_dir}}/results'
@@ -20,13 +43,15 @@
       when: substrate_download_binary == false
       shell: |
         curl https://getsubstrate.io -sSf | bash -s -- --fast
-        source ~/.cargo/env
+        source {{ansible_env.HOME}}/.cargo/env
 
         # Download and compile Substrate with benchmarking features
         git clone https://github.com/paritytech/substrate {{work_dir}}/substrate_src
         cd {{work_dir}}/substrate_src/bin/node/cli
         cargo build --release --features=runtime-benchmarks
         cd {{work_dir}}
+      async: 0
+      poll: 60
 
     - name: check substrate benchmark availability
       shell: |
@@ -35,6 +60,29 @@
         {% else %}
           {{work_dir}}/substrate_src/target/release/substrate benchmark --version
         {% endif %}
+
+    - name: collect device info
+      block:
+        - name: date
+          shell: date
+          register: info_date
+
+        - name: release info
+          shell: lsb_release --all
+          register: info_release
+
+        - name: CPU info
+          shell: lscpu
+          register: info_cpu
+
+        - name: memory info
+          shell: free -h
+          register: info_memory
+
+        - name: write collected info to file
+          template:
+            src: files/DEVICE_INFO.j2
+            dest: '{{work_dir}}/results//DEVICE_INFO.md'
 
     - name: run the benchmarks
       shell: |
@@ -55,8 +103,14 @@
       async: 0
       poll: 60
 
-    - name: Synchronization using rsync protocol (pull)
+    - name: create local directory for results
+      file:
+        path: 'results'
+        state: directory
+      delegate_to: localhost
+
+    - name: pull results from remote
       synchronize:
         mode: pull
         src: '{{work_dir}}/results/'
-        dest: '{{ansible_host}}_results/'
+        dest: 'results/host_{{ansible_host}}/'
