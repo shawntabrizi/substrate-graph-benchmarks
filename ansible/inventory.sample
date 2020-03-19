@@ -1,0 +1,4 @@
+[servers]
+
+[all:vars]
+ansible_user=anon

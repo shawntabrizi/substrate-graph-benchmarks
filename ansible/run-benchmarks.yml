@@ -1,0 +1,26 @@
+- hosts: all
+  vars_files:
+    - list.yml
+
+  tasks:
+    - name: create working directory for benchmarking tool
+      file:
+        path: ~/substrate-benchmarking/out
+        state: directory
+    - name: download benchmarking tool
+      get_url:
+        url: '{{ substrate_binary_url }}'
+        dest: '~/substrate-benchmarking/substrate'
+        mode: 'u+x'
+    - name: run the benchmarks
+      shell: |
+        ~/substrate-benchmarking/substrate benchmark\
+          --chain dev\
+          --execution=wasm\
+          --wasm-execution=compiled\
+          --pallet {{ item[0] }}\
+          --extrinsic {{ item[1] }}\
+          --steps 1\
+          --repeat 1 > ~/substrate-benchmarking/out/{{ item[0] }}.{{ item[1] }}.txt
+      with_nested:
+        - "{{ benchmarks }}"

@@ -1,0 +1,4 @@
+substrate_binary_url: 'https://github.com/lamafab/substrate-graph-benchmarks/releases/download/v0.1.0/substrate_ubuntu_18.04'
+benchmarks:
+  - ['pallet-balances', 'transfer']
+  - ['pallet-balances', 'transfer_best_case']
