@@ -1,4 +1,5 @@
 - hosts: all
+  any_errors_fatal: true
   vars_files:
     - list.yml
 
@@ -26,6 +27,14 @@
         cd {{work_dir}}/substrate_src/bin/node/cli
         cargo build --release --features=runtime-benchmarks
         cd {{work_dir}}
+
+    - name: check substrate benchmark availability
+      shell: |
+        {% if substrate_download_binary == true %}
+          {{work_dir}}/substrate benchmark --version
+        {% else %}
+          {{work_dir}}/substrate_src/target/release/substrate benchmark --version
+        {% endif %}
 
     - name: run the benchmarks
       shell: |
