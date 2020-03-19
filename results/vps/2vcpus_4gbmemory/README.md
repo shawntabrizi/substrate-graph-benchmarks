@@ -15,6 +15,7 @@
 
 # Benchmark Output:
 
+```bash
 Benchmarking => pallet: pallet-balances, extrinsic: transfer
   - Done.
 Benchmarking => pallet: pallet-balances, extrinsic: transfer_best_case
@@ -105,4 +106,5 @@ Benchmarking => pallet: pallet-staking, extrinsic: new_era
   - Done.
 Benchmarking => pallet: pallet-staking, extrinsic: do_slash
   - Done.
+```
 
