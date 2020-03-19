@@ -5,14 +5,14 @@
   tasks:
     - name: create working directory for benchmarking tool
       file:
-        path: '{{ work_dir }}/results'
+        path: '{{work_dir}}/results'
         state: directory
 
     - name: download benchmarking tool
       when: substrate_download_binary == true
       get_url:
-        url: '{{ substrate_binary_url }}'
-        dest: '{{ work_dir }}/substrate'
+        url: '{{substrate_binary_url}}'
+        dest: '{{work_dir}}/substrate'
         mode: 'u+x'
 
     - name: clone and build benchmarking tool
@@ -22,26 +22,32 @@
         source ~/.cargo/env
 
         # Download and compile Substrate with benchmarking features
-        git clone https://github.com/paritytech/substrate {{ work_dir }}/substrate_src
-        cd {{ work_dir }}/substrate_src/bin/node/cli
+        git clone https://github.com/paritytech/substrate {{work_dir}}/substrate_src
+        cd {{work_dir}}/substrate_src/bin/node/cli
         cargo build --release --features=runtime-benchmarks
-        cd {{ work_dir }}
+        cd {{work_dir}}
 
     - name: run the benchmarks
       shell: |
-        ~/substrate-benchmarking/substrate benchmark\
+        {% if substrate_download_binary == true %}
+          {{work_dir}}/substrate benchmark\
+        {% else %}
+          {{work_dir}}/substrate_src/target/release/substrate benchmark\
+        {% endif %}
           --chain dev\
           --execution=wasm\
           --wasm-execution=compiled\
-          --pallet {{ item[0] }}\
-          --extrinsic {{ item[1] }}\
+          --pallet {{item[0]}}\
+          --extrinsic {{item[1]}}\
           --steps 1\
-          --repeat 1 > {{ work_dir }}/results/{{ item[0] }}.{{ item[1] }}.txt
+          --repeat 1 > {{work_dir}}/results/{{item[0]}}.{{item[1]}}.txt
       with_nested:
-        - '{{ benchmarks }}'
+        - '{{benchmarks}}'
+      async: 0
+      poll: 60
 
     - name: Synchronization using rsync protocol (pull)
       synchronize:
         mode: pull
-        src: '{{ work_dir }}/results/'
-        dest: '{{ ansible_host }}_results/'
+        src: '{{work_dir}}/results/'
+        dest: '{{ansible_host}}_results/'
