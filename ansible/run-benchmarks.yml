@@ -96,8 +96,8 @@
           --wasm-execution=compiled\
           --pallet {{item[0]}}\
           --extrinsic {{item[1]}}\
-          --steps 1\
-          --repeat 1 > {{work_dir}}/results/{{item[0]}}.{{item[1]}}.txt
+          --steps {{benchmark_steps}}\
+          --repeat {{benchmark_repeat}} > {{work_dir}}/results/{{item[0]}}.{{item[1]}}.txt
       with_nested:
         - '{{benchmarks}}'
       async: 0
