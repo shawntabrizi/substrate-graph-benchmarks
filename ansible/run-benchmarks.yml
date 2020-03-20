@@ -1,7 +1,7 @@
 - hosts: all
   any_errors_fatal: true
   vars_files:
-    - list.yml
+    - files/list.yml
 
   tasks:
     - name: install required software

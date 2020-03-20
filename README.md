@@ -2,6 +2,8 @@
 Graph the benchmark output of Substrate Pallets.
  
 # How To
+
+## Manual
  
 To access the benchmark feature of Substrate, you need to compile your node using the `runtime-benchmarks` feature flag.
  
@@ -35,6 +37,29 @@ Here is an example of a full benchmark:
     --repeat 10 \
     > transfer_worst_case.txt
 ```
+
+## Ansible
+
+The Ansible Playbook can connect to multiple machines, execute the benchmarks and collect the results locally with one command. The only required configuration file is `ansible/inventory.sample`, where the machines are listed and the SSH user is specified.
+
+```ini
+[servers]
+<ip-address>
+<ip-address>
+
+[all:vars]
+ansible_user=<ssh-user>
+```
+
+The Playbook assumes all machines share the same SSH user. For straightforward usage, pubkey authentication is recommended including adding the identities to the authentication agent (`ssh-add`).
+
+Execute the Playbook by specifying the inventory file:
+
+```bash
+ansible-playbook -i ansible/inventory.sample ansible/run-benchmarks.yml
+```
+
+The execution takes quite some while. The benchmark results will be saved separately by their corresponding host in `ansible/results/` (directory will be created once finished).
 
 # CLI Flags
 

@@ -3,4 +3,4 @@
 <ip-address>
 
 [all:vars]
-ansible_user=<user>
+ansible_user=<ssh-user>
