@@ -40,28 +40,26 @@
       shell: |
         {{work_dir}}/substrate benchmark --version
 
-    - name: collect device info
-      block:
-        - name: date
-          shell: date
-          register: info_date
+    - name: collect date
+      shell: date
+      register: info_date
 
-        - name: release info
-          shell: lsb_release --all
-          register: info_release
+    - name: collect release info
+      shell: lsb_release --all
+      register: info_release
 
-        - name: CPU info
-          shell: lscpu
-          register: info_cpu
+    - name: collect CPU info
+      shell: lscpu
+      register: info_cpu
 
-        - name: memory info
-          shell: free -h
-          register: info_memory
+    - name: collect memory info
+      shell: free -h
+      register: info_memory
 
-        - name: write collected info to file
-          template:
-            src: files/DEVICE_INFO.j2
-            dest: '{{work_dir}}/results/DEVICE_INFO.md'
+    - name: write collected info to file
+      template:
+        src: files/DEVICE_INFO.j2
+        dest: '{{work_dir}}/results/DEVICE_INFO.md'
 
     - name: run the benchmarks
       shell: |
