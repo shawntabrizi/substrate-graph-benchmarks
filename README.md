@@ -51,7 +51,15 @@ The Ansible Playbook can connect to multiple machines, execute the benchmarks an
 ansible_user=<ssh-user>
 ```
 
-The Playbook assumes all machines share the same SSH user. For straightforward usage, pubkey authentication is recommended including adding the identities to the authentication agent (`ssh-add`).
+The Playbook assumes all machines share the same SSH user. Alternatively, add `ansible_user` for each host:
+
+```ini
+[servers]
+<ip-address> ansible_user=<ssh-user>
+<ip-address> ansible_user=<ssh-user>
+```
+
+For straightforward usage, pubkey authentication is recommended, including adding the identities to the authentication agent with `ssh-add -i ~/.ssh/<id_key>`.
 
 Execute the Playbook by specifying the inventory file:
 
@@ -72,7 +80,7 @@ The Ansible Playbook can be executed multiple times on the same hosts without is
     <ip-address> ansible_sudo_pass=<sudo-password>
     <ip-address> ansible_sudo_pass=<sudo-password>
     ```
-- For uncomplicated access, enable pubkey authentication and add the identities via `ssh-add -i ~/.ssh/<access_key>`.
+- For uncomplicated access, enable pubkey authentication and add the identities via `ssh-add -i ~/.ssh/<id_key>`.
 
 # CLI Flags
 
