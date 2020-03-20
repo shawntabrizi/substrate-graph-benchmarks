@@ -1,4 +1,6 @@
 [servers]
+<ip-address>
+<ip-address>
 
 [all:vars]
-ansible_user=anon
+ansible_user=<user>
