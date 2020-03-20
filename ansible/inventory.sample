@@ -1,6 +1,4 @@
 [servers]
-52.169.18.141
-13.93.115.18
 
 [all:vars]
 ansible_user=anon

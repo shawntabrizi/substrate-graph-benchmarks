@@ -1,12 +1,7 @@
 work_dir: '/home/{{ansible_user}}/substrate-benchmarking'
-
-# Download the binary file instead of compiling from source
-substrate_download_binary: true
 substrate_binary_url: 'https://github.com/lamafab/substrate-graph-benchmarks/releases/download/v0.1.0/substrate'
-
 benchmark_steps: 1
 benchmark_repeat: 1
-
 benchmarks:
   - ['pallet-balances', 'transfer'] # worst case
   - ['pallet-balances', 'transfer_best_case']

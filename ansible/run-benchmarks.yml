@@ -33,33 +33,14 @@
         state: directory
 
     - name: download benchmarking tool
-      when: substrate_download_binary == true
       get_url:
         url: '{{substrate_binary_url}}'
         dest: '{{work_dir}}/substrate'
         mode: 'u+x'
 
-    - name: clone and build benchmarking tool
-      when: substrate_download_binary == false
-      shell: |
-        curl https://getsubstrate.io -sSf | bash -s -- --fast
-        source {{ansible_env.HOME}}/.cargo/env
-
-        # Download and compile Substrate with benchmarking features
-        git clone https://github.com/paritytech/substrate {{work_dir}}/substrate_src
-        cd {{work_dir}}/substrate_src/bin/node/cli
-        cargo build --release --features=runtime-benchmarks
-        cd {{work_dir}}
-      async: 0
-      poll: 60
-
     - name: check substrate benchmark availability
       shell: |
-        {% if substrate_download_binary == true %}
-          {{work_dir}}/substrate benchmark --version
-        {% else %}
-          {{work_dir}}/substrate_src/target/release/substrate benchmark --version
-        {% endif %}
+        {{work_dir}}/substrate benchmark --version
 
     - name: collect device info
       block:
@@ -86,11 +67,7 @@
 
     - name: run the benchmarks
       shell: |
-        {% if substrate_download_binary == true %}
-          {{work_dir}}/substrate benchmark\
-        {% else %}
-          {{work_dir}}/substrate_src/target/release/substrate benchmark\
-        {% endif %}
+        {{work_dir}}/substrate benchmark\
           --chain dev\
           --execution=wasm\
           --wasm-execution=compiled\
