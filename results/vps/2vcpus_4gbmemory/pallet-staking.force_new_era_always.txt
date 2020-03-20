@@ -1,0 +1,12 @@
+Pallet: "pallet-staking", Extrinsic: "force_new_era_always", Lowest values: [], Highest values: [], Steps: [10], Repeat: 10
+i,extrinsic_time,storage_root_time
+1,17000,71900
+1,19300,91800
+1,17800,200200
+1,18500,70400
+1,42400,244900
+1,20200,200300
+1,20700,279501
+1,20700,214000
+1,22900,146100
+1,18800,180100

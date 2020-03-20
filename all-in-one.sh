@@ -1,24 +1,81 @@
+# Setup dependencies, skip installation
 curl https://getsubstrate.io -sSf | bash -s -- --fast
+source ~/.cargo/env
 
-git clone -b shawntabrizi-bench-balances https://github.com/shawntabrizi/substrate.git 
+# Download and compile Substrate with benchmarking features
+git clone https://github.com/paritytech/substrate
+cd substrate/bin/node/cli
+cargo build --release --features=runtime-benchmarks
+cd ../../../..
 
-cd substrate
+# Destination directory for results
+mkdir -p out/
 
-cargo build --release
+## Convenience function for running benchmarks
+# Arguments:
+# - pallet
+# - extrinsic
+run_bench () {
+	echo -ne "Benchmarking => pallet: $1, extrinsic: $2\n  - "
+	./substrate/target/release/substrate benchmark\
+		--chain dev\
+		--execution=wasm\
+		--wasm-execution=compiled\
+		--pallet $1\
+		--extrinsic $2\
+		--steps 100\
+		--repeat 10\
+		> out/$1.$2.txt
+}
 
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer -s 100 -r 10 > transfer_worst_case.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer_best_case -s 100 -r 10 > transfer_best_case.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic transfer_keep_alive -s 100 -r 10 > transfer_keep_alive.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic set_balance -s 100 -r 10 > set_balance_creating.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet balances --extrinsic set_balance_killing -s 100 -r 10 > set_balance_killing.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic add_registrar --steps 10 --repeat 100 > add_registrar.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_identity --steps 10 --repeat 100 > set_identity.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_subs --steps 10 --repeat 100 > set_subs.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic clear_identity --steps 10 --repeat 100 > clear_identity.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic request_judgement --steps 10 --repeat 100 > request_judgement.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic cancel_request --steps 10 --repeat 100 > cancel_request.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_fee --steps 10 --repeat 100 > set_fee.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_account_id --steps 10 --repeat 100 > set_account_id.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic set_fields --steps 10 --repeat 100 > set_fields.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic provide_judgement --steps 10 --repeat 100 > provide_judgement.txt
-./target/release/substrate benchmark --chain dev --execution=wasm --wasm-execution=compiled --pallet pallet-identity --extrinsic kill_identity --steps 10 --repeat 100 > kill_identity.txt
+# Run benchmarks
+run_bench "pallet-balances" "transfer" # worst case
+run_bench "pallet-balances" "transfer_best_case"
+run_bench "pallet-balances" "transfer_keep_alive"
+run_bench "pallet-balances" "set_balance"
+run_bench "pallet-balances" "set_balance_killing"
+
+run_bench "pallet-identity" "add_registrar"
+run_bench "pallet-identity" "set_identity"
+run_bench "pallet-identity" "set_subs"
+run_bench "pallet-identity" "clear_identity"
+run_bench "pallet-identity" "request_judgement"
+run_bench "pallet-identity" "cancel_request"
+run_bench "pallet-identity" "set_fee"
+run_bench "pallet-identity" "set_account_id"
+run_bench "pallet-identity" "set_fields"
+run_bench "pallet-identity" "provide_judgement"
+run_bench "pallet-identity" "kill_identity"
+
+run_bench "pallet-vesting" "vest_locked"
+run_bench "pallet-vesting" "vest_not_locked"
+run_bench "pallet-vesting" "vest_other_locked"
+run_bench "pallet-vesting" "vest_other_not_locked"
+run_bench "pallet-vesting" "vested_transfer"
+
+run_bench "pallet-timestamp" "set"
+
+run_bench "pallet-staking" "bond"
+run_bench "pallet-staking" "bond_extra"
+run_bench "pallet-staking" "unbond"
+run_bench "pallet-staking" "withdraw_unbonded"
+run_bench "pallet-staking" "validate"
+run_bench "pallet-staking" "nominate"
+run_bench "pallet-staking" "chill"
+run_bench "pallet-staking" "set_payee"
+run_bench "pallet-staking" "set_controller"
+run_bench "pallet-staking" "set_validator_count"
+run_bench "pallet-staking" "force_no_eras"
+run_bench "pallet-staking" "force_new_era"
+run_bench "pallet-staking" "force_new_era_always"
+run_bench "pallet-staking" "set_invulnerables"
+run_bench "pallet-staking" "force_unstake"
+run_bench "pallet-staking" "cancel_deferred_slash"
+run_bench "pallet-staking" "payout_validator"
+run_bench "pallet-staking" "payout_nominator"
+run_bench "pallet-staking" "rebond"
+run_bench "pallet-staking" "set_history_depth"
+run_bench "pallet-staking" "reap_stash"
+run_bench "pallet-staking" "new_era"
+run_bench "pallet-staking" "do_slash"
+

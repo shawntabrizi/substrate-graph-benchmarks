@@ -4,11 +4,16 @@
     "transfer_best_case",
     "transfer_keep_alive",
     "set_balance_creating",
-    "set_balance_killing"
+    "set_balance_killing",
+    "transfer_idle_users"
   ],
   "components": {
     "E": "# of Existential Deposits",
     "U": "User Seed",
+    "u": "User Seed",
+    "e": "# of Existential Deposits",
+    "extrinsic_time": "nanoseconds",
+    "storage_root_time": "nanoseconds",
     "time": "nanoseconds"
   }
 }
