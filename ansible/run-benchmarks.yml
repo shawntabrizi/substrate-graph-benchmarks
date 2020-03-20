@@ -4,26 +4,24 @@
     - files/list.yml
 
   tasks:
-    - name: install required software
+    - name: install required software (Debian)
       when: ansible_os_family == "Debian"
       become: true
       apt:
         pkg:
           - curl
-          - git
           - util-linux
         state: latest
         update_cache: true
 
-    - name: install required software
-      when: ansible_os_family == "Redhat"
+    - name: install required software (RedHat)
+      when: ansible_os_family == "RedHat"
       become: true
       yum:
         name:
           - curl
-          - git
-          - lscpu
-          - lsb_release
+          - util-linux
+          - redhat-lsb-core
         state: latest
         update_cache: true
 

@@ -51,7 +51,7 @@ The Ansible Playbook can connect to multiple machines, execute the benchmarks an
 ansible_user=<ssh-user>
 ```
 
-The Playbook assumes all machines share the same SSH user. For straightforward usage, pubkey authentication is recommended including adding the identity to the authentication agent (`ssh-add`).
+The Playbook assumes all machines share the same SSH user. For straightforward usage, pubkey authentication is recommended including adding the identities to the authentication agent (`ssh-add`).
 
 Execute the Playbook by specifying the inventory file:
 
@@ -59,7 +59,20 @@ Execute the Playbook by specifying the inventory file:
 ansible-playbook -i ansible/inventory.sample ansible/run-benchmarks.yml
 ```
 
-The execution takes quite some while. The benchmark results will be saved separately by their corresponding host in `ansible/results/` (directory will be created once the benchmarking finishes). Additionally, the results generate a `DEVICE_INFO.md` file for each host containing information about the device.
+The execution takes quite some while. The benchmark results will be saved separately by their corresponding host in `ansible/results/` (directory will be created once the benchmarking finishes). Additionally, the results contain a `DEVICE_INFO.md` file for each host consisting of information about the device.
+
+The Ansible Playbook can be executed multiple times on the same hosts without issues.
+
+### Troubleshooting
+
+- If there are problems connecting to a remote, manual `ssh <host>` connection should be tried. Permission errors, certificate changes and other issues can be easily discovered this way.
+- If a user has to provide a password for becoming root remotely, the `--ask-become-pass` parameter can be supplied to the `ansible-playbook` command above. Individual, per-host sudo passwords can be specified in the inventory:
+    ```ini
+    [servers]
+    <ip-address> ansible_sudo_pass=<sudo-password>
+    <ip-address> ansible_sudo_pass=<sudo-password>
+    ```
+- For uncomplicated access, enable pubkey authentication and add the identities via `ssh-add -i ~/.ssh/<access_key>`.
 
 # CLI Flags
 
