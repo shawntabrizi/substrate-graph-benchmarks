@@ -40,7 +40,7 @@ Here is an example of a full benchmark:
 
 ## Ansible
 
-The Ansible Playbook can connect to multiple machines, execute the benchmarks and collect the results locally with one command. The only required configuration file is `ansible/inventory.sample`, where the machines are listed and the SSH user is specified.
+The Ansible Playbook can connect to multiple machines, execute the benchmarks and collect the results locally by issuing one command. The only required configuration file is `ansible/inventory.sample`, where the machines are listed and the SSH user is specified.
 
 ```ini
 [servers]
@@ -51,7 +51,7 @@ The Ansible Playbook can connect to multiple machines, execute the benchmarks an
 ansible_user=<ssh-user>
 ```
 
-The Playbook assumes all machines share the same SSH user. For straightforward usage, pubkey authentication is recommended including adding the identities to the authentication agent (`ssh-add`).
+The Playbook assumes all machines share the same SSH user. For straightforward usage, pubkey authentication is recommended including adding the identity to the authentication agent (`ssh-add`).
 
 Execute the Playbook by specifying the inventory file:
 
@@ -59,7 +59,7 @@ Execute the Playbook by specifying the inventory file:
 ansible-playbook -i ansible/inventory.sample ansible/run-benchmarks.yml
 ```
 
-The execution takes quite some while. The benchmark results will be saved separately by their corresponding host in `ansible/results/` (directory will be created once finished).
+The execution takes quite some while. The benchmark results will be saved separately by their corresponding host in `ansible/results/` (directory will be created once the benchmarking finishes). Additionally, the results generate a `DEVICE_INFO.md` file for each host containing information about the device.
 
 # CLI Flags
 
