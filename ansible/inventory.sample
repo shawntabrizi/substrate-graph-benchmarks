@@ -1,0 +1,6 @@
+[servers]
+<ip-address>
+<ip-address>
+
+[all:vars]
+ansible_user=<ssh-user>

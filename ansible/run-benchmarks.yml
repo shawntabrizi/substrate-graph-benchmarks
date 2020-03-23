@@ -1,0 +1,89 @@
+- hosts: all
+  any_errors_fatal: true
+  vars_files:
+    - files/list.yml
+
+  tasks:
+    - name: install required software (Debian)
+      when: ansible_os_family == "Debian"
+      become: true
+      apt:
+        pkg:
+          - curl
+          - util-linux
+        state: latest
+        update_cache: true
+
+    - name: install required software (RedHat)
+      when: ansible_os_family == "RedHat"
+      become: true
+      yum:
+        name:
+          - curl
+          - util-linux
+          - redhat-lsb-core
+        state: latest
+        update_cache: true
+
+    - name: create working directory for benchmarking tool
+      file:
+        path: '{{work_dir}}/results'
+        state: directory
+
+    - name: download benchmarking tool
+      get_url:
+        url: '{{substrate_binary_url}}'
+        dest: '{{work_dir}}/substrate'
+        mode: 'u+x'
+
+    - name: check substrate benchmark availability
+      shell: |
+        {{work_dir}}/substrate benchmark --version
+
+    - name: collect date
+      shell: date
+      register: info_date
+
+    - name: collect release info
+      shell: lsb_release --all
+      register: info_release
+
+    - name: collect CPU info
+      shell: lscpu
+      register: info_cpu
+
+    - name: collect memory info
+      shell: free -h
+      register: info_memory
+
+    - name: write collected info to file
+      template:
+        src: files/DEVICE_INFO.j2
+        dest: '{{work_dir}}/results/DEVICE_INFO.md'
+
+    - name: run the benchmarks
+      shell: |
+        {{work_dir}}/substrate benchmark\
+          --chain dev\
+          --execution=wasm\
+          --wasm-execution=compiled\
+          --pallet {{item[0]}}\
+          --extrinsic {{item[1]}}\
+          --steps {{benchmark_steps}}\
+          --repeat {{benchmark_repeat}} > {{work_dir}}/results/{{item[0]}}.{{item[1]}}.txt
+      with_nested:
+        - '{{benchmarks}}'
+      async: 0
+      poll: 60
+
+    - name: create local directory for results
+      file:
+        path: 'results'
+        state: directory
+      delegate_to: localhost
+
+    - name: pull results from remote
+      synchronize:
+        mode: pull
+        src: '{{work_dir}}/results/'
+        dest: 'results/host_{{ansible_host}}/'

@@ -2,6 +2,8 @@
 Graph the benchmark output of Substrate Pallets.
  
 # How To
+
+## Manual
  
 To access the benchmark feature of Substrate, you need to compile your node using the `runtime-benchmarks` feature flag.
  
@@ -35,6 +37,50 @@ Here is an example of a full benchmark:
     --repeat 10 \
     > transfer_worst_case.txt
 ```
+
+## Ansible
+
+The Ansible Playbook can connect to multiple machines, execute the benchmarks and collect the results locally by issuing one command. The only required configuration file is `ansible/inventory.sample`, where the machines are listed and the SSH user is specified.
+
+```ini
+[servers]
+<ip-address>
+<ip-address>
+
+[all:vars]
+ansible_user=<ssh-user>
+```
+
+The Playbook assumes all machines share the same SSH user. Alternatively, add `ansible_user` for each host:
+
+```ini
+[servers]
+<ip-address> ansible_user=<ssh-user>
+<ip-address> ansible_user=<ssh-user>
+```
+
+For straightforward usage, pubkey authentication is recommended, including adding the identities to the authentication agent with `ssh-add -i ~/.ssh/<id_key>`.
+
+Execute the Playbook by specifying the inventory file:
+
+```bash
+ansible-playbook -i ansible/inventory.sample ansible/run-benchmarks.yml
+```
+
+The execution takes quite some while. The benchmark results will be saved separately by their corresponding host in `ansible/results/` (directory will be created once the benchmarking finishes). Additionally, the results contain a `DEVICE_INFO.md` file for each host consisting of information about the device.
+
+The Ansible Playbook can be executed multiple times on the same hosts without issues.
+
+### Troubleshooting
+
+- If there are problems connecting to a remote, manual `ssh <host>` connection should be tried. Permission errors, certificate changes and other issues can be easily discovered this way.
+- If a user has to provide a password for becoming root remotely, the `--ask-become-pass` parameter can be supplied to the `ansible-playbook` command above. Individual, per-host sudo passwords can be specified in the inventory:
+    ```ini
+    [servers]
+    <ip-address> ansible_sudo_pass=<sudo-password>
+    <ip-address> ansible_sudo_pass=<sudo-password>
+    ```
+- For uncomplicated access, enable pubkey authentication and add the identities via `ssh-add -i ~/.ssh/<id_key>`.
 
 # CLI Flags
 
