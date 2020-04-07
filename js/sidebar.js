@@ -50,7 +50,7 @@ async function createSidebar() {
       a.href = '?p=' + folder + '&e=' + item;
       a.innerText = item;
       a.onclick = function() {
-        parseCsv('./data/' + folder + '/' + this.innerText + '.txt');
+        parseData('./data/' + folder + '/' + this.innerText);
       };
 
       li.appendChild(a);

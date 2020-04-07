@@ -1,4 +1,7 @@
-async function parseCsv(input) {
+async function parseData(input) {
+  // Benchmark data is in *.txt
+  input += ".txt";
+
   let text = await d3.text(input);
   // This is a total hack, TODO fix
   let path_parts = input.split('/');
