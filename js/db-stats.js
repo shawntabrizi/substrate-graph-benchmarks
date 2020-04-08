@@ -41,9 +41,18 @@ async function parseData(input) {
 					length = (value.length - 6) / 2;
 				}
 
+				let knownKeyFound = "";
+				for (knownKey of knownKeys) {
+					if (key.includes(knownKey.key.substr(2))) {
+						knownKeyFound = knownKey.name;
+						break;
+					}
+				}
+
 				let table_row = {
 					uid: uid,
 					operation: "",
+					knownKey: knownKeyFound,
 					length: length,
 					key: key,
 					value: value,
