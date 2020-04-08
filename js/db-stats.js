@@ -2,6 +2,8 @@ async function parseData(input) {
 	// DB data is in *.log, one folder up
 	input += ".log";
 
+	document.getElementById('dashboard-title').innerText = input
+
 	let text = await d3.text(input);
 	var ssv = d3.dsvFormat(" ");
 
@@ -214,7 +216,7 @@ function createCharts(all_data) {
 		},
 		xaxis: {
 			title: {
-				text: "Run #"
+				text: "Run # (click on data to update table)"
 			}
 		},
 		yaxis: {
