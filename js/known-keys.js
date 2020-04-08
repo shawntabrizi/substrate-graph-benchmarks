@@ -1,7 +1,7 @@
 let knownKeys = [
 	{
-		"name": "system accountNonce",
-		"key": "0x26aa394eea5630e07c48ae0c9558cef79c2f82b23e5fd031fb54c292794b4cc4"
+		"name": "system account",
+		"key": "0x26aa394eea5630e07c48ae0c9558cef7b99d880ec681799c0cf30e8886371da9"
 	},
 	{
 		"name": "system extrinsicCount",
@@ -52,8 +52,16 @@ let knownKeys = [
 		"key": "0x26aa394eea5630e07c48ae0c9558cef7bb94e1c21adab714983cf06622e1de76"
 	},
 	{
-		"name": "randomnessCollectiveFlip randomMaterial",
-		"key": "0xbd2a529379475088d3e29a918cd478721a39ec767bd5269111e6492a1675702a"
+		"name": "system lastRuntimeUpgrade",
+		"key": "0x26aa394eea5630e07c48ae0c9558cef7f9cce9c888469bb1a0dceaa129672ef8"
+	},
+	{
+		"name": "system executionPhase",
+		"key": "0x26aa394eea5630e07c48ae0c9558cef7ff553b5a9862a516939d82b3d3d8661a"
+	},
+	{
+		"name": "utility multisigs",
+		"key": "0xd5e1a2fa16732ce6906189438c0a82c63cd15a3fd6e04e47bee3922dbfa92c8d"
 	},
 	{
 		"name": "babe epochIndex",
@@ -100,38 +108,6 @@ let knownKeys = [
 		"key": "0xf0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065"
 	},
 	{
-		"name": "indices nextEnumSet",
-		"key": "0x1a736d37504c2e3fb73dad160c55b291b35b5a09b938edfd10fcbacc615abb0c"
-	},
-	{
-		"name": "indices enumSet",
-		"key": "0x1a736d37504c2e3fb73dad160c55b2917ac6a308d645671864cda07d358e7512"
-	},
-	{
-		"name": "balances totalIssuance",
-		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2f57c875e4cff74148e4628f264b974c80"
-	},
-	{
-		"name": "balances vesting",
-		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2f5f27b51b5ec208ee9cb25b55d8728243"
-	},
-	{
-		"name": "balances freeBalance",
-		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2f6482b9ade7bc6657aaca787ba1add3b4"
-	},
-	{
-		"name": "balances reservedBalance",
-		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2f3c22813def93ef32c365b55cb92f10f9"
-	},
-	{
-		"name": "balances locks",
-		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2f218f26c73add634897550b4003b26bc6"
-	},
-	{
-		"name": "transactionPayment nextFeeMultiplier",
-		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2f3f2edf3bdf381debe331ab7446addfdc"
-	},
-	{
 		"name": "authorship uncles",
 		"key": "0xd57bce545fb382c34570e5dfbf338f5ea36180b5cfb9f6541f8849df92a6ec93"
 	},
@@ -142,6 +118,34 @@ let knownKeys = [
 	{
 		"name": "authorship didSetUncles",
 		"key": "0xd57bce545fb382c34570e5dfbf338f5ebddf84c5eb23e6f53af725880d8ffe90"
+	},
+	{
+		"name": "indices accounts",
+		"key": "0x1a736d37504c2e3fb73dad160c55b2918ee7418a6531173d60d1f6a82d8f4d51"
+	},
+	{
+		"name": "balances totalIssuance",
+		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2f57c875e4cff74148e4628f264b974c80"
+	},
+	{
+		"name": "balances account",
+		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2fb99d880ec681799c0cf30e8886371da9"
+	},
+	{
+		"name": "balances locks",
+		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2f218f26c73add634897550b4003b26bc6"
+	},
+	{
+		"name": "balances storageVersion",
+		"key": "0xc2261276cc9d1f8598ea4b6a74b15c2f308ce9615de0775a82f8a94dc3d285a1"
+	},
+	{
+		"name": "transactionPayment nextFeeMultiplier",
+		"key": "0x3f1467a096bcd71a5b6a0c8155e208103f2edf3bdf381debe331ab7446addfdc"
+	},
+	{
+		"name": "staking historyDepth",
+		"key": "0x5f3e4907f716ac89b6347d15ececedcaac0a2cbf8e355f5ea6cb2de8727bfb0c"
 	},
 	{
 		"name": "staking validatorCount",
@@ -169,39 +173,47 @@ let knownKeys = [
 	},
 	{
 		"name": "staking validators",
-		"key": "0x5f3e4907f716ac89b6347d15ececedca6a93112633bb3354e67952fcdd740cd5"
+		"key": "0x5f3e4907f716ac89b6347d15ececedca88dcde934c658227ee1dfafcd6e16903"
 	},
 	{
 		"name": "staking nominators",
-		"key": "0x5f3e4907f716ac89b6347d15ececedca56ef6227cecb2f07274cb0572d8fa4c2"
-	},
-	{
-		"name": "staking stakers",
-		"key": "0x5f3e4907f716ac89b6347d15ececedca83e585bbc5fdcec57219c0dc81ef5ff4"
-	},
-	{
-		"name": "staking currentElected",
-		"key": "0x5f3e4907f716ac89b6347d15ececedca0ea0ecac76457d0f9b39b981dd107012"
+		"key": "0x5f3e4907f716ac89b6347d15ececedca9c6a637f62ae2af1c7e31eed7e96be04"
 	},
 	{
 		"name": "staking currentEra",
 		"key": "0x5f3e4907f716ac89b6347d15ececedca0b6a45321efae92aea15e0740ec7afe7"
 	},
 	{
-		"name": "staking currentEraStart",
-		"key": "0x5f3e4907f716ac89b6347d15ececedcaa66168f7e7259b6670a06f2565e3e5f2"
+		"name": "staking activeEra",
+		"key": "0x5f3e4907f716ac89b6347d15ececedca487df464e44a534ba6b0cbb32407b587"
 	},
 	{
-		"name": "staking currentEraStartSessionIndex",
-		"key": "0x5f3e4907f716ac89b6347d15ececedca509a9b6efa93f5bb83f858f0babfd30b"
+		"name": "staking erasStartSessionIndex",
+		"key": "0x5f3e4907f716ac89b6347d15ececedcaad811cd65a470ddc5f1d628ff0550982"
 	},
 	{
-		"name": "staking currentEraPointsEarned",
-		"key": "0x5f3e4907f716ac89b6347d15ececedcaeeb0c86795e1d21eadd270891cb8059a"
+		"name": "staking erasStakers",
+		"key": "0x5f3e4907f716ac89b6347d15ececedca8bde0a0ea8864605e3b68ed9cb2da01b"
 	},
 	{
-		"name": "staking slotStake",
-		"key": "0x5f3e4907f716ac89b6347d15ececedca9cbd2f0b29a008a36009ac44cca0c969"
+		"name": "staking erasStakersClipped",
+		"key": "0x5f3e4907f716ac89b6347d15ececedca42982b9d6c7acc99faa9094c912372c2"
+	},
+	{
+		"name": "staking erasValidatorPrefs",
+		"key": "0x5f3e4907f716ac89b6347d15ececedca682db92dde20a10d96d00ff0e9e221c0"
+	},
+	{
+		"name": "staking erasValidatorReward",
+		"key": "0x5f3e4907f716ac89b6347d15ececedca7e6ed2ee507c7b4441d59e4ded44b8a2"
+	},
+	{
+		"name": "staking erasRewardPoints",
+		"key": "0x5f3e4907f716ac89b6347d15ececedca80cc6574281671b299c1727d7ac68cab"
+	},
+	{
+		"name": "staking erasTotalStake",
+		"key": "0x5f3e4907f716ac89b6347d15ececedcaa141c4fe67c2d11f4a10c6aca7a79a04"
 	},
 	{
 		"name": "staking forceEra",
@@ -244,20 +256,32 @@ let knownKeys = [
 		"key": "0x5f3e4907f716ac89b6347d15ececedca605b2c046b5509037f3f158b9741d037"
 	},
 	{
+		"name": "staking snapshotValidators",
+		"key": "0x5f3e4907f716ac89b6347d15ececedca7e006c26d69c4c97f65648ab815a2744"
+	},
+	{
+		"name": "staking snapshotNominators",
+		"key": "0x5f3e4907f716ac89b6347d15ececedcaf7e257c9436fe67e2c4d9d4ced7d454c"
+	},
+	{
+		"name": "staking queuedElected",
+		"key": "0x5f3e4907f716ac89b6347d15ececedca506d22b33505b67f525d81bd005b1687"
+	},
+	{
+		"name": "staking queuedScore",
+		"key": "0x5f3e4907f716ac89b6347d15ececedcab3b6930af377ba74f7e8379e44b2c77f"
+	},
+	{
+		"name": "staking eraElectionStatus",
+		"key": "0x5f3e4907f716ac89b6347d15ececedcae1791577e4efcb083fdc3cb21e85b2e4"
+	},
+	{
+		"name": "staking isCurrentSessionFinal",
+		"key": "0x5f3e4907f716ac89b6347d15ececedcaa3f6dd299ad3afa68580a25a73f6eabf"
+	},
+	{
 		"name": "staking storageVersion",
 		"key": "0x5f3e4907f716ac89b6347d15ececedca308ce9615de0775a82f8a94dc3d285a1"
-	},
-	{
-		"name": "offences reports",
-		"key": "0xd5c41b52a371aa36c9254ce34324f2a5b262e9238fa402540c250bc3f5d6188d"
-	},
-	{
-		"name": "offences concurrentReportsIndex",
-		"key": "0xd5c41b52a371aa36c9254ce34324f2a560dc8ef000cdbdc859dd352229ce16fb"
-	},
-	{
-		"name": "offences reportsByKindIndex",
-		"key": "0xd5c41b52a371aa36c9254ce34324f2a53589c0dac50da6fb3a3611eb32bcd27e"
 	},
 	{
 		"name": "session validators",
@@ -288,54 +312,6 @@ let knownKeys = [
 		"key": "0xcec5070d609dd3497f72bde07fc96ba0726380404683fc89e8233450c8aa1950"
 	},
 	{
-		"name": "grandpa authorities",
-		"key": "0x2371e21684d2fae99bcb4d579242f74a5e0621c4869aa60c02be9adcc98a0d1d"
-	},
-	{
-		"name": "grandpa state",
-		"key": "0x2371e21684d2fae99bcb4d579242f74af39a107f2d8d3854c9aba9b021f43d9c"
-	},
-	{
-		"name": "grandpa pendingChange",
-		"key": "0x2371e21684d2fae99bcb4d579242f74a2ff65991b1c915dd6cc8d4825eacfcb4"
-	},
-	{
-		"name": "grandpa nextForced",
-		"key": "0x2371e21684d2fae99bcb4d579242f74a01d7818126bd9b3074803e91f4c91b59"
-	},
-	{
-		"name": "grandpa stalled",
-		"key": "0x2371e21684d2fae99bcb4d579242f74a7ddd013461b72c3004f9c0ca3faf9ebe"
-	},
-	{
-		"name": "grandpa currentSetId",
-		"key": "0x2371e21684d2fae99bcb4d579242f74a8a2d09463effcc78a22d75b9cb87dffc"
-	},
-	{
-		"name": "grandpa setIdSession",
-		"key": "0x2371e21684d2fae99bcb4d579242f74ad47cb8f5328af743ddfb361e7180e7fc"
-	},
-	{
-		"name": "imOnline heartbeatAfter",
-		"key": "0x2b06af9719ac64d755623cda8ddd9b948aa1f2c9844f11024c1d204e705a6217"
-	},
-	{
-		"name": "imOnline keys",
-		"key": "0x2b06af9719ac64d755623cda8ddd9b949f99a2ce711f3a31b2fc05604c93f179"
-	},
-	{
-		"name": "imOnline receivedHeartbeats",
-		"key": "0x2b06af9719ac64d755623cda8ddd9b94cc5a1aa6e3716372f36ef103b7e3ae67"
-	},
-	{
-		"name": "imOnline authoredBlocks",
-		"key": "0x2b06af9719ac64d755623cda8ddd9b94b1c371ded9e9c565e89ba783c4d5f5f9"
-	},
-	{
-		"name": "sudo key",
-		"key": "0x5c0d1176a568c1f92944340dbfed9e9c530ebca703c85910e7164cb7d1c9e47b"
-	},
-	{
 		"name": "democracy publicPropCount",
 		"key": "0xf2794c22e353e9a839f12faab03a911bbdcb0c5143a8617ed38ae3810dd45bc6"
 	},
@@ -344,12 +320,12 @@ let knownKeys = [
 		"key": "0xf2794c22e353e9a839f12faab03a911b49d40ca9ee2e46158745d0ab5442ac80"
 	},
 	{
-		"name": "democracy preimages",
-		"key": "0xf2794c22e353e9a839f12faab03a911bf68967d635641a7087e53f2bff1ecad3"
-	},
-	{
 		"name": "democracy depositOf",
 		"key": "0xf2794c22e353e9a839f12faab03a911b255521173d2e7e678ffbf1e6bb8a6257"
+	},
+	{
+		"name": "democracy preimages",
+		"key": "0xf2794c22e353e9a839f12faab03a911bf68967d635641a7087e53f2bff1ecad3"
 	},
 	{
 		"name": "democracy referendumCount",
@@ -368,20 +344,16 @@ let knownKeys = [
 		"key": "0xf2794c22e353e9a839f12faab03a911babdb959a4c964eaa1d1f0820bf948f28"
 	},
 	{
-		"name": "democracy votersFor",
-		"key": "0xf2794c22e353e9a839f12faab03a911b68dea82502521b3daa51008b68692b1b"
-	},
-	{
-		"name": "democracy voteOf",
-		"key": "0xf2794c22e353e9a839f12faab03a911b02a7afbcd5cd4ad2c68bbc63279ae52e"
+		"name": "democracy votingOf",
+		"key": "0xf2794c22e353e9a839f12faab03a911be470c6afbbbc027eb288ade7595953c2"
 	},
 	{
 		"name": "democracy proxy",
 		"key": "0xf2794c22e353e9a839f12faab03a911b1809d78346727a0ef58c0fa03bafa323"
 	},
 	{
-		"name": "democracy delegations",
-		"key": "0xf2794c22e353e9a839f12faab03a911bc809e5baae97c181b47cc95a021f3e48"
+		"name": "democracy locks",
+		"key": "0xf2794c22e353e9a839f12faab03a911b218f26c73add634897550b4003b26bc6"
 	},
 	{
 		"name": "democracy lastTabledWasExternal",
@@ -420,6 +392,10 @@ let knownKeys = [
 		"key": "0x11f3ba2e1cdd6d62f2ff9b5589e7ff81ba7fb8745735dc3be2a2c61a72c39e78"
 	},
 	{
+		"name": "council prime",
+		"key": "0x11f3ba2e1cdd6d62f2ff9b5589e7ff81cb3136ee16886ac28a54f39e605b387a"
+	},
+	{
 		"name": "technicalCommittee proposals",
 		"key": "0x8985776095addd4789fccbce8ca77b2388c2f7188c6fdd1dffae2fa0d171f440"
 	},
@@ -440,32 +416,60 @@ let knownKeys = [
 		"key": "0x8985776095addd4789fccbce8ca77b23ba7fb8745735dc3be2a2c61a72c39e78"
 	},
 	{
-		"name": "electionsPhragmen members",
+		"name": "technicalCommittee prime",
+		"key": "0x8985776095addd4789fccbce8ca77b23cb3136ee16886ac28a54f39e605b387a"
+	},
+	{
+		"name": "elections members",
 		"key": "0xe2e62dd81c48a88f73b6f6463555fd8eba7fb8745735dc3be2a2c61a72c39e78"
 	},
 	{
-		"name": "electionsPhragmen runnersUp",
+		"name": "elections runnersUp",
 		"key": "0xe2e62dd81c48a88f73b6f6463555fd8e40982df579bdf1315224f41e5f482063"
 	},
 	{
-		"name": "electionsPhragmen electionRounds",
+		"name": "elections electionRounds",
 		"key": "0xe2e62dd81c48a88f73b6f6463555fd8e7657ad2ff3a6742e1071bbb898ce5431"
 	},
 	{
-		"name": "electionsPhragmen votesOf",
-		"key": "0xe2e62dd81c48a88f73b6f6463555fd8e17e1902017f25928e40b071bcad95d1c"
+		"name": "elections voting",
+		"key": "0xe2e62dd81c48a88f73b6f6463555fd8e71cd3068e6118bfb392b798317f63a89"
 	},
 	{
-		"name": "electionsPhragmen stakeOf",
-		"key": "0xe2e62dd81c48a88f73b6f6463555fd8ee7d0c42b25ce86cc50204950528688ea"
-	},
-	{
-		"name": "electionsPhragmen candidates",
+		"name": "elections candidates",
 		"key": "0xe2e62dd81c48a88f73b6f6463555fd8e948ece45793d7f15c9c0b9574ddbc665"
 	},
 	{
 		"name": "technicalMembership members",
 		"key": "0x492a52699edf49c972c21db794cfcf57ba7fb8745735dc3be2a2c61a72c39e78"
+	},
+	{
+		"name": "technicalMembership prime",
+		"key": "0x492a52699edf49c972c21db794cfcf57cb3136ee16886ac28a54f39e605b387a"
+	},
+	{
+		"name": "grandpa state",
+		"key": "0x2371e21684d2fae99bcb4d579242f74af39a107f2d8d3854c9aba9b021f43d9c"
+	},
+	{
+		"name": "grandpa pendingChange",
+		"key": "0x2371e21684d2fae99bcb4d579242f74a2ff65991b1c915dd6cc8d4825eacfcb4"
+	},
+	{
+		"name": "grandpa nextForced",
+		"key": "0x2371e21684d2fae99bcb4d579242f74a01d7818126bd9b3074803e91f4c91b59"
+	},
+	{
+		"name": "grandpa stalled",
+		"key": "0x2371e21684d2fae99bcb4d579242f74a7ddd013461b72c3004f9c0ca3faf9ebe"
+	},
+	{
+		"name": "grandpa currentSetId",
+		"key": "0x2371e21684d2fae99bcb4d579242f74a8a2d09463effcc78a22d75b9cb87dffc"
+	},
+	{
+		"name": "grandpa setIdSession",
+		"key": "0x2371e21684d2fae99bcb4d579242f74ad47cb8f5328af743ddfb361e7180e7fc"
 	},
 	{
 		"name": "treasury proposalCount",
@@ -488,135 +492,167 @@ let knownKeys = [
 		"key": "0x89d139e01a5eb2256f222e5fc5dbe6b3d834d1db4313872258a93b9fc45d488b"
 	},
 	{
-		"name": "claims claims",
-		"key": "0x9c5d795d0297be56027a4b2464e333979c5d795d0297be56027a4b2464e33397"
+		"name": "contracts gasSpent",
+		"key": "0x4342193e496fab7ec59d615ed0dc5530d8ac468c253672afe17416173f0853ce"
 	},
 	{
-		"name": "claims total",
-		"key": "0x9c5d795d0297be56027a4b2464e33397f43d6436dec51f09c3b71287a8fc9d48"
+		"name": "contracts currentSchedule",
+		"key": "0x4342193e496fab7ec59d615ed0dc5530d2d505c0e6f76fd7ce0796ebe187401c"
 	},
 	{
-		"name": "claims vesting",
-		"key": "0x9c5d795d0297be56027a4b2464e333975f27b51b5ec208ee9cb25b55d8728243"
+		"name": "contracts pristineCode",
+		"key": "0x4342193e496fab7ec59d615ed0dc55304d6c2b03b90028f3bf407eb433e96389"
 	},
 	{
-		"name": "parachains authorities",
-		"key": "0x0b76934f4cc08dee01012d059e1b83ee5e0621c4869aa60c02be9adcc98a0d1d"
+		"name": "contracts codeStorage",
+		"key": "0x4342193e496fab7ec59d615ed0dc553022fca90611ba8b7942f8bdb3b97f6580"
 	},
 	{
-		"name": "parachains code",
-		"key": "0x0b76934f4cc08dee01012d059e1b83eeae01428f47990f2aefd44a980d4de151"
+		"name": "contracts accountCounter",
+		"key": "0x4342193e496fab7ec59d615ed0dc5530ead1f2be31b521965bfb6018d2bd3a06"
 	},
 	{
-		"name": "parachains heads",
-		"key": "0x0b76934f4cc08dee01012d059e1b83ee1b3c252fcb29d88eff4f3de5de4476c3"
+		"name": "contracts contractInfoOf",
+		"key": "0x4342193e496fab7ec59d615ed0dc5530060e99e5378e562537cf3bc983e17b91"
 	},
 	{
-		"name": "parachains watermarks",
-		"key": "0x0b76934f4cc08dee01012d059e1b83ee6f83b6527ba224f06499b0feeb125c6d"
+		"name": "contracts gasPrice",
+		"key": "0x4342193e496fab7ec59d615ed0dc55304a9d2f70e9ee596bc867d128cd9ec759"
 	},
 	{
-		"name": "parachains unroutedIngress",
-		"key": "0x0b76934f4cc08dee01012d059e1b83eea0af70a84ed9666b2949ad745f26456a"
+		"name": "sudo key",
+		"key": "0x5c0d1176a568c1f92944340dbfed9e9c530ebca703c85910e7164cb7d1c9e47b"
 	},
 	{
-		"name": "parachains relayDispatchQueue",
-		"key": "0x0b76934f4cc08dee01012d059e1b83eeb8c70d66fd452ea1e5830d5eb1b11491"
+		"name": "imOnline heartbeatAfter",
+		"key": "0x2b06af9719ac64d755623cda8ddd9b948aa1f2c9844f11024c1d204e705a6217"
 	},
 	{
-		"name": "parachains relayDispatchQueueSize",
-		"key": "0x0b76934f4cc08dee01012d059e1b83eefad157e461d71fd4c1f936839a5f1f3e"
+		"name": "imOnline keys",
+		"key": "0x2b06af9719ac64d755623cda8ddd9b949f99a2ce711f3a31b2fc05604c93f179"
 	},
 	{
-		"name": "parachains needsDispatch",
-		"key": "0x0b76934f4cc08dee01012d059e1b83eeeec2d17a76153ff51817f12d9cfc3c7f"
+		"name": "imOnline receivedHeartbeats",
+		"key": "0x2b06af9719ac64d755623cda8ddd9b94cc5a1aa6e3716372f36ef103b7e3ae67"
 	},
 	{
-		"name": "parachains didUpdate",
-		"key": "0x0b76934f4cc08dee01012d059e1b83eebbd108c4899964f707fdaffb82636065"
+		"name": "imOnline authoredBlocks",
+		"key": "0x2b06af9719ac64d755623cda8ddd9b94b1c371ded9e9c565e89ba783c4d5f5f9"
 	},
 	{
-		"name": "attestations recentParaBlocks",
-		"key": "0xae394d879ddf7f99595bc0dd36e355b5deaf113faae552001507f41acaa8fd81"
+		"name": "offences reports",
+		"key": "0xd5c41b52a371aa36c9254ce34324f2a5b262e9238fa402540c250bc3f5d6188d"
 	},
 	{
-		"name": "attestations paraBlockAttestations",
-		"key": "0xae394d879ddf7f99595bc0dd36e355b562fda5648314c851805dc675c024442d"
+		"name": "offences deferredOffences",
+		"key": "0xd5c41b52a371aa36c9254ce34324f2a53b996bb988ea8ee15bad3ffd2f68dbda"
 	},
 	{
-		"name": "attestations didUpdate",
-		"key": "0xae394d879ddf7f99595bc0dd36e355b5bbd108c4899964f707fdaffb82636065"
+		"name": "offences concurrentReportsIndex",
+		"key": "0xd5c41b52a371aa36c9254ce34324f2a560dc8ef000cdbdc859dd352229ce16fb"
 	},
 	{
-		"name": "slots auctionCounter",
-		"key": "0x6ac983d82528bf1595ab26438ae5b2cfa532c79766d5a981efeca4da298f4e4f"
+		"name": "offences reportsByKindIndex",
+		"key": "0xd5c41b52a371aa36c9254ce34324f2a53589c0dac50da6fb3a3611eb32bcd27e"
 	},
 	{
-		"name": "slots managedIds",
-		"key": "0x6ac983d82528bf1595ab26438ae5b2cfa8d750d83a217b5dc6dfcf8aec6108ab"
+		"name": "randomnessCollectiveFlip randomMaterial",
+		"key": "0xbd2a529379475088d3e29a918cd478721a39ec767bd5269111e6492a1675702a"
 	},
 	{
-		"name": "slots deposits",
-		"key": "0x6ac983d82528bf1595ab26438ae5b2cf74a614db8021c6bd0a028aafdf29dd08"
+		"name": "identity identityOf",
+		"key": "0x2aeddc77fe58c98d50bd37f1b90840f9cd7f37317cd20b61e9bd46fab8704714"
 	},
 	{
-		"name": "slots auctionInfo",
-		"key": "0x6ac983d82528bf1595ab26438ae5b2cfef0d899c73ce7f3705166b3e3e6512eb"
+		"name": "identity superOf",
+		"key": "0x2aeddc77fe58c98d50bd37f1b90840f943a953ac082e08b6527ce262dbd4abf2"
 	},
 	{
-		"name": "slots winning",
-		"key": "0x6ac983d82528bf1595ab26438ae5b2cf4a20667fb1dc58cb22bcadfd9ab7f67c"
+		"name": "identity subsOf",
+		"key": "0x2aeddc77fe58c98d50bd37f1b90840f96ee5a0b09e7e9a96219dd66f0f74c37e"
 	},
 	{
-		"name": "slots reservedAmounts",
-		"key": "0x6ac983d82528bf1595ab26438ae5b2cf49ddb7db82ffb65f362833fd1102d66d"
+		"name": "identity registrars",
+		"key": "0x2aeddc77fe58c98d50bd37f1b90840f91f7f3f3eb1c2a69978da998d19f74ec5"
 	},
 	{
-		"name": "slots onboardQueue",
-		"key": "0x6ac983d82528bf1595ab26438ae5b2cff866e860609824e29261664110e9ed0f"
+		"name": "society founder",
+		"key": "0x426e15054d267946093858132eb537f195999521c6c89cd80b677e53ce20f98c"
 	},
 	{
-		"name": "slots onboarding",
-		"key": "0x6ac983d82528bf1595ab26438ae5b2cf85fd5f5a4b16953f824376f27da292af"
+		"name": "society rules",
+		"key": "0x426e15054d267946093858132eb537f1ad8964373ae14fde6a1b12a2ccb7aebd"
 	},
 	{
-		"name": "slots offboarding",
-		"key": "0x6ac983d82528bf1595ab26438ae5b2cff46fe7830e61b2961828a4bb22538341"
+		"name": "society candidates",
+		"key": "0x426e15054d267946093858132eb537f1948ece45793d7f15c9c0b9574ddbc665"
 	},
 	{
-		"name": "registrar parachains",
-		"key": "0x3fba98689ebed1138735e0e7a5a790ab0b76934f4cc08dee01012d059e1b83ee"
+		"name": "society suspendedCandidates",
+		"key": "0x426e15054d267946093858132eb537f1bbf9723cdae80db599c0e53c5a470cd2"
 	},
 	{
-		"name": "registrar threadCount",
-		"key": "0x3fba98689ebed1138735e0e7a5a790ab0d87bd2505058c6624f54d67234bc126"
+		"name": "society pot",
+		"key": "0x426e15054d267946093858132eb537f1a47a9ff5cd5bf4d848a80a0b1a947dc3"
 	},
 	{
-		"name": "registrar selectedThreads",
-		"key": "0x3fba98689ebed1138735e0e7a5a790ab21a5051453bd3ae7ed269190f4653f3b"
+		"name": "society head",
+		"key": "0x426e15054d267946093858132eb537f105fe52c2045750c3c492ccdcf62e2b9c"
 	},
 	{
-		"name": "registrar active",
-		"key": "0x3fba98689ebed1138735e0e7a5a790ab0f41321f75df7ea5127be2db4983c8b2"
+		"name": "society members",
+		"key": "0x426e15054d267946093858132eb537f1ba7fb8745735dc3be2a2c61a72c39e78"
 	},
 	{
-		"name": "registrar nextFreeId",
-		"key": "0x3fba98689ebed1138735e0e7a5a790ab13fce7283338105a9c51d4ba7a10a852"
+		"name": "society suspendedMembers",
+		"key": "0x426e15054d267946093858132eb537f14961503206762969ef4828521ef92a35"
 	},
 	{
-		"name": "registrar pendingSwap",
-		"key": "0x3fba98689ebed1138735e0e7a5a790ab050d60f58013e1a094de5dc9f24ea109"
+		"name": "society bids",
+		"key": "0x426e15054d267946093858132eb537f1c4f1521904024343c14aea2e016c84d7"
 	},
 	{
-		"name": "registrar paras",
-		"key": "0x3fba98689ebed1138735e0e7a5a790abcd710b30bd2eab0352ddcc26417aa194"
+		"name": "society vouching",
+		"key": "0x426e15054d267946093858132eb537f105eef273131bee9ab1033b8db9e5ab8c"
 	},
 	{
-		"name": "registrar retryQueue",
-		"key": "0x3fba98689ebed1138735e0e7a5a790abb984cfb497221deefcefb70073dcaac1"
+		"name": "society payouts",
+		"key": "0x426e15054d267946093858132eb537f119f4459916c774a1c3287d8ac99e98b9"
 	},
 	{
-		"name": "registrar debtors",
-		"key": "0x3fba98689ebed1138735e0e7a5a790ab210ce0e0a66ab5951ed411b3902eddf0"
+		"name": "society strikes",
+		"key": "0x426e15054d267946093858132eb537f10da61bea5fc7de17ebdf361b9914e50b"
+	},
+	{
+		"name": "society votes",
+		"key": "0x426e15054d267946093858132eb537f1b4adc6a1ce4f7cc2e696ed0fd06bd01c"
+	},
+	{
+		"name": "society defender",
+		"key": "0x426e15054d267946093858132eb537f1d3bcf3722b2e2300078c9d1795079f6e"
+	},
+	{
+		"name": "society defenderVotes",
+		"key": "0x426e15054d267946093858132eb537f191ca57b0c4b20b29ae7e99d6201d680c"
+	},
+	{
+		"name": "society maxMembers",
+		"key": "0x426e15054d267946093858132eb537f1d0b4a3f7631f0c0e761898fe198211de"
+	},
+	{
+		"name": "recovery recoverable",
+		"key": "0xa2ce73642c549ae79c14f0a671cf45f9a3f57184ab60571b3be8a355d07be414"
+	},
+	{
+		"name": "recovery activeRecoveries",
+		"key": "0xa2ce73642c549ae79c14f0a671cf45f9dff9094d7baf1e2d9b2e3a4253b096f8"
+	},
+	{
+		"name": "recovery proxy",
+		"key": "0xa2ce73642c549ae79c14f0a671cf45f91809d78346727a0ef58c0fa03bafa323"
+	},
+	{
+		"name": "vesting vesting",
+		"key": "0x5f27b51b5ec208ee9cb25b55d87282435f27b51b5ec208ee9cb25b55d8728243"
 	}
 ]
