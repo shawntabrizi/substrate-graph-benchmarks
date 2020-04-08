@@ -24,9 +24,9 @@ async function parseData(input) {
 			let put_tracker = {};
 			let counter = {
 				read: 0,
-				repeatRead: 0,
+				readRepeat: 0,
 				write: 0,
-				repeatWrite: 0
+				writeRepeat: 0
 			};
 			let table = [];
 			let uid = 1;
@@ -82,7 +82,7 @@ async function parseData(input) {
 						table_row.operation = "Repeat Read";
 						// Get existing uid
 						table_row.uid = get_tracker[key];
-						counter.repeatRead++;
+						counter.readRepeat++;
 					}
 				} else if (line.operation.toUpperCase() == "PUT") {
 					// Is this the first time we are seeing this value
@@ -98,7 +98,7 @@ async function parseData(input) {
 						table_row.operation = "Repeat Write";
 						// Get existing uid from `get_tracker`
 						table_row.uid = put_tracker[key];
-						counter.repeatWrite++;
+						counter.writeRepeat++;
 					}
 				} else {
 					console.error("Unrecognized Operation: ", line.operation)
