@@ -4,7 +4,7 @@
   "description": "Clean Log Files",
   "main": "index.js",
   "scripts": {
-    "clean": "node index.js",
+    "clean": "node index.js"
   },
   "author": "",
   "license": "ISC"

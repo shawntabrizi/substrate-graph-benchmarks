@@ -1,5 +1,6 @@
 {
   "extrinsics": [
+    "payout-stakers",
     "bond",
     "bond-extra",
     "unbond",

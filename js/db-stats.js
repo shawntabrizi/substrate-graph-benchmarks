@@ -14,7 +14,7 @@ async function parseData(input) {
 	// Parse all the logs
 	for (let i = 0; i < logs.length; i++) {
 		if (logs[i].status.toUpperCase() == "START") {
-			console.log("start: ", logs[i])
+			// Skip start line
 			i++;
 
 			// What we use for tracking data
@@ -33,7 +33,6 @@ async function parseData(input) {
 				let line = logs[i];
 
 				let [key, value] = line.value.split("=");
-				//console.log(key, value)
 				let length = 0;
 				if (value != "None") {
 					// `Some()` is 6 characters, divide by 2 for bytes
@@ -159,8 +158,6 @@ function createRawTable(data, uid_max) {
 				td.style.backgroundColor = getColorAtScalar(row.uid, uid_max);
 			}
 			td.innerText = row[key];
-			td.style.wordWrap = "break-word";
-			td.style.wordBreak = "break-all";
 			tr2.appendChild(td);
 		}
 		tbody.appendChild(tr2);
@@ -172,8 +169,9 @@ function createRawTable(data, uid_max) {
 }
 
 var getColorAtScalar = function (n, maxLength) {
-	var n = n * 300 / maxLength;
-	return 'hsl(' + n + ',100%,75%)';
+	var hue = (n * 300) / maxLength;
+	let color = 'hsl(' + hue + ',100%,75%)';
+	return color;
 }
 
 function combineData(all_data, data_key) {
@@ -205,8 +203,6 @@ function createCharts(all_data) {
 			mode: 'markers',
 			type: 'scatter',
 			name: key,
-			//marker: { size: 6, color: 'grey' },
-			//hoverinfo: 'skip'
 		};
 		chart.push(trace);
 	}
@@ -240,6 +236,6 @@ function createCharts(all_data) {
 	chartDiv.on('plotly_click', function (data) {
 		let index = data.points[0].x;
 		createCounterTable(all_data[index].counter);
-		createRawTable(all_data[index].table, all_data[0].uid);
+		createRawTable(all_data[index].table, all_data[index].uid);
 	});
 }
