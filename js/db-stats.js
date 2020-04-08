@@ -29,7 +29,19 @@ async function parseData(input) {
 				repeatWrite: 0
 			};
 			let table = [];
-			let uid = 0;
+			let uid = 1;
+
+			// Populate `get_tracker` and `put_tracker` with whitelist
+			for (item of whitelist) {
+				if (!(item.read || item.write)) { continue; }
+				if (item.read) {
+					get_tracker[item.key.substr(2)] = uid;
+				}
+				if (item.write) {
+					put_tracker[item.key.substr(2)] = uid;
+				}
+				uid++;
+			}
 
 			while (logs[i].status.toUpperCase() != "END") {
 				let line = logs[i];
@@ -76,14 +88,16 @@ async function parseData(input) {
 					// Is this the first time we are seeing this value
 					if (!put_tracker[key]) {
 						// Track it
-						put_tracker[key] = true;
+						put_tracker[key] = uid;
+						// Note our first write also counts as our first read
+						get_tracker[key] = uid;
 						table_row.operation = "Write";
 						counter.write++;
 						uid++;
 					} else {
 						table_row.operation = "Repeat Write";
-						// Get existing uid
-						table_row.uid = get_tracker[key];
+						// Get existing uid from `get_tracker`
+						table_row.uid = put_tracker[key];
 						counter.repeatWrite++;
 					}
 				} else {

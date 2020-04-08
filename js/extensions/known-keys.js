@@ -1,3 +1,4 @@
+// This is a list of well known storage prefixes in Substrate Storage
 let knownKeys = [
 	{
 		"name": "system account",
