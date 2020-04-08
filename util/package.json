@@ -1,0 +1,11 @@
+{
+  "name": "substrate-graph-util",
+  "version": "1.0.0",
+  "description": "Clean Log Files",
+  "main": "index.js",
+  "scripts": {
+    "clean": "node index.js",
+  },
+  "author": "",
+  "license": "ISC"
+}
