@@ -8,7 +8,7 @@ async function parseData(input) {
 	var ssv = d3.dsvFormat(" ");
 
 	// Rough format of the substrate logs
-	var headers = ["date", "time", "main", "type", "topic", "", "status", "operation", "value"].join(" ");
+	var headers = ["date", "time", "main", "type", "topic", "", "status", "operation", "value", "component_value"].join(" ");
 	let logs = await ssv.parse(headers + "\n" + text);
 
 	let all_data = [];
