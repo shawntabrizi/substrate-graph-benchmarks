@@ -1,81 +1,103 @@
-# Setup dependencies, skip installation
-curl https://getsubstrate.io -sSf | bash -s -- --fast
-source ~/.cargo/env
-
-# Download and compile Substrate with benchmarking features
-git clone https://github.com/paritytech/substrate
-cd substrate/bin/node/cli
-cargo build --release --features=runtime-benchmarks
-cd ../../../..
-
-# Destination directory for results
-mkdir -p out/
-
-## Convenience function for running benchmarks
-# Arguments:
-# - pallet
-# - extrinsic
-run_bench () {
-	echo -ne "Benchmarking => pallet: $1, extrinsic: $2\n  - "
-	./substrate/target/release/substrate benchmark\
-		--chain dev\
-		--execution=wasm\
-		--wasm-execution=compiled\
-		--pallet $1\
-		--extrinsic $2\
-		--steps 100\
-		--repeat 10\
-		> out/$1.$2.txt
-}
-
-# Run benchmarks
-run_bench "pallet-balances" "transfer" # worst case
-run_bench "pallet-balances" "transfer_best_case"
-run_bench "pallet-balances" "transfer_keep_alive"
-run_bench "pallet-balances" "set_balance"
-run_bench "pallet-balances" "set_balance_killing"
-
-run_bench "pallet-identity" "add_registrar"
-run_bench "pallet-identity" "set_identity"
-run_bench "pallet-identity" "set_subs"
-run_bench "pallet-identity" "clear_identity"
-run_bench "pallet-identity" "request_judgement"
-run_bench "pallet-identity" "cancel_request"
-run_bench "pallet-identity" "set_fee"
-run_bench "pallet-identity" "set_account_id"
-run_bench "pallet-identity" "set_fields"
-run_bench "pallet-identity" "provide_judgement"
-run_bench "pallet-identity" "kill_identity"
-
-run_bench "pallet-vesting" "vest_locked"
-run_bench "pallet-vesting" "vest_not_locked"
-run_bench "pallet-vesting" "vest_other_locked"
-run_bench "pallet-vesting" "vest_other_not_locked"
-run_bench "pallet-vesting" "vested_transfer"
-
-run_bench "pallet-timestamp" "set"
-
-run_bench "pallet-staking" "bond"
-run_bench "pallet-staking" "bond_extra"
-run_bench "pallet-staking" "unbond"
-run_bench "pallet-staking" "withdraw_unbonded"
-run_bench "pallet-staking" "validate"
-run_bench "pallet-staking" "nominate"
-run_bench "pallet-staking" "chill"
-run_bench "pallet-staking" "set_payee"
-run_bench "pallet-staking" "set_controller"
-run_bench "pallet-staking" "set_validator_count"
-run_bench "pallet-staking" "force_no_eras"
-run_bench "pallet-staking" "force_new_era"
-run_bench "pallet-staking" "force_new_era_always"
-run_bench "pallet-staking" "set_invulnerables"
-run_bench "pallet-staking" "force_unstake"
-run_bench "pallet-staking" "cancel_deferred_slash"
-run_bench "pallet-staking" "payout_validator"
-run_bench "pallet-staking" "payout_nominator"
-run_bench "pallet-staking" "rebond"
-run_bench "pallet-staking" "set_history_depth"
-run_bench "pallet-staking" "reap_stash"
-run_bench "pallet-staking" "new_era"
-run_bench "pallet-staking" "do_slash"
-
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet balances --extrinsic transfer > balances_transfer.txt 2> balances_transfer.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet balances --extrinsic transfer_best_case > balances_transfer_best_case.txt 2> balances_transfer_best_case.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet balances --extrinsic transfer_keep_alive > balances_transfer_keep_alive.txt 2> balances_transfer_keep_alive.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet balances --extrinsic set_balance > balances_set_balance.txt 2> balances_set_balance.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet balances --extrinsic set_balance_killing > balances_set_balance_killing.txt 2> balances_set_balance_killing.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet collective --extrinsic set_members > collective_set_members.txt 2> collective_set_members.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet collective --extrinsic execute > collective_execute.txt 2> collective_execute.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet collective --extrinsic propose > collective_propose.txt 2> collective_propose.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet collective --extrinsic propose_else_branch > collective_propose_else_branch.txt 2> collective_propose_else_branch.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet collective --extrinsic vote > collective_vote.txt 2> collective_vote.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet collective --extrinsic vote_not_approve > collective_vote_not_approve.txt 2> collective_vote_not_approve.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet collective --extrinsic vote_approved > collective_vote_approved.txt 2> collective_vote_approved.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet collective --extrinsic close > collective_close.txt 2> collective_close.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic propose > democracy_propose.txt 2> democracy_propose.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic second > democracy_second.txt 2> democracy_second.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic vote > democracy_vote.txt 2> democracy_vote.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_vote > democracy_proxy_vote.txt 2> democracy_proxy_vote.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic emergency_cancel > democracy_emergency_cancel.txt 2> democracy_emergency_cancel.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic exernal_propose > democracy_exernal_propose.txt 2> democracy_exernal_propose.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic external_propose_majority > democracy_external_propose_majority.txt 2> democracy_external_propose_majority.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic exernal_propose_default > democracy_exernal_propose_default.txt 2> democracy_exernal_propose_default.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic fast_track > democracy_fast_track.txt 2> democracy_fast_track.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic veto_external > democracy_veto_external.txt 2> democracy_veto_external.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic cancel_referendum > democracy_cancel_referendum.txt 2> democracy_cancel_referendum.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic cancel_queued > democracy_cancel_queued.txt 2> democracy_cancel_queued.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic open_proxy > democracy_open_proxy.txt 2> democracy_open_proxy.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic activate_proxy > democracy_activate_proxy.txt 2> democracy_activate_proxy.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic close_proxy > democracy_close_proxy.txt 2> democracy_close_proxy.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic deactivate_proxy > democracy_deactivate_proxy.txt 2> democracy_deactivate_proxy.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic delegate > democracy_delegate.txt 2> democracy_delegate.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic undelegate > democracy_undelegate.txt 2> democracy_undelegate.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic clear_public_proposals > democracy_clear_public_proposals.txt 2> democracy_clear_public_proposals.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic note_preimage > democracy_note_preimage.txt 2> democracy_note_preimage.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic reap_preimage > democracy_reap_preimage.txt 2> democracy_reap_preimage.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic unlock > democracy_unlock.txt 2> democracy_unlock.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic remove_vote > democracy_remove_vote.txt 2> democracy_remove_vote.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic remove_other_vote > democracy_remove_other_vote.txt 2> democracy_remove_other_vote.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_delegate > democracy_proxy_delegate.txt 2> democracy_proxy_delegate.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_undelegate > democracy_proxy_undelegate.txt 2> democracy_proxy_undelegate.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_remove_vote > democracy_proxy_remove_vote.txt 2> democracy_proxy_remove_vote.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic add_registrar > identity_add_registrar.txt 2> identity_add_registrar.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic set_identity > identity_set_identity.txt 2> identity_set_identity.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic set_subs > identity_set_subs.txt 2> identity_set_subs.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic clear_identity > identity_clear_identity.txt 2> identity_clear_identity.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic request_judgement > identity_request_judgement.txt 2> identity_request_judgement.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic cancel_request > identity_cancel_request.txt 2> identity_cancel_request.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic set_fee > identity_set_fee.txt 2> identity_set_fee.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic set_account_id > identity_set_account_id.txt 2> identity_set_account_id.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic set_fields > identity_set_fields.txt 2> identity_set_fields.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic provide_judgement > identity_provide_judgement.txt 2> identity_provide_judgement.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet identity --extrinsic kill_identity > identity_kill_identity.txt 2> identity_kill_identity.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet im-online --extrinsic heartbeat > im-online_heartbeat.txt 2> im-online_heartbeat.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet im-online --extrinsic validate_unsigned > im-online_validate_unsigned.txt 2> im-online_validate_unsigned.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet offences --extrinsic report_offence > offences_report_offence.txt 2> offences_report_offence.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet offences --extrinsic on_initialize > offences_on_initialize.txt 2> offences_on_initialize.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet session --extrinsic set_keys > session_set_keys.txt 2> session_set_keys.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet session --extrinsic purge_keys > session_purge_keys.txt 2> session_purge_keys.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic bond > staking_bond.txt 2> staking_bond.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic bond_extra > staking_bond_extra.txt 2> staking_bond_extra.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic unbond > staking_unbond.txt 2> staking_unbond.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic withdraw_unbonded > staking_withdraw_unbonded.txt 2> staking_withdraw_unbonded.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic validate > staking_validate.txt 2> staking_validate.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic nominate > staking_nominate.txt 2> staking_nominate.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic chill > staking_chill.txt 2> staking_chill.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic set_payee > staking_set_payee.txt 2> staking_set_payee.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic set_controller > staking_set_controller.txt 2> staking_set_controller.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic set_validator_count > staking_set_validator_count.txt 2> staking_set_validator_count.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic force_no_eras > staking_force_no_eras.txt 2> staking_force_no_eras.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic force_new_era > staking_force_new_era.txt 2> staking_force_new_era.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic force_new_era_always > staking_force_new_era_always.txt 2> staking_force_new_era_always.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic set_invulnerables > staking_set_invulnerables.txt 2> staking_set_invulnerables.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic force_unstake > staking_force_unstake.txt 2> staking_force_unstake.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic cancel_deferred_slash > staking_cancel_deferred_slash.txt 2> staking_cancel_deferred_slash.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic payout_stakers > staking_payout_stakers.txt 2> staking_payout_stakers.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic rebond > staking_rebond.txt 2> staking_rebond.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic set_history_depth > staking_set_history_depth.txt 2> staking_set_history_depth.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic reap_stash > staking_reap_stash.txt 2> staking_reap_stash.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic new_era > staking_new_era.txt 2> staking_new_era.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic do_slash > staking_do_slash.txt 2> staking_do_slash.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet staking --extrinsic payout_all > staking_payout_all.txt 2> staking_payout_all.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet timestamp --extrinsic set > timestamp_set.txt 2> timestamp_set.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet treasury --extrinsic propose_spend > treasury_propose_spend.txt 2> treasury_propose_spend.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet treasury --extrinsic reject_proposal > treasury_reject_proposal.txt 2> treasury_reject_proposal.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet treasury --extrinsic approve_proposal > treasury_approve_proposal.txt 2> treasury_approve_proposal.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet treasury --extrinsic report_awesome > treasury_report_awesome.txt 2> treasury_report_awesome.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet treasury --extrinsic retract_tip > treasury_retract_tip.txt 2> treasury_retract_tip.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet treasury --extrinsic tip_new > treasury_tip_new.txt 2> treasury_tip_new.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet treasury --extrinsic tip > treasury_tip.txt 2> treasury_tip.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet treasury --extrinsic close_tip > treasury_close_tip.txt 2> treasury_close_tip.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet treasury --extrinsic on_initialize > treasury_on_initialize.txt 2> treasury_on_initialize.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet utility --extrinsic batch > utility_batch.txt 2> utility_batch.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet utility --extrinsic as_sub > utility_as_sub.txt 2> utility_as_sub.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet utility --extrinsic as_multi_create > utility_as_multi_create.txt 2> utility_as_multi_create.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet utility --extrinsic as_multi_approve > utility_as_multi_approve.txt 2> utility_as_multi_approve.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet utility --extrinsic as_multi_complete > utility_as_multi_complete.txt 2> utility_as_multi_complete.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet utility --extrinsic approve_as_multi_create > utility_approve_as_multi_create.txt 2> utility_approve_as_multi_create.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet utility --extrinsic approve_as_multi_approve > utility_approve_as_multi_approve.txt 2> utility_approve_as_multi_approve.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet utility --extrinsic cancel_as_multi > utility_cancel_as_multi.txt 2> utility_cancel_as_multi.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet vesting --extrinsic vest_locked > vesting_vest_locked.txt 2> vesting_vest_locked.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet vesting --extrinsic vest_not_locked > vesting_vest_not_locked.txt 2> vesting_vest_not_locked.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet vesting --extrinsic vest_other_locked > vesting_vest_other_locked.txt 2> vesting_vest_other_locked.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet vesting --extrinsic vest_other_not_locked > vesting_vest_other_not_locked.txt 2> vesting_vest_other_not_locked.log
+./target/release/substrate benchmark --raw --steps 20 --repeat 20 --pallet vesting --extrinsic vested_transfer > vesting_vested_transfer.txt 2> vesting_vested_transfer.log
