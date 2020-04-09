@@ -1,4 +1,0 @@
-2020-04-09 01:45:08.366 main INFO staking  new validator set of size 1 has been elected via ElectionCompute::OnChain for era 0
-2020-04-09 01:45:08.384 main TRACE state-trace  9be9: Call Benchmark_dispatch_benchmark at Bench DB. Input=2464656d6f63726163793c657865726e616c5f70726f706f73650000041400000001000000
-2020-04-09 01:45:08.562 main TRACE state-trace  9be9: Return. Native=true, Result=Ok(0164436f756c64206e6f742066696e642065787472696e7369632e)
-Error: "Could not find extrinsic."
