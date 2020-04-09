@@ -54,7 +54,7 @@ async function createSidebar() {
             if (pallet == current_pallet && extrinsic == current_extrinsic && !db_page) {
                 a.classList.add('active');
             }
-            a.href = '/?p=' + pallet + '&e=' + extrinsic;
+            a.href = './?p=' + pallet + '&e=' + extrinsic;
             a.innerText = extrinsic;
             a.onclick = function() {
                 parseData(pallet, extrinsic);
@@ -65,7 +65,7 @@ async function createSidebar() {
             if (pallet == current_pallet && extrinsic == current_extrinsic && db_page) {
                 a2.classList.add('active');
             }
-            a2.href = '/db-stats.html?p=' + pallet + '&e=' + extrinsic;
+            a2.href = './db-stats.html?p=' + pallet + '&e=' + extrinsic;
             a2.innerText = " (db stats)";
             a2.onclick = function() {
                 parseData(pallet, extrinsic);
