@@ -14,19 +14,23 @@ async function main() {
 		let pallet_name = line.pallet;
 		let extrinsic_name = line.extrinsic;
 		// Options
-		let executable = "./target/release/substrate"
+		let executable = "./substrate/target/release/substrate"
 		let benchmark = "benchmark"
-		let execution = "--execution=wasm --wasm-execution=compiled" //not used
+		let chain = "--chain dev"
+		let execution = "--execution=wasm --wasm-execution=compiled"
+		let logging = "--log state-trace=trace,benchmark=trace"
 		let steps = "--steps 20"
 		let repeat = "--repeat 20"
 		let pallet = "--pallet " + pallet_name
 		let extrinsic = "--extrinsic " + extrinsic_name
 		let raw = "--raw"
-		let output_log = "2> " + pallet_name + "_" + extrinsic_name + ".log"
-		let output_data = "> " + pallet_name + "_" + extrinsic_name + ".txt"
-		let final = [executable, benchmark, raw, steps, repeat, pallet, extrinsic, output_data, output_log].join(" ")
+		let output_log = "2> ./output/" + pallet_name + "_" + extrinsic_name + ".log"
+		let output_data = "> ./output/" + pallet_name + "_" + extrinsic_name + ".txt"
+		let final_log = [executable, benchmark, chain, steps, pallet, extrinsic, logging, output_log].join(" ")
+		let final_data = [executable, benchmark, chain, steps, repeat, pallet, extrinsic, raw, execution, output_data].join(" ")
 
-		all_script.push(final)
+		all_script.push(final_log)
+		all_script.push(final_data)
 	}
 
 	let output = all_script.join('\n')
