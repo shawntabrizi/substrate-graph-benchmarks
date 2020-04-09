@@ -1,7 +1,0 @@
-{
-  "extrinsics": ["set"],
-  "components": {
-    "N": "Iteration",
-    "time": "nanoseconds"
-  }
-}
