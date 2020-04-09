@@ -9,7 +9,7 @@ async function createSidebar() {
 
     let db_page = window.location.pathname.includes('db-stats.html')
 
-    let benchmarks = await d3.csv("../all_benchmarks.csv");
+    let benchmarks = await d3.csv("./all_benchmarks.csv");
 
     let benchmarksOrganized = {}
 
@@ -22,10 +22,6 @@ async function createSidebar() {
     }
 
     for ([pallet, extrinsics] of Object.entries(benchmarksOrganized)) {
-        //let meta = './data/' + folder + '/' + 'meta.json';
-
-        //let json = await d3.json(meta);
-
         let sidebar = document.getElementById('sidebar');
         let h6 = document.createElement('h6');
         h6.classList.add(
@@ -83,5 +79,7 @@ async function createSidebar() {
 }
 
 createSidebar().then(() => {
-    document.getElementsByClassName('nav-link active')[0].scrollIntoView();
+    if (document.getElementsByClassName('nav-link active')[0]) {
+        document.getElementsByClassName('nav-link active')[0].scrollIntoView();
+    }
 });
