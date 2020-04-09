@@ -1,26 +1,30 @@
 async function createSidebar() {
   var queryStrings = parseQueryStrings();
-  let pallet = '';
-  let extrinsic = '';
+  let current_pallet = '';
+  let current_extrinsic = '';
   if (queryStrings['p'] && queryStrings['e']) {
-    pallet = queryStrings['p'];
-    extrinsic = queryStrings['e'];
+    current_pallet = queryStrings['p'];
+    current_extrinsic = queryStrings['e'];
   }
 
-  let folders = [
-    'polkadot-claims',
-    'pallet-benchmark',
-    'pallet-balances',
-    'pallet-identity',
-    'pallet-timestamp',
-    'pallet-staking',
-    'pallet-vesting',
-    'execution'
-  ];
-  for (folder of folders) {
-    let meta = './data/' + folder + '/' + 'meta.json';
+  let db_page = window.location.pathname.includes('db-stats.html')
 
-    let json = await d3.json(meta);
+  let benchmarks = await d3.csv("../all_benchmarks.csv");
+
+  let benchmarksOrganized = {}
+
+  for (benchmark of benchmarks) {
+    if (!(benchmark.pallet in benchmarksOrganized)) {
+      benchmarksOrganized[benchmark.pallet] = []
+    }
+    benchmarksOrganized[benchmark.pallet].push(benchmark.extrinsic)
+
+  }
+
+  for ([pallet, extrinsics] of Object.entries(benchmarksOrganized)) {
+    //let meta = './data/' + folder + '/' + 'meta.json';
+
+    //let json = await d3.json(meta);
 
     let sidebar = document.getElementById('sidebar');
     let h6 = document.createElement('h6');
@@ -34,26 +38,42 @@ async function createSidebar() {
       'mb-1',
       'text-muted'
     );
-    h6.innerText = folder;
+    h6.innerText = pallet;
 
     let ul = document.createElement('ul');
     ul.classList.add('nav', 'flex-column', 'mb-2');
 
-    for (item of json['extrinsics']) {
+    for (extrinsic of extrinsics) {
       let li = document.createElement('li');
       li.classList.add('nav-item');
+      let span = document.createElement('span');
+      span.classList.add('nav-link-group');
+
       let a = document.createElement('a');
       a.classList.add('nav-link');
-      if (folder == pallet && item == extrinsic) {
+      if (pallet == current_pallet && extrinsic == current_extrinsic && !db_page) {
         a.classList.add('active');
       }
-      a.href = '?p=' + folder + '&e=' + item;
-      a.innerText = item;
+      a.href = '/?p=' + pallet + '&e=' + extrinsic;
+      a.innerText = extrinsic;
       a.onclick = function() {
-        parseData('./data/' + folder + '/' + this.innerText);
+        parseData(pallet, extrinsic);
       };
 
-      li.appendChild(a);
+      let a2 = document.createElement('a');
+      a2.classList.add('nav-link');
+      if (pallet == current_pallet && extrinsic == current_extrinsic && db_page) {
+        a2.classList.add('active');
+      }
+      a2.href = '/db-stats.html?p=' + pallet + '&e=' + extrinsic;
+      a2.innerText = " (db stats)";
+      a2.onclick = function () {
+        parseData(pallet, extrinsic);
+      };
+
+      span.appendChild(a);
+      span.appendChild(a2);
+      li.appendChild(span);
       ul.appendChild(li);
     }
 

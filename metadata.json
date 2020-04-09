@@ -1,0 +1,11 @@
+{
+	"common": {
+		"extrinsic_time": "nanoseconds",
+		"storage_root_time": "nanoseconds",
+		"time": "nanoseconds"
+	},
+	"balances": {
+		"u": "User Seed",
+		"e": "# of Existential Deposits"
+	}
+}

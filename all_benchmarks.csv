@@ -17,9 +17,9 @@ democracy,second
 democracy,vote
 democracy,proxy_vote
 democracy,emergency_cancel
-democracy,exernal_propose
+democracy,external_propose
 democracy,external_propose_majority
-democracy,exernal_propose_default
+democracy,external_propose_default
 democracy,fast_track
 democracy,veto_external
 democracy,cancel_referendum

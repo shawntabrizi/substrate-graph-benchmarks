@@ -1,6 +1,6 @@
-async function parseData(input) {
-	// DB data is in *.log, one folder up
-	input += ".log";
+async function parseData(pallet, extrinsic) {
+	// Benchmark data is in *.txt
+	input = './data/' + pallet + "_" + extrinsic + ".log";
 
 	document.getElementById('dashboard-title').innerText = input
 
