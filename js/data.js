@@ -26,6 +26,8 @@ async function parseData(pallet, extrinsic) {
         .split(' ');
 
     document.getElementById('dashboard-title').innerText = benchmark_metadata.join(' ');
+    document.getElementById('dashboard-title-link').href = input;
+
 
     let repeat = parseInt(benchmark_metadata[benchmark_metadata.findIndex((e) => e == "Repeat:") + 1]);
 

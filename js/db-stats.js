@@ -2,7 +2,8 @@ async function parseData(pallet, extrinsic) {
     // Benchmark data is in *.txt
     input = './data/' + pallet + "_" + extrinsic + ".log";
 
-    document.getElementById('dashboard-title').innerText = input
+    document.getElementById('dashboard-title').innerText = input;
+    document.getElementById('dashboard-title-link').href = input;
 
     let text = await d3.text(input);
     var ssv = d3.dsvFormat(" ");
