@@ -24,8 +24,11 @@ async function parseData(pallet, extrinsic, text) {
         }
     }
 
+    let text_split = text.split('\n\n');
     // Benchmark data is currently the first continuous block of text
-    let benchmark_data = text.split('\n\n')[0];
+    let benchmark_data = text_split.shift();
+    // The rest is analysis data
+    let analysis_data = text_split;
 
     // Separate the first row which is metadata
     let benchmark_metadata = benchmark_data
@@ -47,6 +50,7 @@ async function parseData(pallet, extrinsic, text) {
 
     let csv = await d3.csvParse(data);
 
+    createAnalysisTable(analysis_data);
     createTable(csv, components);
 
     let split_data = splitBenchmarks(csv, repeat);
@@ -54,6 +58,43 @@ async function parseData(pallet, extrinsic, text) {
     let keys = Object.keys(split_data);
 
     createCharts(split_data, keys, benchmark_metadata, components);
+}
+
+function createAnalysisTable(data) {
+    let table = document.getElementById('analysis-data');
+
+    // Clear table
+    while (table.firstChild) {
+        table.removeChild(table.firstChild);
+    }
+
+    let thead = document.createElement('thead');
+    let tbody = document.createElement('tbody');
+
+    let keys = ["Median Slopes Analysis", "Min Squares Analysis", "Min Squares Quality and Confidence"];
+
+    let tr = document.createElement('tr');
+    for (key of keys) {
+        let th = document.createElement('th');
+        th.innerText = key;
+        tr.appendChild(th);
+    }
+
+    let tr2 = document.createElement('tr');
+    // These are the elements corresponding to the keys above
+    let indices = [1, 5, 4];
+    for (index of indices) {
+        let td = document.createElement('td');
+        let pre = document.createElement('pre');
+        pre.innerText = data[index];
+        td.appendChild(pre);
+        tr2.appendChild(td);
+    }
+
+    tbody.appendChild(tr2);
+    thead.appendChild(tr);
+    table.appendChild(thead);
+    table.appendChild(tbody);
 }
 
 function createTable(data, components) {
