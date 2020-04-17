@@ -125,8 +125,8 @@ async function parseData(pallet, extrinsic, text) {
                         uid++;
                     } else {
                         table_row.operation = "Repeat Write";
-                        // Get existing uid from `get_tracker`
-                        table_row.uid = clear_tracker[key];
+                        // Get existing uid
+                        table_row.uid = put_tracker[key];
                         counter.writeRepeat++;
                     }
                 } else if (line.operation.toUpperCase() == "CLEARPREFIX") {
