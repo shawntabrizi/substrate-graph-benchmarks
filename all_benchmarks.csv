@@ -1,3 +1,4 @@
+pallet,extrinsic
 balances,transfer
 balances,transfer_best_case
 balances,transfer_keep_alive

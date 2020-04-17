@@ -12,24 +12,28 @@
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic set_members --raw --execution=wasm --wasm-execution=compiled > ./output/collective_set_members.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic execute --log state-trace=trace,benchmark=trace 2> ./output/collective_execute.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic execute --raw --execution=wasm --wasm-execution=compiled > ./output/collective_execute.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic propose --log state-trace=trace,benchmark=trace 2> ./output/collective_propose.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic propose --raw --execution=wasm --wasm-execution=compiled > ./output/collective_propose.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic propose_else_branch --log state-trace=trace,benchmark=trace 2> ./output/collective_propose_else_branch.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic propose_else_branch --raw --execution=wasm --wasm-execution=compiled > ./output/collective_propose_else_branch.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic vote --log state-trace=trace,benchmark=trace 2> ./output/collective_vote.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic vote --raw --execution=wasm --wasm-execution=compiled > ./output/collective_vote.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic vote_not_approve --log state-trace=trace,benchmark=trace 2> ./output/collective_vote_not_approve.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic vote_not_approve --raw --execution=wasm --wasm-execution=compiled > ./output/collective_vote_not_approve.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic propose_execute --log state-trace=trace,benchmark=trace 2> ./output/collective_propose_execute.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic propose_execute --raw --execution=wasm --wasm-execution=compiled > ./output/collective_propose_execute.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic propose_proposed --log state-trace=trace,benchmark=trace 2> ./output/collective_propose_proposed.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic propose_proposed --raw --execution=wasm --wasm-execution=compiled > ./output/collective_propose_proposed.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic vote_insert --log state-trace=trace,benchmark=trace 2> ./output/collective_vote_insert.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic vote_insert --raw --execution=wasm --wasm-execution=compiled > ./output/collective_vote_insert.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic vote_disapproved --log state-trace=trace,benchmark=trace 2> ./output/collective_vote_disapproved.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic vote_disapproved --raw --execution=wasm --wasm-execution=compiled > ./output/collective_vote_disapproved.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic vote_approved --log state-trace=trace,benchmark=trace 2> ./output/collective_vote_approved.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic vote_approved --raw --execution=wasm --wasm-execution=compiled > ./output/collective_vote_approved.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic close --log state-trace=trace,benchmark=trace 2> ./output/collective_close.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic close --raw --execution=wasm --wasm-execution=compiled > ./output/collective_close.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic close_disapproved --log state-trace=trace,benchmark=trace 2> ./output/collective_close_disapproved.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic close_disapproved --raw --execution=wasm --wasm-execution=compiled > ./output/collective_close_disapproved.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet collective --extrinsic close_approved --log state-trace=trace,benchmark=trace 2> ./output/collective_close_approved.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet collective --extrinsic close_approved --raw --execution=wasm --wasm-execution=compiled > ./output/collective_close_approved.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic propose --log state-trace=trace,benchmark=trace 2> ./output/democracy_propose.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic propose --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_propose.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic second --log state-trace=trace,benchmark=trace 2> ./output/democracy_second.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic second --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_second.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic vote --log state-trace=trace,benchmark=trace 2> ./output/democracy_vote.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic vote --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_vote.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic vote_new --log state-trace=trace,benchmark=trace 2> ./output/democracy_vote_new.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic vote_new --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_vote_new.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic vote_existing --log state-trace=trace,benchmark=trace 2> ./output/democracy_vote_existing.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic vote_existing --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_vote_existing.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic proxy_vote --log state-trace=trace,benchmark=trace 2> ./output/democracy_proxy_vote.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_vote --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_proxy_vote.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic emergency_cancel --log state-trace=trace,benchmark=trace 2> ./output/democracy_emergency_cancel.log
@@ -48,8 +52,6 @@
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic cancel_referendum --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_cancel_referendum.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic cancel_queued --log state-trace=trace,benchmark=trace 2> ./output/democracy_cancel_queued.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic cancel_queued --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_cancel_queued.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic open_proxy --log state-trace=trace,benchmark=trace 2> ./output/democracy_open_proxy.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic open_proxy --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_open_proxy.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic activate_proxy --log state-trace=trace,benchmark=trace 2> ./output/democracy_activate_proxy.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic activate_proxy --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_activate_proxy.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic close_proxy --log state-trace=trace,benchmark=trace 2> ./output/democracy_close_proxy.log
@@ -64,10 +66,16 @@
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic clear_public_proposals --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_clear_public_proposals.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic note_preimage --log state-trace=trace,benchmark=trace 2> ./output/democracy_note_preimage.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic note_preimage --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_note_preimage.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic note_imminent_preimage --log state-trace=trace,benchmark=trace 2> ./output/democracy_note_imminent_preimage.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic note_imminent_preimage --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_note_imminent_preimage.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic reap_preimage --log state-trace=trace,benchmark=trace 2> ./output/democracy_reap_preimage.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic reap_preimage --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_reap_preimage.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic unlock --log state-trace=trace,benchmark=trace 2> ./output/democracy_unlock.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic unlock --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_unlock.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic unlock_remove --log state-trace=trace,benchmark=trace 2> ./output/democracy_unlock_remove.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic unlock_remove --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_unlock_remove.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic unlock_set --log state-trace=trace,benchmark=trace 2> ./output/democracy_unlock_set.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic unlock_set --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_unlock_set.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic open_proxy --log state-trace=trace,benchmark=trace 2> ./output/democracy_open_proxy.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic open_proxy --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_open_proxy.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic remove_vote --log state-trace=trace,benchmark=trace 2> ./output/democracy_remove_vote.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic remove_vote --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_remove_vote.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic remove_other_vote --log state-trace=trace,benchmark=trace 2> ./output/democracy_remove_other_vote.log
@@ -160,6 +168,8 @@
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet staking --extrinsic payout_all --raw --execution=wasm --wasm-execution=compiled > ./output/staking_payout_all.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet timestamp --extrinsic set --log state-trace=trace,benchmark=trace 2> ./output/timestamp_set.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet timestamp --extrinsic set --raw --execution=wasm --wasm-execution=compiled > ./output/timestamp_set.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet timestamp --extrinsic on_finalize --log state-trace=trace,benchmark=trace 2> ./output/timestamp_on_finalize.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet timestamp --extrinsic on_finalize --raw --execution=wasm --wasm-execution=compiled > ./output/timestamp_on_finalize.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet treasury --extrinsic propose_spend --log state-trace=trace,benchmark=trace 2> ./output/treasury_propose_spend.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet treasury --extrinsic propose_spend --raw --execution=wasm --wasm-execution=compiled > ./output/treasury_propose_spend.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet treasury --extrinsic reject_proposal --log state-trace=trace,benchmark=trace 2> ./output/treasury_reject_proposal.log
@@ -196,11 +206,11 @@
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet utility --extrinsic cancel_as_multi --raw --execution=wasm --wasm-execution=compiled > ./output/utility_cancel_as_multi.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet vesting --extrinsic vest_locked --log state-trace=trace,benchmark=trace 2> ./output/vesting_vest_locked.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet vesting --extrinsic vest_locked --raw --execution=wasm --wasm-execution=compiled > ./output/vesting_vest_locked.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet vesting --extrinsic vest_not_locked --log state-trace=trace,benchmark=trace 2> ./output/vesting_vest_not_locked.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet vesting --extrinsic vest_not_locked --raw --execution=wasm --wasm-execution=compiled > ./output/vesting_vest_not_locked.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet vesting --extrinsic vest_unlocked --log state-trace=trace,benchmark=trace 2> ./output/vesting_vest_unlocked.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet vesting --extrinsic vest_unlocked --raw --execution=wasm --wasm-execution=compiled > ./output/vesting_vest_unlocked.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet vesting --extrinsic vest_other_locked --log state-trace=trace,benchmark=trace 2> ./output/vesting_vest_other_locked.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet vesting --extrinsic vest_other_locked --raw --execution=wasm --wasm-execution=compiled > ./output/vesting_vest_other_locked.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet vesting --extrinsic vest_other_not_locked --log state-trace=trace,benchmark=trace 2> ./output/vesting_vest_other_not_locked.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet vesting --extrinsic vest_other_not_locked --raw --execution=wasm --wasm-execution=compiled > ./output/vesting_vest_other_not_locked.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet vesting --extrinsic vest_other_unlocked --log state-trace=trace,benchmark=trace 2> ./output/vesting_vest_other_unlocked.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet vesting --extrinsic vest_other_unlocked --raw --execution=wasm --wasm-execution=compiled > ./output/vesting_vest_other_unlocked.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet vesting --extrinsic vested_transfer --log state-trace=trace,benchmark=trace 2> ./output/vesting_vested_transfer.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet vesting --extrinsic vested_transfer --raw --execution=wasm --wasm-execution=compiled > ./output/vesting_vested_transfer.txt
