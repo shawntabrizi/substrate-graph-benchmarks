@@ -1,4 +1,3 @@
-pallet,extrinsic
 balances,transfer
 balances,transfer_best_case
 balances,transfer_keep_alive
@@ -6,15 +5,17 @@ balances,set_balance
 balances,set_balance_killing
 collective,set_members
 collective,execute
-collective,propose
-collective,propose_else_branch
-collective,vote
-collective,vote_not_approve
+collective,propose_execute
+collective,propose_proposed
+collective,vote_insert
+collective,vote_disapproved
 collective,vote_approved
-collective,close
+collective,close_disapproved
+collective,close_approved
 democracy,propose
 democracy,second
-democracy,vote
+democracy,vote_new
+democracy,vote_existing
 democracy,proxy_vote
 democracy,emergency_cancel
 democracy,external_propose
@@ -24,7 +25,6 @@ democracy,fast_track
 democracy,veto_external
 democracy,cancel_referendum
 democracy,cancel_queued
-democracy,open_proxy
 democracy,activate_proxy
 democracy,close_proxy
 democracy,deactivate_proxy
@@ -32,8 +32,11 @@ democracy,delegate
 democracy,undelegate
 democracy,clear_public_proposals
 democracy,note_preimage
+democracy,note_imminent_preimage
 democracy,reap_preimage
-democracy,unlock
+democracy,unlock_remove
+democracy,unlock_set
+democracy,open_proxy
 democracy,remove_vote
 democracy,remove_other_vote
 democracy,proxy_delegate
@@ -80,6 +83,7 @@ staking,new_era
 staking,do_slash
 staking,payout_all
 timestamp,set
+timestamp,on_finalize
 treasury,propose_spend
 treasury,reject_proposal
 treasury,approve_proposal
@@ -98,7 +102,7 @@ utility,approve_as_multi_create
 utility,approve_as_multi_approve
 utility,cancel_as_multi
 vesting,vest_locked
-vesting,vest_not_locked
+vesting,vest_unlocked
 vesting,vest_other_locked
-vesting,vest_other_not_locked
+vesting,vest_other_unlocked
 vesting,vested_transfer
