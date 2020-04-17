@@ -7,5 +7,47 @@
     "balances": {
         "u": "User Seed",
         "e": "# of Existential Deposits"
+    },
+    "collective": {
+        "m": "# of Members",
+        "n": "# of Old Members",
+        "b": "# of Bytes in Pre-image Proposal"
+    },
+    "democracy": {
+        "p": "# of Proposals",
+        "s": "# of Seconds",
+        "r": "# of Referendums",
+        "v": "#  of Vetoes",
+        "u": "User Seed",
+        "b": "# of Bytes in Pre-image Proposal"
+    },
+    "identity": {
+        "r": "# of Registrars",
+        "s": "# of Sub Accounts",
+        "x": "# of Additional Fields"
+    },
+    "im-online": {
+        "k": "# of Keys",
+        "e": "# of External Addresses"
+    },
+    "session": {
+        "n": "# of Nominations"
+    },
+    "staking": {
+        "v": "# of Validators",
+        "n": "# of Nominators"
+    },
+    "treasury": {
+        "r": "# of Bytes",
+        "t": "# of Tippers",
+        "p": "# of Approved Proposals"
+    },
+    "utility": {
+        "c": "# of Batch Calls",
+        "s": "# of Signatories",
+        "z": "Transaction Length"
+    },
+    "vesting": {
+        "l": "# of Locks"
     }
 }
