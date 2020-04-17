@@ -1,13 +1,14 @@
-async function parseData(pallet, extrinsic) {
+async function parseData(pallet, extrinsic, text) {
     // Benchmark data is in *.txt
     input = './data/' + pallet + "_" + extrinsic + ".txt";
 
-    let text;
-    try {
-        text = await d3.text(input);
-    } catch (e) {
-        document.getElementById('charts').innerText = e;
-        return;
+    if (!text) {
+        try {
+            text = await d3.text(input);
+        } catch (e) {
+            document.getElementById('charts').innerText = e;
+            return;
+        }
     }
 
     let component_metadata = await d3.json('./metadata.json');
@@ -33,7 +34,7 @@ async function parseData(pallet, extrinsic) {
         .split(' ');
 
     document.getElementById('dashboard-title').innerText = benchmark_metadata.join(' ');
-    document.getElementById('dashboard-title-link').href = input;
+    document.getElementById('raw-data-link').href = input;
 
 
     let repeat = parseInt(benchmark_metadata[benchmark_metadata.findIndex((e) => e == "Repeat:") + 1]);
@@ -261,3 +262,8 @@ function createCharts(split_data, keys, metadata, components) {
         }
     }
 }
+
+document.getElementById("paste-raw").addEventListener("input", async function(event) {
+    let input = event.target.value;
+    parseData("", "", input);
+});

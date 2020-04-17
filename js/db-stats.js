@@ -1,16 +1,17 @@
-async function parseData(pallet, extrinsic) {
+async function parseData(pallet, extrinsic, text) {
     // Benchmark data is in *.txt
     input = './data/' + pallet + "_" + extrinsic + ".log";
 
     document.getElementById('dashboard-title').innerText = input;
-    document.getElementById('dashboard-title-link').href = input;
+    document.getElementById('raw-data-link').href = input;
 
-    let text;
-    try {
-        text = await d3.text(input);
-    } catch (e) {
-        document.getElementById('charts').innerText = e;
-        return;
+    if (!text) {
+        try {
+            text = await d3.text(input);
+        } catch (e) {
+            document.getElementById('charts').innerText = e;
+            return;
+        }
     }
 
     var ssv = d3.dsvFormat(" ");
@@ -272,3 +273,8 @@ function createCharts(all_data) {
         createRawTable(all_data[index].table, all_data[index].uid);
     });
 }
+
+document.getElementById("paste-raw").addEventListener("input", async function(event) {
+    let input = event.target.value;
+    parseData("", "", input);
+});

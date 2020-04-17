@@ -35,7 +35,8 @@
     },
     "staking": {
         "v": "# of Validators",
-        "n": "# of Nominators"
+        "n": "# of Nominators",
+        "s": "# of Slash Indices"
     },
     "treasury": {
         "r": "# of Bytes",

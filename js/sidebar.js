@@ -57,12 +57,12 @@ async function createSidebar() {
             };
 
             let a2 = document.createElement('a');
-            a2.classList.add('nav-link');
             if (pallet == current_pallet && extrinsic == current_extrinsic && db_page) {
                 a2.classList.add('active');
             }
             a2.href = './db-stats.html?p=' + pallet + '&e=' + extrinsic;
-            a2.innerText = " (db stats)";
+            a2.innerText = "(db stats)";
+            a2.classList.add("badge", "badge-secondary", "ml-2");
             a2.onclick = function() {
                 parseData(pallet, extrinsic);
             };
@@ -79,7 +79,7 @@ async function createSidebar() {
 }
 
 createSidebar().then(() => {
-    if (document.getElementsByClassName('nav-link active')[0]) {
-        document.getElementsByClassName('nav-link active')[0].scrollIntoView();
+    if (document.getElementsByClassName('active')[0]) {
+        document.getElementsByClassName('active')[0].scrollIntoView();
     }
 });

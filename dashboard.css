@@ -56,6 +56,10 @@ body {
     color: #007bff;
 }
 
+.sidebar .badge.active {
+    background-color: #007bff;
+}
+
 .sidebar .nav-link-group {
     display: block;
     padding: .5rem 1rem;
