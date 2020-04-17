@@ -2,7 +2,14 @@ async function parseData(pallet, extrinsic) {
     // Benchmark data is in *.txt
     input = './data/' + pallet + "_" + extrinsic + ".txt";
 
-    let text = await d3.text(input);
+    let text;
+    try {
+        text = await d3.text(input);
+    } catch (e) {
+        document.getElementById('charts').innerText = e;
+        return;
+    }
+
     let component_metadata = await d3.json('./metadata.json');
 
     let components = {...component_metadata["common"], ...component_metadata[pallet] }

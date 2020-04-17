@@ -5,7 +5,14 @@ async function parseData(pallet, extrinsic) {
     document.getElementById('dashboard-title').innerText = input;
     document.getElementById('dashboard-title-link').href = input;
 
-    let text = await d3.text(input);
+    let text;
+    try {
+        text = await d3.text(input);
+    } catch (e) {
+        document.getElementById('charts').innerText = e;
+        return;
+    }
+
     var ssv = d3.dsvFormat(" ");
 
     // Rough format of the substrate logs
