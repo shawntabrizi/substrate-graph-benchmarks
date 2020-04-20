@@ -52,6 +52,10 @@
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic cancel_referendum --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_cancel_referendum.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic cancel_queued --log state-trace=trace,benchmark=trace 2> ./output/democracy_cancel_queued.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic cancel_queued --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_cancel_queued.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic on_initialize_external --log state-trace=trace,benchmark=trace 2> ./output/democracy_on_initialize_external.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic on_initialize_external --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_on_initialize_external.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic on_initialize_public --log state-trace=trace,benchmark=trace 2> ./output/democracy_on_initialize_public.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic on_initialize_public --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_on_initialize_public.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic activate_proxy --log state-trace=trace,benchmark=trace 2> ./output/democracy_activate_proxy.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic activate_proxy --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_activate_proxy.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic close_proxy --log state-trace=trace,benchmark=trace 2> ./output/democracy_close_proxy.log
@@ -86,6 +90,10 @@
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_undelegate --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_proxy_undelegate.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic proxy_remove_vote --log state-trace=trace,benchmark=trace 2> ./output/democracy_proxy_remove_vote.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_remove_vote --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_proxy_remove_vote.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic enact_proposal_execute --log state-trace=trace,benchmark=trace 2> ./output/democracy_enact_proposal_execute.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic enact_proposal_execute --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_enact_proposal_execute.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic enact_proposal_slash --log state-trace=trace,benchmark=trace 2> ./output/democracy_enact_proposal_slash.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic enact_proposal_slash --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_enact_proposal_slash.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet identity --extrinsic add_registrar --log state-trace=trace,benchmark=trace 2> ./output/identity_add_registrar.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet identity --extrinsic add_registrar --raw --execution=wasm --wasm-execution=compiled > ./output/identity_add_registrar.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet identity --extrinsic set_identity --log state-trace=trace,benchmark=trace 2> ./output/identity_set_identity.log
