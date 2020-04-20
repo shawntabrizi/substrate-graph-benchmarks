@@ -65,17 +65,17 @@ async function parseData(text) {
         } else if (row.info == "Storage" && row.function == "storage_root") {
             if (before) {
                 storage_root_before.x.push(tx_per_block);
-                storage_root_before.y.push(row.time);
+                storage_root_before.y.push(row.time / 1000000);
             } else {
                 storage_root_after.x.push(tx_per_block);
-                storage_root_after.y.push(row.time);
+                storage_root_after.y.push(row.time / 1000000);
             }
         } else if (row.info == "Storage" && row.function == "changes_root") {
             changes_root.x.push(tx_per_block);
-            changes_root.y.push(row.time)
+            changes_root.y.push(row.time / 1000000)
         } else if (row.info == "frame_executive" && row.function == "execute_block") {
             execute_block.x.push(tx_per_block);
-            execute_block.y.push(row.time)
+            execute_block.y.push(row.time / 1000000)
         } else if (row.info.includes("Import benchmark") && row.function.includes("avg")) {
             let time = row.function.split(" ")[3];
             // Multiply by 1000 if seconds
