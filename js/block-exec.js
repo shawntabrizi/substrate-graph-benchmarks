@@ -1,98 +1,40 @@
 async function parseData(text) {
     // Benchmark data is in *.txt
-    input = './data/block_exec.txt';
 
     if (!text) {
-        try {
-            text = await d3.text(input);
-        } catch (e) {
-            document.getElementById('charts').innerText = e;
-            return;
+
+        for (result of blockExecResults) {
+            input = './block-exec/noop-results_' + result + '_tx_per_block.csv';
+            try {
+                file = await d3.text(input);
+                file = file.split("\n").join("," + result + "\n");
+                text += file;
+            } catch (e) {
+                document.getElementById('charts').innerText = e;
+                return;
+            }
         }
     }
 
-    var headers = ["info", "function", "time"].join(",");
-
+    var headers = ["info", "function", "time", "tx_per_block"].join(",");
     let csv = await d3.csvParse(headers + "\n" + text);
 
-    let storage_root_before = {
-        x: [],
-        y: []
-    };
-
-    let storage_root_after = {
-        x: [],
-        y: []
-    };
-
-    let changes_root = {
-        x: [],
-        y: []
-    };
-
-    let execute_block = {
-        x: [],
-        y: []
-    };
-
-    let block_construction = {
-        x: [],
-        y: []
-    };
-
-    let import_benchmark = {
-        x: [],
-        y: []
-    };
-
-    let tx_per_block = 0;
-
-    let before = true;
-
-    for (row of csv) {
-        if (row.info.includes("TX_PER_BLOCK")) {
-            before = true;
-            tx_per_block = row.info.split(" ")[0].split("=")[1];
-        } else if (row.info.includes("Block construction")) {
-            before = false;
-            let time_text = row.info.split(" ")[4];
-            let time = time_text.match(/\d+\.\d+/g)[0];
-            let unit = time_text.match(/[a-zA-Z]+/g)[0];
-            let multiplier = unit == "s" ? 1000 : 1;
-            let txs = row.info.split(" ")[5].substr(1);
-            block_construction.x.push(txs);
-            block_construction.y.push(time * multiplier);
-        } else if (row.info == "Storage" && row.function == "storage_root") {
-            if (before) {
-                storage_root_before.x.push(tx_per_block);
-                storage_root_before.y.push(row.time / 1000000);
-            } else {
-                storage_root_after.x.push(tx_per_block);
-                storage_root_after.y.push(row.time / 1000000);
-            }
-        } else if (row.info == "Storage" && row.function == "changes_root") {
-            changes_root.x.push(tx_per_block);
-            changes_root.y.push(row.time / 1000000)
-        } else if (row.info == "frame_executive" && row.function == "execute_block") {
-            execute_block.x.push(tx_per_block);
-            execute_block.y.push(row.time / 1000000)
-        } else if (row.info.includes("Import benchmark") && row.function.includes("avg")) {
-            let time = row.function.split(" ")[3];
-            // Multiply by 1000 if seconds
-            let multiplier = row.function.split(" ")[4] == "s" ? 1000 : 1;
-            import_benchmark.x.push(tx_per_block);
-            import_benchmark.y.push(time * multiplier)
-        }
-    }
-
-    let data = { storage_root_before, storage_root_after, changes_root, execute_block, block_construction, import_benchmark };
-
-    createCharts(data);
+    createCharts(csv);
 }
 
-function createCharts(split_data) {
+function createCharts(data) {
 
-    console.log(split_data)
+    let split_data = {
+        "block_execution": {
+            x: [],
+            y: []
+        }
+    };
+
+    for (row of data) {
+        split_data["block_execution"].x.push(row.tx_per_block);
+        split_data["block_execution"].y.push(row.time / 1000000);
+    }
 
     let keys = Object.keys(split_data);
 
