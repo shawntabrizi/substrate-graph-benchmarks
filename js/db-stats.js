@@ -240,6 +240,18 @@ function createRawTable(data, uid_max) {
             let td = document.createElement('td');
             if (key == "uid") {
                 td.style.backgroundColor = getColorAtScalar(row.uid, uid_max);
+            } else if (key == "operation") {
+                switch (row.operation.toUpperCase()) {
+                    case "READ":
+                        td.style.backgroundColor = "greenyellow";
+                        break
+                    case "WRITE":
+                        td.style.backgroundColor = "orange";
+                        break;
+                    case "CLEAR PREFIX":
+                        td.style.backgroundColor = "orangered";
+                        break;
+                }
             }
             td.innerText = row[key];
             tr2.appendChild(td);
