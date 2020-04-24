@@ -83,10 +83,20 @@ async function parseData(pallet, extrinsic, text) {
                 }
 
                 let knownKeyFound = "";
-                for (knownKey of knownKeys) {
-                    if (key.includes(knownKey.key.substr(2))) {
-                        knownKeyFound = knownKey.name;
+                // First look in whitelist
+                for (item of whitelist) {
+                    if (key == item.key.substr(2)) {
+                        knownKeyFound = item.name + "*";
                         break;
+                    }
+                }
+                // Then look in known-keys
+                if (knownKeyFound == "") {
+                    for (knownKey of knownKeys) {
+                        if (key.includes(knownKey.key.substr(2))) {
+                            knownKeyFound = knownKey.name;
+                            break;
+                        }
                     }
                 }
 
