@@ -34,8 +34,10 @@
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic vote_new --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_vote_new.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic vote_existing --log state-trace=trace,benchmark=trace 2> ./output/democracy_vote_existing.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic vote_existing --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_vote_existing.txt
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic proxy_vote --log state-trace=trace,benchmark=trace 2> ./output/democracy_proxy_vote.log
-./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_vote --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_proxy_vote.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic proxy_vote_new --log state-trace=trace,benchmark=trace 2> ./output/democracy_proxy_vote_new.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_vote_new --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_proxy_vote_new.txt
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic proxy_vote_existing --log state-trace=trace,benchmark=trace 2> ./output/democracy_proxy_vote_existing.log
+./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic proxy_vote_existing --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_proxy_vote_existing.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic emergency_cancel --log state-trace=trace,benchmark=trace 2> ./output/democracy_emergency_cancel.log
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --repeat 20 --pallet democracy --extrinsic emergency_cancel --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_emergency_cancel.txt
 ./substrate/target/release/substrate benchmark --chain dev --steps 20 --pallet democracy --extrinsic external_propose --log state-trace=trace,benchmark=trace 2> ./output/democracy_external_propose.log

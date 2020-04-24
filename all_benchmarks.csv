@@ -17,7 +17,8 @@ democracy,propose
 democracy,second
 democracy,vote_new
 democracy,vote_existing
-democracy,proxy_vote
+democracy,proxy_vote_new
+democracy,proxy_vote_existing
 democracy,emergency_cancel
 democracy,external_propose
 democracy,external_propose_majority
