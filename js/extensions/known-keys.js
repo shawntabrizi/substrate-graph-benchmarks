@@ -1,3 +1,21 @@
+// for (module in api.query) {
+//     if (module == "substrate") { continue; }
+//     for (storage in api.query[module]) {
+//         let query = api.query[module][storage];
+//         try {
+//             results.push({
+//                 name: module + " " + storage,
+//                 key: query.key()
+//             });
+//         } catch {
+//             results.push({
+//                 name: module + " " + storage,
+//                 key: query.keyPrefix()
+//             });
+//         }
+//     }
+// }
+
 // This is a list of well known storage prefixes in Substrate Storage
 let knownKeys = [{
         "name": "system account",
@@ -98,6 +116,10 @@ let knownKeys = [{
     {
         "name": "babe initialized",
         "key": "0x1cb6f36e027abb2091cfb5110ab5087ffa92de910a7ce2bd58e99729c69727c1"
+    },
+    {
+        "name": "babe lateness",
+        "key": "0x1cb6f36e027abb2091cfb5110ab5087f0323475657e0890fbdbf66fb24b4649e"
     },
     {
         "name": "timestamp now",
@@ -284,6 +306,10 @@ let knownKeys = [{
         "key": "0x5f3e4907f716ac89b6347d15ececedca308ce9615de0775a82f8a94dc3d285a1"
     },
     {
+        "name": "staking migrateEra",
+        "key": "0x5f3e4907f716ac89b6347d15ececedcaaa657324113feab08288289a58ec7c3a"
+    },
+    {
         "name": "session validators",
         "key": "0xcec5070d609dd3497f72bde07fc96ba088dcde934c658227ee1dfafcd6e16903"
     },
@@ -338,10 +364,6 @@ let knownKeys = [{
     {
         "name": "democracy referendumInfoOf",
         "key": "0xf2794c22e353e9a839f12faab03a911bb9e0c7dac4238b700a83735192cb921c"
-    },
-    {
-        "name": "democracy dispatchQueue",
-        "key": "0xf2794c22e353e9a839f12faab03a911babdb959a4c964eaa1d1f0820bf948f28"
     },
     {
         "name": "democracy votingOf",
@@ -654,5 +676,13 @@ let knownKeys = [{
     {
         "name": "vesting vesting",
         "key": "0x5f27b51b5ec208ee9cb25b55d87282435f27b51b5ec208ee9cb25b55d8728243"
+    },
+    {
+        "name": "scheduler agenda",
+        "key": "0x3db7a24cfdc9de785974746c14a99df91643f5419718219c95679ddd2d825574"
+    },
+    {
+        "name": "scheduler lookup",
+        "key": "0x3db7a24cfdc9de785974746c14a99df9891ad457bf4da54990fa84a2acb148a2"
     }
-]
+];
