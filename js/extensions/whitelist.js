@@ -40,5 +40,35 @@ let whitelist = [{
         key: "0x26aa394eea5630e07c48ae0c9558cef7b99d880ec681799c0cf30e8886371da95ecffd7b6c0f78751baa9d281e0bfa3a6d6f646c70792f74727372790000000000000000000000000000000000000000",
         read: true,
         write: true
+    },
+    {
+        name: ":code",
+        key: "0x3a636f6465",
+        read: true,
+        write: false
+    },
+    {
+        name: ":heappages",
+        key: "0x3a686561707061676573",
+        read: true,
+        write: false
+    },
+    {
+        name: ":extrinsic_index",
+        key: "0x3a65787472696e7369635f696e646578",
+        read: true,
+        write: true
+    },
+    {
+        name: ":changes_trie",
+        key: "0x3a6368616e6765735f74726965",
+        read: true,
+        write: false
+    },
+    {
+        name: ":child_storage:",
+        key: "0x3a6368696c645f73746f726167653a",
+        read: false,
+        write: false
     }
 ]
