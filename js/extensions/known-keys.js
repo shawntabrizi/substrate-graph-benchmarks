@@ -707,6 +707,18 @@ let storageKeys = [{
     {
         "name": "scheduler lookup",
         "key": "0x3db7a24cfdc9de785974746c14a99df9891ad457bf4da54990fa84a2acb148a2"
+    },
+    {
+        "name": "claims claims",
+        "key": "0x9c5d795d0297be56027a4b2464e333979c5d795d0297be56027a4b2464e33397"
+    },
+    {
+        "name": "claims total",
+        "key": "0x9c5d795d0297be56027a4b2464e33397f43d6436dec51f09c3b71287a8fc9d48"
+    },
+    {
+        "name": "claims vesting",
+        "key": "0x9c5d795d0297be56027a4b2464e333975f27b51b5ec208ee9cb25b55d8728243"
     }
 ];
 

@@ -1,4 +1,9 @@
 pallet,extrinsic
+claims,claim
+claims,mint_claim
+claims,validate_unsigned
+claims,keccak256
+claims,eth_recover
 balances,transfer
 balances,transfer_best_case
 balances,transfer_keep_alive
