@@ -11,7 +11,8 @@
     "collective": {
         "m": "# of Members",
         "n": "# of Old Members",
-        "b": "# of Bytes in Pre-image Proposal"
+        "b": "# of Bytes in Pre-image Proposal",
+        "p": "# of Proposals"
     },
     "democracy": {
         "p": "# of Proposals",
@@ -51,5 +52,10 @@
     },
     "vesting": {
         "l": "# of Locks"
+    },
+    "claims": {
+        "u": "User Seed",
+        "c": "# of Claims",
+        "i": "Seed"
     }
 }
