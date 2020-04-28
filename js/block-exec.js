@@ -2,39 +2,48 @@ async function parseData(text) {
     // Benchmark data is in *.txt
 
     if (!text) {
-
         for (result of blockExecResults) {
-            input = './block-exec/noop-results_' + result + '_tx_per_block.csv';
-            try {
-                file = await d3.text(input);
-                file = file.split("\n").join("," + result + "\n");
-                text += file;
-            } catch (e) {
-                document.getElementById('charts').innerText = e;
-                return;
+            for (extrinsic of blockExecExtrinsic) {
+                input = './block-exec/' + extrinsic + '-' + result + '.csv';
+                try {
+                    file = await d3.text(input);
+                    // append metadata to csv
+                    file = file.split("\n").join("," + extrinsic + "," + result + "\n");
+                    text += file;
+                } catch (e) {
+                    document.getElementById('charts').innerText = e;
+                    return;
+                }
             }
         }
     }
 
-    var headers = ["info", "function", "time", "tx_per_block"].join(",");
+    var headers = ["info", "function", "time", "extrinsic", "tx_per_block"].join(",");
     let csv = await d3.csvParse(headers + "\n" + text);
 
-    createCharts(csv);
+    let split_data = splitData(csv);
+    createCharts(split_data);
 }
 
-function createCharts(data) {
-
-    let split_data = {
-        "block_execution": {
-            x: [],
-            y: []
+function splitData(data) {
+    let split_data = {};
+    for (item of data) {
+        console.log(item)
+        if (!(item.extrinsic in split_data)) {
+            split_data[item.extrinsic] = {
+                x: [],
+                y: []
+            };
         }
-    };
-
-    for (row of data) {
-        split_data["block_execution"].x.push(row.tx_per_block);
-        split_data["block_execution"].y.push(row.time / 1000000);
+        split_data[item.extrinsic].x.push(item.tx_per_block);
+        // ns to ms
+        split_data[item.extrinsic].y.push(item.time / 1000000);
     }
+
+    return split_data;
+}
+
+function createCharts(split_data) {
 
     let keys = Object.keys(split_data);
 
