@@ -177,15 +177,6 @@ function createCharts(split_data, keys, metadata, components) {
                 return row[key];
             });
 
-            // backwards compatibility hack; TODO DELETE THIS
-            if ('time' in row) {
-                if (time_name == "extrinsic_time") {
-                    time_name = 'time'
-                } else {
-                    continue;
-                }
-            }
-
             let time = data.map(row => {
                 return row[time_name] / 1000000;
             });

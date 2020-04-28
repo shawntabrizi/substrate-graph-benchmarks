@@ -50,7 +50,7 @@ async function parseData(pallet, extrinsic, text) {
             let uid = 1;
 
             // Populate `get_tracker` and `put_tracker` with whitelist
-            for (item of whitelist) {
+            for (const item of whitelist) {
                 if (!(item.read || item.write || item.clear)) { continue; }
                 if (item.read) {
                     get_tracker[item.key.substr(2)] = uid;
@@ -84,7 +84,7 @@ async function parseData(pallet, extrinsic, text) {
 
                 let knownKeyFound = "";
                 // First look in whitelist
-                for (item of whitelist) {
+                for (const item of whitelist) {
                     if (key == item.key.substr(2)) {
                         knownKeyFound = item.name + "*";
                         break;
@@ -92,7 +92,7 @@ async function parseData(pallet, extrinsic, text) {
                 }
                 // Then look in known-keys
                 if (knownKeyFound == "") {
-                    for (knownKey of knownKeys) {
+                    for (const knownKey of knownKeys) {
                         if (key.includes(knownKey.key.substr(2))) {
                             knownKeyFound = knownKey.name;
                             break;
@@ -192,14 +192,14 @@ function createCounterTable(data) {
     let keys = Object.keys(data)
 
     let tr = document.createElement('tr');
-    for (key of keys) {
+    for (const key of keys) {
         let th = document.createElement('th');
         th.innerText = key;
 
         tr.appendChild(th);
     }
     let tr2 = document.createElement('tr');
-    for (key of keys) {
+    for (const key of keys) {
         let td = document.createElement('td');
         td.innerText = data[key];
         tr2.appendChild(td);
@@ -227,16 +227,16 @@ function createRawTable(data, uid_max) {
     let keys = Object.keys(data[0])
 
     let tr = document.createElement('tr');
-    for (key of keys) {
+    for (const key of keys) {
         let th = document.createElement('th');
         th.innerText = key;
 
         tr.appendChild(th);
     }
 
-    for (row of data) {
+    for (const row of data) {
         let tr2 = document.createElement('tr');
-        for (key of keys) {
+        for (const key of keys) {
             let td = document.createElement('td');
             if (key == "uid") {
                 td.style.backgroundColor = getColorAtScalar(row.uid, uid_max);
@@ -274,7 +274,7 @@ function combineData(all_data, data_key) {
     let components = Object.keys(all_data);
     let combined = {};
 
-    for (component of components) {
+    for (const component of components) {
         if (all_data[component].length == 0) { continue; }
 
         let keys = Object.keys(all_data[component][0][data_key]);

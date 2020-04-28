@@ -29,7 +29,7 @@ body {
     position: relative;
     top: 0;
     height: calc(100vh - 48px);
-    padding-top: .5rem;
+    /*padding-top: .5rem; remove with button */
     overflow-x: hidden;
     overflow-y: auto;
     /* Scrollable contents if viewport is shorter than content. */
@@ -58,6 +58,10 @@ body {
 
 .sidebar .badge.active {
     background-color: #007bff;
+}
+
+.sidebar .btn {
+    display: block;
 }
 
 .sidebar .nav-link-group {

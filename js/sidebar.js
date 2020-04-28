@@ -1,7 +1,14 @@
 async function createSidebar() {
-    var queryStrings = parseQueryStrings();
+    let queryStrings = {};
+
+    try {
+        queryStrings = parseQueryStrings();
+    } catch (e) {
+        console.log("This page will not support query strings.")
+    }
     let current_pallet = '';
     let current_extrinsic = '';
+
     if (queryStrings['p'] && queryStrings['e']) {
         current_pallet = queryStrings['p'];
         current_extrinsic = queryStrings['e'];
@@ -11,18 +18,31 @@ async function createSidebar() {
 
     let benchmarks = await d3.csv("./all_benchmarks.csv");
 
+    // Organize Benchmarks by Pallet and Extrinsic
     let benchmarksOrganized = {}
-
     for (benchmark of benchmarks) {
         if (!(benchmark.pallet in benchmarksOrganized)) {
             benchmarksOrganized[benchmark.pallet] = []
         }
         benchmarksOrganized[benchmark.pallet].push(benchmark.extrinsic)
+    }
 
+    let sidebar = document.getElementById('sidebar');
+
+    // Create Buttons to go to other pages
+    let extra_pages = [{
+        "name": "Block Execution >",
+        "url": "./block-exec.html"
+    }];
+    for (page of extra_pages) {
+        let button = document.createElement('a');
+        button.classList.add('btn', 'btn-info', 'btn-sm', 'rounded-0');
+        button.href = page.url;
+        button.innerText = page.name;
+        sidebar.appendChild(button);
     }
 
     for ([pallet, extrinsics] of Object.entries(benchmarksOrganized)) {
-        let sidebar = document.getElementById('sidebar');
         let h6 = document.createElement('h6');
         h6.classList.add(
             'sidebar-heading',
@@ -39,7 +59,7 @@ async function createSidebar() {
         let ul = document.createElement('ul');
         ul.classList.add('nav', 'flex-column', 'mb-2');
 
-        for (extrinsic of extrinsics) {
+        for (const extrinsic of extrinsics) {
             let li = document.createElement('li');
             li.classList.add('nav-item');
             let span = document.createElement('span');

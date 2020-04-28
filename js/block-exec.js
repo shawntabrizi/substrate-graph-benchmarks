@@ -2,8 +2,8 @@ async function parseData(text) {
     // Benchmark data is in *.txt
 
     if (!text) {
-        for (result of blockExecResults) {
-            for (extrinsic of blockExecExtrinsic) {
+        for (const result of blockExecResults) {
+            for (const extrinsic of blockExecExtrinsic) {
                 input = './block-exec/' + extrinsic + '-' + result + '.csv';
                 try {
                     file = await d3.text(input);
@@ -22,13 +22,14 @@ async function parseData(text) {
     let csv = await d3.csvParse(headers + "\n" + text);
 
     let split_data = splitData(csv);
+
     createCharts(split_data);
 }
 
 function splitData(data) {
     let split_data = {};
-    for (item of data) {
-        console.log(item)
+
+    for (const item of data) {
         if (!(item.extrinsic in split_data)) {
             split_data[item.extrinsic] = {
                 x: [],
@@ -48,7 +49,7 @@ function createCharts(split_data) {
     let keys = Object.keys(split_data);
 
     var counter = 0;
-    for (key of keys) {
+    for (const key of keys) {
 
         let x = split_data[key].x;
         let time = split_data[key].y;
