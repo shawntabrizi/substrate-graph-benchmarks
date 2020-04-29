@@ -31,12 +31,19 @@ async function createSidebar() {
 
     // Create Buttons to go to other pages
     let extra_pages = [{
-        "name": "Block Execution >",
-        "url": "./block-exec.html"
-    }];
+            "name": "Documentation >",
+            "url": "./docs/",
+            "class": "btn-primary"
+        },
+        {
+            "name": "Block Execution >",
+            "url": "./block-exec.html",
+            "class": "btn-info"
+        }
+    ];
     for (page of extra_pages) {
         let button = document.createElement('a');
-        button.classList.add('btn', 'btn-info', 'btn-sm', 'rounded-0');
+        button.classList.add('btn', 'btn-sm', 'rounded-0', page.class);
         button.href = page.url;
         button.innerText = page.name;
         sidebar.appendChild(button);
