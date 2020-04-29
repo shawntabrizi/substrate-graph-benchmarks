@@ -1,100 +1,24 @@
-2020-04-17 15:20:35.305 main TRACE benchmark  Start Benchmark: t 1
-2020-04-17 15:20:35.305 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.305 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.305 main TRACE benchmark  End Benchmark: 35720 ns
-2020-04-17 15:20:35.305 main TRACE benchmark  Start Benchmark: t 5
-2020-04-17 15:20:35.305 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.305 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.305 main TRACE benchmark  End Benchmark: 32534 ns
-2020-04-17 15:20:35.305 main TRACE benchmark  Start Benchmark: t 9
-2020-04-17 15:20:35.305 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.305 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.305 main TRACE benchmark  End Benchmark: 32603 ns
-2020-04-17 15:20:35.306 main TRACE benchmark  Start Benchmark: t 13
-2020-04-17 15:20:35.306 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.306 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.306 main TRACE benchmark  End Benchmark: 31889 ns
-2020-04-17 15:20:35.306 main TRACE benchmark  Start Benchmark: t 17
-2020-04-17 15:20:35.306 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.306 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.306 main TRACE benchmark  End Benchmark: 31041 ns
-2020-04-17 15:20:35.306 main TRACE benchmark  Start Benchmark: t 21
-2020-04-17 15:20:35.306 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.306 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.306 main TRACE benchmark  End Benchmark: 31726 ns
-2020-04-17 15:20:35.306 main TRACE benchmark  Start Benchmark: t 25
-2020-04-17 15:20:35.306 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.306 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.306 main TRACE benchmark  End Benchmark: 31165 ns
-2020-04-17 15:20:35.307 main TRACE benchmark  Start Benchmark: t 29
-2020-04-17 15:20:35.307 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.307 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.307 main TRACE benchmark  End Benchmark: 31853 ns
-2020-04-17 15:20:35.307 main TRACE benchmark  Start Benchmark: t 33
-2020-04-17 15:20:35.307 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.307 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.307 main TRACE benchmark  End Benchmark: 31081 ns
-2020-04-17 15:20:35.307 main TRACE benchmark  Start Benchmark: t 37
-2020-04-17 15:20:35.307 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.307 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.307 main TRACE benchmark  End Benchmark: 31439 ns
-2020-04-17 15:20:35.307 main TRACE benchmark  Start Benchmark: t 41
-2020-04-17 15:20:35.307 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.307 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.307 main TRACE benchmark  End Benchmark: 30797 ns
-2020-04-17 15:20:35.308 main TRACE benchmark  Start Benchmark: t 45
-2020-04-17 15:20:35.308 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.308 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.308 main TRACE benchmark  End Benchmark: 30804 ns
-2020-04-17 15:20:35.308 main TRACE benchmark  Start Benchmark: t 49
-2020-04-17 15:20:35.308 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.308 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.308 main TRACE benchmark  End Benchmark: 31065 ns
-2020-04-17 15:20:35.308 main TRACE benchmark  Start Benchmark: t 53
-2020-04-17 15:20:35.308 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.308 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.308 main TRACE benchmark  End Benchmark: 31446 ns
-2020-04-17 15:20:35.308 main TRACE benchmark  Start Benchmark: t 57
-2020-04-17 15:20:35.308 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.308 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.308 main TRACE benchmark  End Benchmark: 31139 ns
-2020-04-17 15:20:35.309 main TRACE benchmark  Start Benchmark: t 61
-2020-04-17 15:20:35.309 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.309 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.309 main TRACE benchmark  End Benchmark: 31230 ns
-2020-04-17 15:20:35.309 main TRACE benchmark  Start Benchmark: t 65
-2020-04-17 15:20:35.309 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.309 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.309 main TRACE benchmark  End Benchmark: 37441 ns
-2020-04-17 15:20:35.309 main TRACE benchmark  Start Benchmark: t 69
-2020-04-17 15:20:35.309 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.309 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.309 main TRACE benchmark  End Benchmark: 46136 ns
-2020-04-17 15:20:35.309 main TRACE benchmark  Start Benchmark: t 73
-2020-04-17 15:20:35.309 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.309 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.309 main TRACE benchmark  End Benchmark: 48736 ns
-2020-04-17 15:20:35.310 main TRACE benchmark  Start Benchmark: t 77
-2020-04-17 15:20:35.310 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.310 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.310 main TRACE benchmark  End Benchmark: 36876 ns
-2020-04-17 15:20:35.310 main TRACE benchmark  Start Benchmark: t 81
-2020-04-17 15:20:35.310 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.310 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.310 main TRACE benchmark  End Benchmark: 31987 ns
-2020-04-17 15:20:35.310 main TRACE benchmark  Start Benchmark: t 85
-2020-04-17 15:20:35.310 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.310 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.310 main TRACE benchmark  End Benchmark: 32155 ns
-2020-04-17 15:20:35.311 main TRACE benchmark  Start Benchmark: t 89
-2020-04-17 15:20:35.311 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.311 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.311 main TRACE benchmark  End Benchmark: 34602 ns
-2020-04-17 15:20:35.311 main TRACE benchmark  Start Benchmark: t 93
-2020-04-17 15:20:35.311 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.311 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.311 main TRACE benchmark  End Benchmark: 31397 ns
-2020-04-17 15:20:35.311 main TRACE benchmark  Start Benchmark: t 97
-2020-04-17 15:20:35.311 main TRACE state-trace  22c4: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
-2020-04-17 15:20:35.311 main TRACE state-trace  22c4: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
-2020-04-17 15:20:35.311 main TRACE benchmark  End Benchmark: 31859 ns
+2020-04-29 10:53:41.398 main TRACE benchmark  Start Benchmark: t 1
+2020-04-29 10:53:41.398 main TRACE state  a94e: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-04-29 10:53:41.398 main TRACE state  a94e: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-04-29 10:53:41.398 main TRACE benchmark  End Benchmark: 19697 ns
+2020-04-29 10:53:41.399 main TRACE benchmark  Start Benchmark: t 20
+2020-04-29 10:53:41.399 main TRACE state  a94e: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-04-29 10:53:41.399 main TRACE state  a94e: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-04-29 10:53:41.399 main TRACE benchmark  End Benchmark: 11804 ns
+2020-04-29 10:53:41.399 main TRACE benchmark  Start Benchmark: t 39
+2020-04-29 10:53:41.399 main TRACE state  a94e: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-04-29 10:53:41.399 main TRACE state  a94e: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-04-29 10:53:41.399 main TRACE benchmark  End Benchmark: 17164 ns
+2020-04-29 10:53:41.399 main TRACE benchmark  Start Benchmark: t 58
+2020-04-29 10:53:41.399 main TRACE state  a94e: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-04-29 10:53:41.399 main TRACE state  a94e: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-04-29 10:53:41.399 main TRACE benchmark  End Benchmark: 11438 ns
+2020-04-29 10:53:41.399 main TRACE benchmark  Start Benchmark: t 77
+2020-04-29 10:53:41.399 main TRACE state  a94e: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-04-29 10:53:41.399 main TRACE state  a94e: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-04-29 10:53:41.399 main TRACE benchmark  End Benchmark: 11148 ns
+2020-04-29 10:53:41.399 main TRACE benchmark  Start Benchmark: t 96
+2020-04-29 10:53:41.399 main TRACE state  a94e: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-04-29 10:53:41.399 main TRACE state  a94e: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-04-29 10:53:41.399 main TRACE benchmark  End Benchmark: 18480 ns
