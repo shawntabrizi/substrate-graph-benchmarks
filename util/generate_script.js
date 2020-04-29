@@ -17,12 +17,12 @@ async function main() {
         let name = "polkadot"
         let executable = "./" + name + "/target/release/" + name
         let benchmark = "benchmark"
-        let chain = "--chain kusama-dev"
+        let chain = "--chain ./polkadot/kusama-dev-final.json"
         let execution = "--execution=wasm --wasm-execution=compiled"
         let logging = "--log state=trace,benchmark=trace"
-        let steps_full = "--steps 100"
-        let steps_small = "--steps 10"
-        let repeat = "--repeat 100"
+        let steps_full = "--steps 50"
+        let steps_small = "--steps 5"
+        let repeat = "--repeat 20"
         let pallet = "--pallet " + pallet_name
         let extrinsic = "--extrinsic " + extrinsic_name
         let raw = "--raw"
