@@ -39,7 +39,7 @@ async function parseData(pallet, extrinsic, text) {
     document.getElementById('dashboard-title').innerText = benchmark_metadata.join(' ');
     document.getElementById('raw-data-link').href = input;
 
-
+    // # of repeats on each benchmark
     let repeat = parseInt(benchmark_metadata[benchmark_metadata.findIndex((e) => e == "Repeat:") + 1]);
 
     // The actual CSV data is the rest
@@ -137,7 +137,7 @@ function splitBenchmarks(data, repeat) {
     let keys = Object.keys(data[0]);
 
     // Remove known column names
-    keys = keys.filter(item => item !== "time" && item !== "extrinsic_time" && item !== "storage_root_time" && item !== "commit_db_time")
+    keys = keys.filter(item => item !== "extrinsic_time" && item !== "storage_root_time")
 
     let split_data = {};
     for (key of keys) {
@@ -150,12 +150,19 @@ function splitBenchmarks(data, repeat) {
         return split_data;
     }
 
-    for (let i = 0; i < data.length; i += repeat) {
-        for (key of keys) {
-            if (data[i + repeat]) {
-                if (data[i][key] != data[i + repeat][key]) {
-                    split_data[key] = split_data[key].concat(data.slice(i, i + repeat));
-                    break;
+    // Split data by key
+    let current_index = 0;
+    for (key of keys) {
+        if (data[current_index + repeat]) {
+            if (data[current_index][key] != data[current_index + repeat][key]) {
+                // Check that the key is changing each repeat number of items
+                for (; data[current_index + repeat] && data[current_index][key] != data[current_index + repeat][key]; current_index += repeat) {
+                    split_data[key] = split_data[key].concat(data.slice(current_index, current_index + repeat));
+                }
+                // One more repeat of data after the loop belongs to the current key
+                if (data[current_index + repeat]) {
+                    split_data[key] = split_data[key].concat(data.slice(current_index, current_index + repeat));
+                    current_index += repeat;
                 }
             }
         }
