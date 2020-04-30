@@ -160,10 +160,8 @@ function splitBenchmarks(data, repeat) {
                     split_data[key] = split_data[key].concat(data.slice(current_index, current_index + repeat));
                 }
                 // One more repeat of data after the loop belongs to the current key
-                if (data[current_index + repeat]) {
-                    split_data[key] = split_data[key].concat(data.slice(current_index, current_index + repeat));
-                    current_index += repeat;
-                }
+                split_data[key] = split_data[key].concat(data.slice(current_index, current_index + repeat));
+                current_index += repeat;
             }
         }
     }
