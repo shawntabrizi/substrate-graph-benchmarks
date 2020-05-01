@@ -10,7 +10,7 @@
     },
     "collective": {
         "m": "# of Members",
-        "n": "# of Old Members",
+        "n": "# of New Members",
         "b": "# of Bytes in Pre-image Proposal",
         "p": "# of Proposals"
     },
@@ -23,6 +23,7 @@
         "b": "# of Bytes in Pre-image Proposal"
     },
     "identity": {
+        "p": "# of Previous Sub Accounts",
         "r": "# of Registrars",
         "s": "# of Sub Accounts",
         "x": "# of Additional Fields"
@@ -57,5 +58,8 @@
         "u": "User Seed",
         "c": "# of Claims",
         "i": "Seed"
+    },
+    "timestamp": {
+        "t": "timestamp value"
     }
 }
