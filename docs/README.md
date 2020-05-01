@@ -16,5 +16,13 @@ The Substrate benchmarking process can be broken down into the following compone
 * Benchmarking Block Construction Overhead
 * Benchmarking Extrinsic Overhead
 * Benchmarking the Runtime
+    * Dispatchable Function Logic
+    * Number of DB Operations
 
-With these indivudal compon
+With these individual components, we are able to paint a bottom up picture of how long it will take to execute a block:
+
+* The base time it takes to execute an empty block.
+* For each extrinsic:
+    * The base time it takes to execute a no-op extrinsic.
+    * The time it takes to execute the specific dispatchable function.
+    * The time it takes to read and write to the underlying database as a result of the dispatchable function.

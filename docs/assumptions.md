@@ -38,6 +38,34 @@ rustc 1.42.0 (b8cedc004 2020-03-09)
 
 ## Database
 
+### Key Length
+
+We have generally found that the key length of items in RocksDB does not have a significant impact on the performance of DB operations.
+
+See [Shorter keys #5439](https://github.com/paritytech/substrate/pull/5439).
+
+### Value Size
+
+TODO: The size of a value in storage does matter for encode/decode, but not really for trie traversal?
+
+### Repeat Reads and Writes
+
+Substrate has an abstraction layer that places any reads or writes to the DB into an _overlay change set_. The overlay change set is only committed once per block at the end of the block.
+
+Generally this means we have the following behavior when interacting with the DB from the runtime:
+
+* If you read a storage item for the first time, it will go all the way down to the underlying database and read that value. This would count as a single database read.
+
+* If you read that storage item again, then it will actually read from the overlay change set, not from the DB. So this does not count as a database read.
+
+* If you write to a storage item, it will write to the overlay change set, not the DB. This will also make any future read operation read from the overlay change set.
+
+* At the end of the block, any storage item that has changed will be written to the DB. This counts as a DB write.
+
+For this reason, our DbWeight only measures the cost read and write operations. Any changes in the overlay change set are measured through the runtime benchmarks using Memory DB.
+
+### More Assumptions
+
 Find Database Assumptions on the [database benchmarking page](database.md)
 
 ## Polkadot
