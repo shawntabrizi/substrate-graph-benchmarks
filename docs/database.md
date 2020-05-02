@@ -125,10 +125,10 @@ Repeat read and write assumptions can be found on the main [assumptions](assumpt
 
 ### Key Length
 
-TODO?? What keys are chosen?
+Random 32 byte keys are chosen.
 
 ### Value Sizes
 
 This benchmark uses a distribution of values similar to the distribution of values in the Kusama database.
 
-TODO more details.
+This distribution is recorded here: https://github.com/paritytech/substrate/blob/master/bin/node/bench/src/state_sizes.rs
