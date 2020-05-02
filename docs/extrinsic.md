@@ -30,6 +30,7 @@ cargo run --release -p node-bench -- ::node::import::wasm::sr25519::noop::custom
 The output will look like:
 
 ```bash
+# truncated for clarity
 2020-05-01 20:37:37 imported block with 10001 tx, took: 1.241417064s
 2020-05-01 20:37:37 usage info: caches: (3.67 MiB state, 0 bytes db overlay), state db: (168 bytes non-canonical, 0 bytes pruning, 44 bytes pinned), i/o: (0 tx, 0 write, 0 read, 0 avg tx, 40001/50033 key cache reads/total, 18897 trie nodes writes)
 2020-05-01 20:37:37 Import benchmark (Noop(10000), Wasm): avg 1.26 s, w_avg 1.26 s

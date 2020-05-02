@@ -1,7 +1,7 @@
 <!-- docs/_sidebar.md -->
 
 * [Home](/)
-* [Assumptions](assumptions.md)
+* [Base Assumptions](assumptions.md)
 * [Tools](tools.md)
 * [Benchmarking Database Operations](database.md)
 * [Benchmarking Block Construction](block-exec.md)
