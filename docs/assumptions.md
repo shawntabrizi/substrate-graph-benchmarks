@@ -894,6 +894,20 @@ The difference in performance may vary depending on how much computation is done
 
 ## Database
 
+For all benchmarks, we use RocksDB as our database backend unless stated otherwise. Substrate also supports two expirimental databases: SubDB and ParityDB, however these will not be used for any of our benchmarking or weight calculations.
+
+### Database Cache
+
+To ensure worst case scenario for all of our benchmarks, we ensure that there is no cached items in our database, so that every read and write operations is as expensive as can be.
+
+### Trie DB
+
+On top of the underlying key/value database, Substrate always assumes there is a Trie DB. In the case of Substrate, we use a base 16 merkle-patricia trie.
+
+This means that we should expect that every read and write to the database should be multiplied by log16(N), where N are the total number of items stored in the runtime.
+
+For example, if there are 200,000 items in the database, we expect that there will be 5 additional reads/writes per database lookup. We account for this by pre-populating the database.
+
 ### Key Length
 
 We have generally found that the key length of items in RocksDB does not have a significant impact on the performance of DB operations.
@@ -923,46 +937,3 @@ For this reason, our DbWeight only measures the cost read and write operations. 
 ### More Assumptions
 
 Find Database Assumptions on the [database benchmarking page](database.md)
-
-## Polkadot
-
-The current scope of our benchmarking efforts is to launch the Polkadot Network.
-
-### Runtime
-
-Many pallets allow you to mix and match various configuration options which may cause large changes in the behavior of the pallets.
-
-**The current benchmarking/weights will apply only to the FRAME Pallets as configured in the Polkadot Runtime.**
-
-For example, we assume all instances of the `Currency` trait are implemented by the `pallet-balances` crate.
-
-Furthermore, we assume that there is a tight coupling between various consensus and governance pallets:
-
-* Im Online, Session, Staking, and Offences are tightly coupled
-* Collective, Membership, and Democracy are tightly coupled
-* etc...
-
-These benchmarking results may not be safe for use in runtimes with a different configuration.
-
-### Estimated Maximums
-
-The weight of extrinsics and database operations will grow as the state of the blockchain is populated.
-
-**These weights will only apply as long as these constraints hold for the blockchain state:**
-
-```js
-let sale_buyers = 4000;
-let active_users = 5000;
-let accounts = 100000;
-let stakers = 20000;
-let staking_history_depth = 84;
-let staking_bonding_duration = 28;
-let validators = 1000;
-let voters = 50000;
-let treasury = 1000;
-let society = 150;
-let parachains = 100;
-let parathreads = 1000;
-```
-
-This is based on what we think may be a reasonable usage of the Polkadot network for the first year.

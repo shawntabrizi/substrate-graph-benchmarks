@@ -6,11 +6,30 @@ The goal of this page is to explain how we benchmark the overhead invoked by sim
 
 Importing an empty block has some base overhead that we want to account for in the overall weight of a block.
 
-This overhead includes things like:
+Essentially, it includes all of the logic in the Executive `execute_block` except executing the extrinsics:
 
-* Verifying the storage root
-* Calculating the new storage root
-* TODO ADD MORE DETAILS
+```rust
+/// Actually execute all transitions for `block`.
+pub fn execute_block(block: Block) {
+	Self::initialize_block(block.header());
+
+	// any initial checks
+	Self::initial_checks(&block);
+
+	let batching_safeguard = sp_runtime::SignatureBatching::start();
+
+	// execute extrinsics
+	let (header, extrinsics) = block.deconstruct();
+	Self::execute_extrinsics_with_book_keeping(extrinsics, *header.number());  // <-- Ignore this stuff
+
+	if !sp_runtime::SignatureBatching::verify(batching_safeguard) {
+		panic!("Signature verification failed.");
+	}
+
+	// any final checks
+	Self::final_checks(&header);
+}
+```
 
 ## How To
 
@@ -35,3 +54,13 @@ This tells us that it takes ~5 milliseconds to import a block with no transactio
 ## How the Benchmark Works
 
 To execute this benchmark, we simply construct a block with zero transactions (other than `set_timestamp` which is required in every valid block). We then import this block using the Wasm runtime environment.
+
+## Assumptions
+
+### Database
+
+While this block does not make significant changes to the underlying database, it does update the timestamp. The underlying Substrate database is pre-populated with 50,000 funded accounts.
+
+### Timestamp Extrinsic
+
+It is impossible to import a block that does not update the timestamp, therefore this "empty block" does contain 1 transaction (as noted in the log above). This is negligible compared to the overall time of block import.
