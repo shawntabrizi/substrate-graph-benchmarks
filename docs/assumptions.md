@@ -17,7 +17,7 @@ https://www.ovh.co.uk/dedicated_servers/prices/
 <details>
   <summary><code>lscpu - Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz (expand)</code></summary>
 
-```
+```bash
 shawntabrizi@bm2:~$ lscpu
 Architecture:                    x86_64
 CPU op-mode(s):                  32-bit, 64-bit
@@ -68,7 +68,7 @@ Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtr
 
 Base disk speed is benchmarked with the following command:
 
-```
+```bash
 fio --randrepeat=1 --ioengine=posixaio --direct=1 --gtod_reduce=1 --name=test --filename=test --bs=4k --iodepth=64 --size=4G --readwrite=randrw --rwmixread=75
 ```
 
@@ -76,7 +76,7 @@ fio --randrepeat=1 --ioengine=posixaio --direct=1 --gtod_reduce=1 --name=test --
 <details>
   <summary><code>fio disk benchmark (expand)</code></summary>
 
-```
+```bash
 shawntabrizi@bm2:~$ fio --randrepeat=1 --ioengine=posixaio --direct=1 --gtod_reduce=1 --name=test --filename=test --bs=4k --iodepth=64 --size=4G --readwrite=randrw --rwmixread=75
 test: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=64
 fio-3.16
@@ -115,7 +115,7 @@ Disk stats (read/write):
 <details>
   <summary><code>lspci driver details(expand)</code></summary>
 
-```
+```bash
 00:00.0 Host bridge: Intel Corporation Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers (rev 05)
 	Subsystem: Intel Corporation Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers
 	Flags: bus master, fast devsel, latency 0
@@ -377,7 +377,7 @@ Disk stats (read/write):
 <details>
   <summary><code>lshw (expand)</code></summary>
 
-```
+```bash
 shawntabrizi@bm2:~$ sudo lshw
 bm2
     description: Rack Mount Chassis
@@ -844,7 +844,7 @@ bm2
 <details>
   <summary><code>Ubuntu 20.04 (expand)</code></summary>
 
-```
+```bash
 $  lsb_release -a
 No LSB modules are available.
 Distributor ID:	Ubuntu
@@ -859,7 +859,7 @@ Codename:	focal
 <details>
   <summary><code>cargo version (expand)</code></summary>
 
-```
+```bash
 $ cargo --version
 cargo 1.43.0 (3532cf738 2020-03-17)
 $ rustc --version

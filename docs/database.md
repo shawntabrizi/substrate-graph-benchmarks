@@ -12,7 +12,7 @@ As such, we have isolated the weight of database operations separate from the re
 
 To benchmark your database read and write speeds, simply run:
 
-```
+```bash
 cargo run --release -p node-bench -- trie
 ```
 
@@ -21,7 +21,7 @@ The resulting output will look like:
 <details>
 <summary> Output (expand)</summary>
 
-```
+```bash
 2020-05-01 14:23:44 Starting Trie read benchmark(empty database (200 keys), db_type: RocksDb)
 2020-05-01 14:23:45 Trie read benchmark(empty database (200 keys), db_type: RocksDb): avg 6.1 µs, w_avg 6.1 µs
 2020-05-01 14:23:45 Starting Trie read benchmark(empty database (200 keys), db_type: ParityDb)
@@ -77,7 +77,7 @@ From this, we can extract our `DbWeight` values using the weighted average `w_av
 
 In the case of polkadot, this is 200,000 items. So from the data above we extract the following:
 
-```
+```bash
 2020-05-01 14:24:57 Trie read benchmark(large database (200,000 keys), db_type: RocksDb): avg 25.6 µs, w_avg 24.4 µs
 2020-05-01 14:32:44 Trie write benchmark(large database (200,000 keys), db_type = RocksDb): avg 0.10 ms, w_avg 97.9 µs
 ```

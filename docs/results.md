@@ -57,7 +57,7 @@ The sum of all weights in a single full block should be 2 seconds.
 
 Using the `node-bench` utility, we are able to construct a full block with only keep-alive balance transfers:
 
-```
+```bash
 cargo run --release -p node-bench -- ::node::import::wasm::sr25519::transfer_keep_alive::custom --transactions 10000
 ```
 
