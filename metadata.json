@@ -22,6 +22,12 @@
         "u": "User Seed",
         "b": "# of Bytes in Pre-image Proposal"
     },
+    "offences": {
+        "r": "# of Reporters",
+        "o": "# of Offenders",
+        "n": "# of Nominators",
+        "d": "# of Deferred Offences"
+    },
     "identity": {
         "p": "# of Previous Sub Accounts",
         "r": "# of Registrars",
