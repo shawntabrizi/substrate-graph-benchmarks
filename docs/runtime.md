@@ -93,7 +93,7 @@ We make the following assumptions when benchmarking the Substrate runtime.
 
 ### Empty Genesis
 
-We do not prepare the genesis state of the runtime before running any benchmarks.
+We do not prepare the genesis state of the runtime before running any benchmarks. It is known that increasing database saturation will have a negative impact on the performance of read and write operations, however this is already accounted for in our database read/write benchmarks. All maps and double maps will essentially be treated in a worst case scenario
 
 ### Worst Case Scenario
 
