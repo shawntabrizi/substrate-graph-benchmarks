@@ -17,7 +17,7 @@ async function main() {
         let name = "polkadot";
         let executable = "./" + name + "/target/release/" + name;
         let benchmark = "benchmark";
-        let chain = "--chain dev";
+        let chain = "--chain kusama-dev";
         //let chain = "--chain ./polkadot/kusama-dev-final.json";
         let execution = "--execution=wasm --wasm-execution=compiled";
         let logging = "--log state=trace,benchmark=trace";

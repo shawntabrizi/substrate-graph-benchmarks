@@ -14,8 +14,8 @@ collective,execute
 collective,propose_execute
 collective,propose_proposed
 collective,vote_insert
-collective,vote_disapproved
-collective,vote_approved
+collective,close_early_disapproved
+collective,close_early_approved
 collective,close_disapproved
 collective,close_approved
 democracy,propose
