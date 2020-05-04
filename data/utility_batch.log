@@ -1,4 +1,36 @@
-2020-05-03 19:34:08.284 main INFO staking  💸 new validator set of size 1 has been elected via ElectionCompute::OnChain for era 0
-2020-05-03 19:34:08.289 main TRACE state  177b: Call Benchmark_dispatch_benchmark at Bench DB. Input=1c7574696c6974791462617463680000040500000001000000
-2020-05-03 19:34:08.365 main TRACE state  177b: Return. Native=true, Result=Ok(019042656e63686d61726b206e6f7420666f756e6420666f7220746869732070616c6c65742e)
-Error: "Benchmark not found for this pallet."
+2020-05-04 14:55:25.997 main TRACE benchmark  Start Benchmark: c 0
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef702a5c1b19ab7a04f536c519aca4983ac=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef7ff553b5a9862a516939d82b3d3d8661a=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Put 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE benchmark  End Benchmark: 32571 ns
+2020-05-04 14:55:25.997 main TRACE benchmark  Start Benchmark: c 200
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef702a5c1b19ab7a04f536c519aca4983ac=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef7ff553b5a9862a516939d82b3d3d8661a=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Put 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE benchmark  End Benchmark: 37538 ns
+2020-05-04 14:55:25.997 main TRACE benchmark  Start Benchmark: c 400
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef702a5c1b19ab7a04f536c519aca4983ac=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef7ff553b5a9862a516939d82b3d3d8661a=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Put 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE benchmark  End Benchmark: 46795 ns
+2020-05-04 14:55:25.997 main TRACE benchmark  Start Benchmark: c 600
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef702a5c1b19ab7a04f536c519aca4983ac=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef7ff553b5a9862a516939d82b3d3d8661a=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Put 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE benchmark  End Benchmark: 63714 ns
+2020-05-04 14:55:25.997 main TRACE benchmark  Start Benchmark: c 800
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef702a5c1b19ab7a04f536c519aca4983ac=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef7ff553b5a9862a516939d82b3d3d8661a=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Put 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE benchmark  End Benchmark: 66363 ns
+2020-05-04 14:55:25.997 main TRACE benchmark  Start Benchmark: c 1000
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef702a5c1b19ab7a04f536c519aca4983ac=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef7ff553b5a9862a516939d82b3d3d8661a=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Get 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=None
+2020-05-04 14:55:25.997 main TRACE state  54bd: Put 26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850=Some(01000000)
+2020-05-04 14:55:25.997 main TRACE benchmark  End Benchmark: 76499 ns

@@ -1,4 +1,12 @@
-2020-05-03 19:34:08.837 main INFO staking  💸 new validator set of size 1 has been elected via ElectionCompute::OnChain for era 0
-2020-05-03 19:34:08.843 main TRACE state  923f: Call Benchmark_dispatch_benchmark at Bench DB. Input=1c7574696c6974791861735f7375620000040500000001000000
-2020-05-03 19:34:08.918 main TRACE state  923f: Return. Native=true, Result=Ok(019042656e63686d61726b206e6f7420666f756e6420666f7220746869732070616c6c65742e)
-Error: "Benchmark not found for this pallet."
+2020-05-04 14:55:27.514 main TRACE benchmark  Start Benchmark: u 0
+2020-05-04 14:55:27.514 main TRACE benchmark  End Benchmark: 2578 ns
+2020-05-04 14:55:27.514 main TRACE benchmark  Start Benchmark: u 200
+2020-05-04 14:55:27.514 main TRACE benchmark  End Benchmark: 854 ns
+2020-05-04 14:55:27.514 main TRACE benchmark  Start Benchmark: u 400
+2020-05-04 14:55:27.514 main TRACE benchmark  End Benchmark: 731 ns
+2020-05-04 14:55:27.514 main TRACE benchmark  Start Benchmark: u 600
+2020-05-04 14:55:27.514 main TRACE benchmark  End Benchmark: 745 ns
+2020-05-04 14:55:27.514 main TRACE benchmark  Start Benchmark: u 800
+2020-05-04 14:55:27.514 main TRACE benchmark  End Benchmark: 697 ns
+2020-05-04 14:55:27.514 main TRACE benchmark  Start Benchmark: u 1000
+2020-05-04 14:55:27.514 main TRACE benchmark  End Benchmark: 712 ns
