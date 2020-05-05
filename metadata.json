@@ -18,7 +18,13 @@
         "p": "# of Proposals",
         "s": "# of Seconds",
         "r": "# of Referendums",
-        "v": "#  of Vetoes",
+        "v": "# of Vetoes"
+    },
+    "elections": {
+        "x": "# of Candidates Voted For",
+        "l": "# of Locks",
+        "c": "# of Candidates",
+        "m": "# of Members",
         "u": "User Seed",
         "b": "# of Bytes in Pre-image Proposal"
     },
