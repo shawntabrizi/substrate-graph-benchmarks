@@ -1,14 +1,15 @@
 {
-  "name": "substrate-graph-util",
-  "version": "1.0.0",
-  "description": "Do Stuff",
-  "scripts": {
-    "clean": "node clean.js",
-    "generate-script": "node generate_script.js"
-  },
-  "author": "Shawn Tabrizi <shawntabrizi@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "d3": "^5.15.1"
-  }
+    "name": "substrate-graph-util",
+    "version": "1.0.0",
+    "description": "Do Stuff",
+    "scripts": {
+        "clean": "node clean.js",
+        "generate-script": "node generate_script.js",
+        "summarize": "node summarize.js"
+    },
+    "author": "Shawn Tabrizi <shawntabrizi@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "d3": "^5.15.1"
+    }
 }
