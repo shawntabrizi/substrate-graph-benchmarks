@@ -160,6 +160,16 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet offences --extrinsic report_offence_babe --raw --execution=wasm --wasm-execution=compiled > ./output/offences_report_offence_babe.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet offences --extrinsic on_initialize --log state=trace,benchmark=trace 2> ./output/offences_on_initialize.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet offences --extrinsic on_initialize --raw --execution=wasm --wasm-execution=compiled > ./output/offences_on_initialize.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet scheduler --extrinsic schedule --log state=trace,benchmark=trace 2> ./output/scheduler_schedule.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet scheduler --extrinsic schedule --raw --execution=wasm --wasm-execution=compiled > ./output/scheduler_schedule.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet scheduler --extrinsic cancel --log state=trace,benchmark=trace 2> ./output/scheduler_cancel.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet scheduler --extrinsic cancel --raw --execution=wasm --wasm-execution=compiled > ./output/scheduler_cancel.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet scheduler --extrinsic schedule_named --log state=trace,benchmark=trace 2> ./output/scheduler_schedule_named.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet scheduler --extrinsic schedule_named --raw --execution=wasm --wasm-execution=compiled > ./output/scheduler_schedule_named.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet scheduler --extrinsic cancel_named --log state=trace,benchmark=trace 2> ./output/scheduler_cancel_named.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet scheduler --extrinsic cancel_named --raw --execution=wasm --wasm-execution=compiled > ./output/scheduler_cancel_named.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet scheduler --extrinsic on_initialize --log state=trace,benchmark=trace 2> ./output/scheduler_on_initialize.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet scheduler --extrinsic on_initialize --raw --execution=wasm --wasm-execution=compiled > ./output/scheduler_on_initialize.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet session --extrinsic set_keys --log state=trace,benchmark=trace 2> ./output/session_set_keys.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet session --extrinsic set_keys --raw --execution=wasm --wasm-execution=compiled > ./output/session_set_keys.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet session --extrinsic purge_keys --log state=trace,benchmark=trace 2> ./output/session_purge_keys.log

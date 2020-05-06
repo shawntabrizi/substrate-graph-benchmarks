@@ -80,6 +80,11 @@ offences,report_offence_im_online
 offences,report_offence_grandpa
 offences,report_offence_babe
 offences,on_initialize
+scheduler,schedule
+scheduler,cancel
+scheduler,schedule_named
+scheduler,cancel_named
+scheduler,on_initialize
 session,set_keys
 session,purge_keys
 staking,bond
