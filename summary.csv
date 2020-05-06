@@ -113,7 +113,7 @@ staking_withdraw_unbonded.txt,40.85,0
 system_kill_prefix.txt,0,0.834
 system_kill_storage.txt,0,0.378
 system_remark.txt,0.665,0
-system_set_changes_trie_config.txt,9.29,0.511
+system_set_changes_trie_config.txt,7.218,0.001
 system_set_code_without_checks.txt,13.89,0
 system_set_heap_pages.txt,1.405,0
 system_set_storage.txt,0,0.568
