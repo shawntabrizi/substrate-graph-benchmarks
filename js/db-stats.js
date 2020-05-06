@@ -77,7 +77,7 @@ async function parseData(pallet, extrinsic, text) {
                     // Clear prefix has no data
                     length = 0;
                     value = null;
-                } else if (value != "None") {
+                } else if (value.includes("Some")) {
                     // `Some()` is 6 characters, divide by 2 for bytes
                     length = (value.length - 6) / 2;
                 }
@@ -123,7 +123,7 @@ async function parseData(pallet, extrinsic, text) {
                         table_row.uid = get_tracker[key];
                         counter.readRepeat++;
                     }
-                } else if (line.operation.toUpperCase() == "PUT") {
+                } else if (line.operation.toUpperCase() == "PUT" || line.operation.toUpperCase() == "APPEND") {
                     // Is this the first time we are seeing this value
                     if (!put_tracker[key]) {
                         // Track it
