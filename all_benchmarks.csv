@@ -34,6 +34,7 @@ democracy,cancel_referendum
 democracy,cancel_queued
 democracy,on_initialize_external
 democracy,on_initialize_public
+democracy,on_initialize_no_launch_no_maturing
 democracy,activate_proxy
 democracy,close_proxy
 democracy,deactivate_proxy
