@@ -44,6 +44,9 @@
         "k": "# of Keys",
         "e": "# of External Addresses"
     },
+    "scheduler": {
+        "s": "# of Scheduled Calls"
+    },
     "session": {
         "n": "# of Nominations"
     },
@@ -52,6 +55,13 @@
         "n": "# of Nominators",
         "s": "# of Slash Indices",
         "u": "User Seed"
+    },
+    "system": {
+        "b": "# of Bytes",
+        "i": "Number of",
+        "d": "# of Digest Logs",
+        "p": "# of Prefix",
+        "n": "Number of"
     },
     "treasury": {
         "r": "# of Bytes",
