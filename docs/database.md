@@ -13,74 +13,26 @@ As such, we have isolated the weight of database operations separate from the re
 To benchmark your database read and write speeds, simply run:
 
 ```bash
-cargo run --release -p node-bench -- trie
+cargo run --release -p node-bench -- ::trie::read::large
+cargo run --release -p node-bench -- ::trie::write::large
 ```
 
 The resulting output will look like:
 
-<details>
-<summary> Output (expand)</summary>
-
 ```bash
-2020-05-01 14:23:44 Starting Trie read benchmark(empty database (200 keys), db_type: RocksDb)
-2020-05-01 14:23:45 Trie read benchmark(empty database (200 keys), db_type: RocksDb): avg 6.1 µs, w_avg 6.1 µs
-2020-05-01 14:23:45 Starting Trie read benchmark(empty database (200 keys), db_type: ParityDb)
-2020-05-01 14:23:45 Trie read benchmark(empty database (200 keys), db_type: ParityDb): avg 3.9 µs, w_avg 3.9 µs
-2020-05-01 14:23:45 Starting Trie read benchmark(smallest database (1,000 keys), db_type: RocksDb)
-2020-05-01 14:23:45 Trie read benchmark(smallest database (1,000 keys), db_type: RocksDb): avg 7.6 µs, w_avg 7.6 µs
-2020-05-01 14:23:45 Starting Trie read benchmark(smallest database (1,000 keys), db_type: ParityDb)
-2020-05-01 14:23:46 Trie read benchmark(smallest database (1,000 keys), db_type: ParityDb): avg 4.6 µs, w_avg 4.6 µs
-2020-05-01 14:23:46 Starting Trie read benchmark(small database (10,000 keys), db_type: RocksDb)
-2020-05-01 14:23:48 Trie read benchmark(small database (10,000 keys), db_type: RocksDb): avg 21.2 µs, w_avg 19.0 µs
-2020-05-01 14:23:48 Starting Trie read benchmark(small database (10,000 keys), db_type: ParityDb)
-2020-05-01 14:23:50 Trie read benchmark(small database (10,000 keys), db_type: ParityDb): avg 5.7 µs, w_avg 5.6 µs
-2020-05-01 14:23:50 Starting Trie read benchmark(medium database (100,000 keys), db_type: RocksDb)
-2020-05-01 14:24:08 Trie read benchmark(medium database (100,000 keys), db_type: RocksDb): avg 21.8 µs, w_avg 20.3 µs
-2020-05-01 14:24:08 Starting Trie read benchmark(medium database (100,000 keys), db_type: ParityDb)
-2020-05-01 14:24:20 Trie read benchmark(medium database (100,000 keys), db_type: ParityDb): avg 7.4 µs, w_avg 7.3 µs
 2020-05-01 14:24:20 Starting Trie read benchmark(large database (200,000 keys), db_type: RocksDb)
 2020-05-01 14:24:57 Trie read benchmark(large database (200,000 keys), db_type: RocksDb): avg 25.6 µs, w_avg 24.4 µs
 2020-05-01 14:24:57 Starting Trie read benchmark(large database (200,000 keys), db_type: ParityDb)
 2020-05-01 14:25:20 Trie read benchmark(large database (200,000 keys), db_type: ParityDb): avg 7.8 µs, w_avg 7.7 µs
-2020-05-01 14:25:20 Starting Trie read benchmark(huge database (1,000,000 keys), db_type: RocksDb)
-2020-05-01 14:29:51 Trie read benchmark(huge database (1,000,000 keys), db_type: RocksDb): avg 4.782966 ms, w_avg 4.781659 ms
-2020-05-01 14:29:51 Starting Trie read benchmark(huge database (1,000,000 keys), db_type: ParityDb)
-2020-05-01 14:31:35 Trie read benchmark(huge database (1,000,000 keys), db_type: ParityDb): avg 8.6 µs, w_avg 8.6 µs
-2020-05-01 14:31:35 Starting Trie write benchmark(empty database (200 keys), db_type = RocksDb)
-2020-05-01 14:31:35 Trie write benchmark(empty database (200 keys), db_type = RocksDb): avg 43.2 µs, w_avg 43.2 µs
-2020-05-01 14:31:35 Starting Trie write benchmark(empty database (200 keys), db_type = ParityDb)
-2020-05-01 14:31:36 Trie write benchmark(empty database (200 keys), db_type = ParityDb): avg 30.3 µs, w_avg 30.1 µs
-2020-05-01 14:31:36 Starting Trie write benchmark(smallest database (1,000 keys), db_type = RocksDb)
-2020-05-01 14:31:36 Trie write benchmark(smallest database (1,000 keys), db_type = RocksDb): avg 52.8 µs, w_avg 52.6 µs
-2020-05-01 14:31:36 Starting Trie write benchmark(smallest database (1,000 keys), db_type = ParityDb)
-2020-05-01 14:31:36 Trie write benchmark(smallest database (1,000 keys), db_type = ParityDb): avg 34.5 µs, w_avg 33.7 µs
-2020-05-01 14:31:36 Starting Trie write benchmark(small database (10,000 keys), db_type = RocksDb)
-2020-05-01 14:31:38 Trie write benchmark(small database (10,000 keys), db_type = RocksDb): avg 93.1 µs, w_avg 77.6 µs
-2020-05-01 14:31:38 Starting Trie write benchmark(small database (10,000 keys), db_type = ParityDb)
-2020-05-01 14:31:40 Trie write benchmark(small database (10,000 keys), db_type = ParityDb): avg 39.3 µs, w_avg 38.8 µs
-2020-05-01 14:31:40 Starting Trie write benchmark(medium database (100,000 keys), db_type = RocksDb)
-2020-05-01 14:31:57 Trie write benchmark(medium database (100,000 keys), db_type = RocksDb): avg 0.12 ms, w_avg 0.10 ms
-2020-05-01 14:31:57 Starting Trie write benchmark(medium database (100,000 keys), db_type = ParityDb)
-2020-05-01 14:32:09 Trie write benchmark(medium database (100,000 keys), db_type = ParityDb): avg 45.7 µs, w_avg 45.4 µs
+
 2020-05-01 14:32:09 Starting Trie write benchmark(large database (200,000 keys), db_type = RocksDb)
 2020-05-01 14:32:44 Trie write benchmark(large database (200,000 keys), db_type = RocksDb): avg 0.10 ms, w_avg 97.9 µs
 2020-05-01 14:32:44 Starting Trie write benchmark(large database (200,000 keys), db_type = ParityDb)
 2020-05-01 14:33:06 Trie write benchmark(large database (200,000 keys), db_type = ParityDb): avg 47.5 µs, w_avg 46.5 µs
-2020-05-01 14:33:06 Starting Trie write benchmark(huge database (1,000,000 keys), db_type = RocksDb)
-2020-05-01 14:37:13 Trie write benchmark(huge database (1,000,000 keys), db_type = RocksDb): avg 3.722181 ms, w_avg 3.724226 ms
-2020-05-01 14:37:13 Starting Trie write benchmark(huge database (1,000,000 keys), db_type = ParityDb)
-2020-05-01 14:38:57 Trie write benchmark(huge database (1,000,000 keys), db_type = ParityDb): avg 50.6 µs, w_avg 50.5 µs
 ```
 </details>
 
-From this, we can extract our `DbWeight` values using the weighted average `w_avg` for our expected database population.
-
-In the case of polkadot, this is 200,000 items. So from the data above we extract the following:
-
-```bash
-2020-05-01 14:24:57 Trie read benchmark(large database (200,000 keys), db_type: RocksDb): avg 25.6 µs, w_avg 24.4 µs
-2020-05-01 14:32:44 Trie write benchmark(large database (200,000 keys), db_type = RocksDb): avg 0.10 ms, w_avg 97.9 µs
-```
+From this, we can extract our `DbWeight` values using the weighted average `w_avg` for our expected database type.
 
 So our resulting DbWeight is:
 
