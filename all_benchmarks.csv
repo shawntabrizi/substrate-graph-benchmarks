@@ -91,7 +91,8 @@ session,purge_keys
 staking,bond
 staking,bond_extra
 staking,unbond
-staking,withdraw_unbonded
+staking,withdraw_unbonded_update
+staking,withdraw_unbonded_kill
 staking,validate
 staking,nominate
 staking,chill

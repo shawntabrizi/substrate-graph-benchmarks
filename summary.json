@@ -398,97 +398,101 @@
 		"n": "0.017"
 	},
 	"staking_bond": {
-		"base": "77.11",
+		"base": "67.87",
 		"u": "0"
 	},
 	"staking_bond_extra": {
-		"base": "62.23",
+		"base": "54.88",
 		"u": "0"
 	},
 	"staking_cancel_deferred_slash": {
-		"base": "5880",
-		"s": "34.62"
+		"base": "5870",
+		"s": "34.61"
 	},
 	"staking_chill": {
-		"base": "18.19",
+		"base": "16.53",
 		"u": "0"
 	},
 	"staking_do_slash": {
-		"base": "49.81",
+		"base": "44.5",
 		"l": "0.072"
 	},
 	"staking_force_new_era": {
-		"base": "2.292",
-		"i": "0.002"
+		"base": "1.959",
+		"i": "0"
 	},
 	"staking_force_new_era_always": {
-		"base": "2.429",
+		"base": "2.05",
 		"i": "0"
 	},
 	"staking_force_no_eras": {
-		"base": "2.369",
+		"base": "1.857",
 		"i": "0"
 	},
 	"staking_force_unstake": {
-		"base": "54.59",
+		"base": "47.68",
 		"u": "0"
 	},
 	"staking_new_era": {
 		"base": "0",
-		"v": "1161",
-		"n": "124.9"
+		"v": "1015",
+		"n": "114.2"
 	},
 	"staking_nominate": {
-		"base": "24.59",
-		"n": "0.397"
+		"base": "22.34",
+		"n": "0.36"
 	},
 	"staking_payout_all": {
 		"base": "0",
-		"v": "3930",
-		"n": "296.5"
+		"v": "2948",
+		"n": "259"
 	},
 	"staking_payout_stakers": {
-		"base": "123.5",
-		"n": "0.067"
+		"base": "0",
+		"n": "56.76"
 	},
 	"staking_reap_stash": {
-		"base": "79.38",
+		"base": "68.5",
 		"u": "0"
 	},
 	"staking_rebond": {
-		"base": "38.81",
-		"l": "0.045"
+		"base": "34.51",
+		"l": "0.048"
 	},
 	"staking_set_controller": {
-		"base": "27.8",
+		"base": "25.22",
 		"u": "0"
 	},
 	"staking_set_history_depth": {
 		"base": "0",
-		"e": "30.86"
+		"e": "29.13"
 	},
 	"staking_set_invulnerables": {
-		"base": "2.421",
+		"base": "2.208",
 		"v": "0.006"
 	},
 	"staking_set_payee": {
-		"base": "12.33",
+		"base": "11.33",
 		"u": "0"
 	},
 	"staking_set_validator_count": {
-		"base": "1.897",
+		"base": "1.717",
 		"c": "0"
 	},
 	"staking_unbond": {
-		"base": "56.36",
+		"base": "50.34",
 		"u": "0"
 	},
 	"staking_validate": {
-		"base": "18.4",
+		"base": "17.13",
 		"u": "0"
 	},
-	"staking_withdraw_unbonded": {
-		"base": "40.85",
+	"staking_withdraw_unbonded_kill": {
+		"base": "74.62",
+		"u": "0"
+	},
+	"staking_withdraw_unbonded_update": {
+		"base": "51.25",
 		"u": "0"
 	},
 	"system_kill_prefix": {
