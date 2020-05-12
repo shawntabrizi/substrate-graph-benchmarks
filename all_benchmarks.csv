@@ -64,6 +64,7 @@ elections,renounce_candidacy_member_runner_up
 elections,remove_member_without_replacement
 elections,remove_member_with_replacement
 elections,on_initialize
+elections,phragmen
 identity,add_registrar
 identity,set_identity
 identity,set_subs
