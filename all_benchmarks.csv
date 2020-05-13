@@ -55,6 +55,7 @@ democracy,proxy_remove_vote
 democracy,enact_proposal_execute
 democracy,enact_proposal_slash
 elections,vote
+elections,vote_update
 elections,remove_voter
 elections,report_defunct_voter_correct
 elections,report_defunct_voter_incorrect
@@ -63,6 +64,7 @@ elections,renounce_candidacy_candidate
 elections,renounce_candidacy_member_runner_up
 elections,remove_member_without_replacement
 elections,remove_member_with_replacement
+elections,remove_member_wrong_refund
 elections,on_initialize
 elections,phragmen
 identity,add_registrar

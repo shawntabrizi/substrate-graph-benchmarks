@@ -242,52 +242,60 @@
 		"r": "0.333"
 	},
 	"elections_on_initialize": {
-		"base": "45880",
-		"c": "758.8"
+		"base": "47890",
+		"c": "739.8"
 	},
 	"elections_phragmen": {
 		"base": "0",
-		"c": "624.1",
-		"v": "226.9",
-		"e": "7474"
+		"c": "600.1",
+		"v": "227",
+		"e": "7654"
 	},
 	"elections_remove_member_with_replacement": {
-		"base": "47.15",
-		"m": "0.263"
+		"base": "50.93",
+		"u": "0"
 	},
 	"elections_remove_member_without_replacement": {
-		"base": "47020",
-		"c": "753.1"
+		"base": "48910",
+		"c": "745.2"
+	},
+	"elections_remove_member_wrong_refund": {
+		"base": "5.751",
+		"u": "0"
 	},
 	"elections_remove_voter": {
-		"base": "34.32",
-		"l": "0.138"
+		"base": "36.8",
+		"u": "0"
 	},
 	"elections_renounce_candidacy_candidate": {
-		"base": "16.57",
-		"c": "0.235"
+		"base": "17.28",
+		"c": "0.231"
 	},
 	"elections_renounce_candidacy_member_runner_up": {
-		"base": "46.25",
-		"c": "0.015"
+		"base": "46.2",
+		"u": "0"
 	},
 	"elections_report_defunct_voter_correct": {
 		"base": "0",
-		"c": "1.755",
-		"v": "17.97"
+		"c": "1.775",
+		"v": "18.51"
 	},
 	"elections_report_defunct_voter_incorrect": {
 		"base": "0",
-		"c": "1.748",
-		"v": "17.82"
+		"c": "1.755",
+		"v": "17.88"
 	},
 	"elections_submit_candidacy": {
-		"base": "33.54",
-		"c": "0.373"
+		"base": "33.33",
+		"c": "0.375"
 	},
 	"elections_vote": {
-		"base": "46.52",
-		"l": "0.26"
+		"base": "47.93",
+		"u": "0"
+	},
+	"elections_vote_update": {
+		"base": "38.46",
+		"u": "0"
 	},
 	"identity_add_registrar": {
 		"base": "22.24",

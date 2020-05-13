@@ -110,6 +110,8 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet democracy --extrinsic enact_proposal_slash --raw --execution=wasm --wasm-execution=compiled > ./output/democracy_enact_proposal_slash.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet elections --extrinsic vote --log state=trace,benchmark=trace 2> ./output/elections_vote.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet elections --extrinsic vote --raw --execution=wasm --wasm-execution=compiled > ./output/elections_vote.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet elections --extrinsic vote_update --log state=trace,benchmark=trace 2> ./output/elections_vote_update.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet elections --extrinsic vote_update --raw --execution=wasm --wasm-execution=compiled > ./output/elections_vote_update.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet elections --extrinsic remove_voter --log state=trace,benchmark=trace 2> ./output/elections_remove_voter.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet elections --extrinsic remove_voter --raw --execution=wasm --wasm-execution=compiled > ./output/elections_remove_voter.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet elections --extrinsic report_defunct_voter_correct --log state=trace,benchmark=trace 2> ./output/elections_report_defunct_voter_correct.log
@@ -126,6 +128,8 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet elections --extrinsic remove_member_without_replacement --raw --execution=wasm --wasm-execution=compiled > ./output/elections_remove_member_without_replacement.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet elections --extrinsic remove_member_with_replacement --log state=trace,benchmark=trace 2> ./output/elections_remove_member_with_replacement.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet elections --extrinsic remove_member_with_replacement --raw --execution=wasm --wasm-execution=compiled > ./output/elections_remove_member_with_replacement.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet elections --extrinsic remove_member_wrong_refund --log state=trace,benchmark=trace 2> ./output/elections_remove_member_wrong_refund.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet elections --extrinsic remove_member_wrong_refund --raw --execution=wasm --wasm-execution=compiled > ./output/elections_remove_member_wrong_refund.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet elections --extrinsic on_initialize --log state=trace,benchmark=trace 2> ./output/elections_on_initialize.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet elections --extrinsic on_initialize --raw --execution=wasm --wasm-execution=compiled > ./output/elections_on_initialize.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet elections --extrinsic phragmen --log state=trace,benchmark=trace 2> ./output/elections_phragmen.log
