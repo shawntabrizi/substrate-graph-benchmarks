@@ -441,8 +441,8 @@
 		"i": "0"
 	},
 	"staking_force_unstake": {
-		"base": "47.68",
-		"u": "0"
+		"base": "53.07",
+		"s": "2.365"
 	},
 	"staking_new_era": {
 		"base": "0",
@@ -463,8 +463,8 @@
 		"n": "56.76"
 	},
 	"staking_reap_stash": {
-		"base": "68.5",
-		"u": "0"
+		"base": "75.94",
+		"s": "2.396"
 	},
 	"staking_rebond": {
 		"base": "34.51",
@@ -499,12 +499,12 @@
 		"u": "0"
 	},
 	"staking_withdraw_unbonded_kill": {
-		"base": "74.62",
-		"u": "0"
+		"base": "79.41",
+		"s": "2.366"
 	},
 	"staking_withdraw_unbonded_update": {
-		"base": "51.25",
-		"u": "0"
+		"base": "50.52",
+		"s": "0.028"
 	},
 	"system_kill_prefix": {
 		"base": "0",
