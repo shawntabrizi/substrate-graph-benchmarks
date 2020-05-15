@@ -24,24 +24,40 @@
 		"u": "0",
 		"e": "0"
 	},
+	"claims_attest": {
+		"base": "93.3",
+		"u": "0"
+	},
 	"claims_claim": {
-		"base": "279.4",
+		"base": "269.7",
+		"u": "0"
+	},
+	"claims_claim_attest": {
+		"base": "270.2",
 		"u": "0"
 	},
 	"claims_eth_recover": {
-		"base": "146.7",
-		"i": "155.8"
+		"base": "234.3",
+		"i": "155.9"
 	},
 	"claims_keccak256": {
-		"base": "2.172",
-		"i": "0.723"
+		"base": "1.004",
+		"i": "0.66"
 	},
 	"claims_mint_claim": {
-		"base": "9.954",
+		"base": "10.46",
 		"c": "0"
 	},
-	"claims_validate_unsigned": {
-		"base": "184.9",
+	"claims_validate_prevalidate_attests": {
+		"base": "8.631",
+		"c": "0"
+	},
+	"claims_validate_unsigned_claim": {
+		"base": "188.7",
+		"c": "0"
+	},
+	"claims_validate_unsigned_claim_attest": {
+		"base": "190.1",
 		"c": "0"
 	},
 	"collective_close_approved": {

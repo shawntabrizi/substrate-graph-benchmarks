@@ -2,8 +2,16 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet claims --extrinsic claim --raw --execution=wasm --wasm-execution=compiled > ./output/claims_claim.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet claims --extrinsic mint_claim --log state=trace,benchmark=trace 2> ./output/claims_mint_claim.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet claims --extrinsic mint_claim --raw --execution=wasm --wasm-execution=compiled > ./output/claims_mint_claim.txt
-./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet claims --extrinsic validate_unsigned --log state=trace,benchmark=trace 2> ./output/claims_validate_unsigned.log
-./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet claims --extrinsic validate_unsigned --raw --execution=wasm --wasm-execution=compiled > ./output/claims_validate_unsigned.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet claims --extrinsic claim_attest --log state=trace,benchmark=trace 2> ./output/claims_claim_attest.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet claims --extrinsic claim_attest --raw --execution=wasm --wasm-execution=compiled > ./output/claims_claim_attest.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet claims --extrinsic attest --log state=trace,benchmark=trace 2> ./output/claims_attest.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet claims --extrinsic attest --raw --execution=wasm --wasm-execution=compiled > ./output/claims_attest.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet claims --extrinsic validate_unsigned_claim --log state=trace,benchmark=trace 2> ./output/claims_validate_unsigned_claim.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet claims --extrinsic validate_unsigned_claim --raw --execution=wasm --wasm-execution=compiled > ./output/claims_validate_unsigned_claim.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet claims --extrinsic validate_unsigned_claim_attest --log state=trace,benchmark=trace 2> ./output/claims_validate_unsigned_claim_attest.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet claims --extrinsic validate_unsigned_claim_attest --raw --execution=wasm --wasm-execution=compiled > ./output/claims_validate_unsigned_claim_attest.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet claims --extrinsic validate_prevalidate_attests --log state=trace,benchmark=trace 2> ./output/claims_validate_prevalidate_attests.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet claims --extrinsic validate_prevalidate_attests --raw --execution=wasm --wasm-execution=compiled > ./output/claims_validate_prevalidate_attests.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet claims --extrinsic keccak256 --log state=trace,benchmark=trace 2> ./output/claims_keccak256.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet claims --extrinsic keccak256 --raw --execution=wasm --wasm-execution=compiled > ./output/claims_keccak256.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet claims --extrinsic eth_recover --log state=trace,benchmark=trace 2> ./output/claims_eth_recover.log

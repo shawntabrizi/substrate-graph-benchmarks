@@ -1,7 +1,11 @@
 pallet,extrinsic
 claims,claim
 claims,mint_claim
-claims,validate_unsigned
+claims,claim_attest
+claims,attest
+claims,validate_unsigned_claim
+claims,validate_unsigned_claim_attest
+claims,validate_prevalidate_attests
 claims,keccak256
 claims,eth_recover
 balances,transfer
