@@ -719,6 +719,14 @@ let storageKeys = [{
     {
         "name": "claims vesting",
         "key": "0x9c5d795d0297be56027a4b2464e333975f27b51b5ec208ee9cb25b55d8728243"
+    },
+    {
+        "name": "claims signing",
+        "key": "0x9c5d795d0297be56027a4b2464e33397c0793c53db77bf57f00ed54aa9119289"
+    },
+    {
+        "name": "claims preclaims",
+        "key": "0x9c5d795d0297be56027a4b2464e3339763e6d3c1fb15805edfd024172ea4817d"
     }
 ];
 
