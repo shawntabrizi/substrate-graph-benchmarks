@@ -34,8 +34,8 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet collective --extrinsic propose_execute --raw --execution=wasm --wasm-execution=compiled > ./output/collective_propose_execute.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet collective --extrinsic propose_proposed --log state=trace,benchmark=trace 2> ./output/collective_propose_proposed.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet collective --extrinsic propose_proposed --raw --execution=wasm --wasm-execution=compiled > ./output/collective_propose_proposed.txt
-./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet collective --extrinsic vote_insert --log state=trace,benchmark=trace 2> ./output/collective_vote_insert.log
-./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet collective --extrinsic vote_insert --raw --execution=wasm --wasm-execution=compiled > ./output/collective_vote_insert.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet collective --extrinsic vote --log state=trace,benchmark=trace 2> ./output/collective_vote.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet collective --extrinsic vote --raw --execution=wasm --wasm-execution=compiled > ./output/collective_vote.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet collective --extrinsic close_early_disapproved --log state=trace,benchmark=trace 2> ./output/collective_close_early_disapproved.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet collective --extrinsic close_early_disapproved --raw --execution=wasm --wasm-execution=compiled > ./output/collective_close_early_disapproved.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet collective --extrinsic close_early_approved --log state=trace,benchmark=trace 2> ./output/collective_close_early_approved.log
@@ -168,6 +168,8 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet im-online --extrinsic heartbeat --raw --execution=wasm --wasm-execution=compiled > ./output/im-online_heartbeat.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet im-online --extrinsic validate_unsigned --log state=trace,benchmark=trace 2> ./output/im-online_validate_unsigned.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet im-online --extrinsic validate_unsigned --raw --execution=wasm --wasm-execution=compiled > ./output/im-online_validate_unsigned.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet im-online --extrinsic validate_unsigned_and_then_heartbeat --log state=trace,benchmark=trace 2> ./output/im-online_validate_unsigned_and_then_heartbeat.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet im-online --extrinsic validate_unsigned_and_then_heartbeat --raw --execution=wasm --wasm-execution=compiled > ./output/im-online_validate_unsigned_and_then_heartbeat.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet offences --extrinsic report_offence_im_online --log state=trace,benchmark=trace 2> ./output/offences_report_offence_im_online.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet offences --extrinsic report_offence_im_online --raw --execution=wasm --wasm-execution=compiled > ./output/offences_report_offence_im_online.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet offences --extrinsic report_offence_grandpa --log state=trace,benchmark=trace 2> ./output/offences_report_offence_grandpa.log
@@ -176,6 +178,14 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet offences --extrinsic report_offence_babe --raw --execution=wasm --wasm-execution=compiled > ./output/offences_report_offence_babe.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet offences --extrinsic on_initialize --log state=trace,benchmark=trace 2> ./output/offences_on_initialize.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet offences --extrinsic on_initialize --raw --execution=wasm --wasm-execution=compiled > ./output/offences_on_initialize.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet proxy --extrinsic proxy --log state=trace,benchmark=trace 2> ./output/proxy_proxy.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet proxy --extrinsic proxy --raw --execution=wasm --wasm-execution=compiled > ./output/proxy_proxy.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet proxy --extrinsic add_proxy --log state=trace,benchmark=trace 2> ./output/proxy_add_proxy.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet proxy --extrinsic add_proxy --raw --execution=wasm --wasm-execution=compiled > ./output/proxy_add_proxy.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet proxy --extrinsic remove_proxy --log state=trace,benchmark=trace 2> ./output/proxy_remove_proxy.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet proxy --extrinsic remove_proxy --raw --execution=wasm --wasm-execution=compiled > ./output/proxy_remove_proxy.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet proxy --extrinsic remove_proxies --log state=trace,benchmark=trace 2> ./output/proxy_remove_proxies.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet proxy --extrinsic remove_proxies --raw --execution=wasm --wasm-execution=compiled > ./output/proxy_remove_proxies.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet scheduler --extrinsic schedule --log state=trace,benchmark=trace 2> ./output/scheduler_schedule.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet scheduler --extrinsic schedule --raw --execution=wasm --wasm-execution=compiled > ./output/scheduler_schedule.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet scheduler --extrinsic cancel --log state=trace,benchmark=trace 2> ./output/scheduler_cancel.log

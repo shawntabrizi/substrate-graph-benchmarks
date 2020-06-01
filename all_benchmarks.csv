@@ -17,7 +17,7 @@ collective,set_members
 collective,execute
 collective,propose_execute
 collective,propose_proposed
-collective,vote_insert
+collective,vote
 collective,close_early_disapproved
 collective,close_early_approved
 collective,close_disapproved
@@ -84,10 +84,15 @@ identity,provide_judgement
 identity,kill_identity
 im-online,heartbeat
 im-online,validate_unsigned
+im-online,validate_unsigned_and_then_heartbeat
 offences,report_offence_im_online
 offences,report_offence_grandpa
 offences,report_offence_babe
 offences,on_initialize
+proxy,proxy
+proxy,add_proxy
+proxy,remove_proxy
+proxy,remove_proxies
 scheduler,schedule
 scheduler,cancel
 scheduler,schedule_named
