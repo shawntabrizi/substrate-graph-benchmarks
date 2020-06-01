@@ -727,6 +727,10 @@ let storageKeys = [{
     {
         "name": "claims preclaims",
         "key": "0x9c5d795d0297be56027a4b2464e3339763e6d3c1fb15805edfd024172ea4817d"
+    },
+    {
+        "name": "proxy proxies",
+        "key": "0x1809d78346727a0ef58c0fa03bafa3231d885dcfb277f185f2d8e62a5f290c85"
     }
 ];
 
