@@ -396,6 +396,30 @@
 		"o": "1812",
 		"n": "3294"
 	},
+	"proxy_add_proxy": {
+		"base": "17.69",
+		"p": "0.181"
+	},
+	"proxy_anonymous": {
+		"base": "36.48",
+		"p": "0.039"
+	},
+	"proxy_kill_anonymous": {
+		"base": "15.65",
+		"p": "0.137"
+	},
+	"proxy_proxy": {
+		"base": "19.26",
+		"p": "0.137"
+	},
+	"proxy_remove_proxies": {
+		"base": "13.27",
+		"p": "0.137"
+	},
+	"proxy_remove_proxy": {
+		"base": "14.67",
+		"p": "0.16"
+	},
 	"scheduler_cancel": {
 		"base": "22.15",
 		"s": "2.869"

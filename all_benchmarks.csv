@@ -93,6 +93,8 @@ proxy,proxy
 proxy,add_proxy
 proxy,remove_proxy
 proxy,remove_proxies
+proxy,anonymous
+proxy,kill_anonymous
 scheduler,schedule
 scheduler,cancel
 scheduler,schedule_named

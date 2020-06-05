@@ -186,6 +186,10 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet proxy --extrinsic remove_proxy --raw --execution=wasm --wasm-execution=compiled > ./output/proxy_remove_proxy.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet proxy --extrinsic remove_proxies --log state=trace,benchmark=trace 2> ./output/proxy_remove_proxies.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet proxy --extrinsic remove_proxies --raw --execution=wasm --wasm-execution=compiled > ./output/proxy_remove_proxies.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet proxy --extrinsic anonymous --log state=trace,benchmark=trace 2> ./output/proxy_anonymous.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet proxy --extrinsic anonymous --raw --execution=wasm --wasm-execution=compiled > ./output/proxy_anonymous.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet proxy --extrinsic kill_anonymous --log state=trace,benchmark=trace 2> ./output/proxy_kill_anonymous.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet proxy --extrinsic kill_anonymous --raw --execution=wasm --wasm-execution=compiled > ./output/proxy_kill_anonymous.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet scheduler --extrinsic schedule --log state=trace,benchmark=trace 2> ./output/scheduler_schedule.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet scheduler --extrinsic schedule --raw --execution=wasm --wasm-execution=compiled > ./output/scheduler_schedule.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet scheduler --extrinsic cancel --log state=trace,benchmark=trace 2> ./output/scheduler_cancel.log
