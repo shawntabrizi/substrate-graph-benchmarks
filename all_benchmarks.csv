@@ -85,6 +85,10 @@ identity,kill_identity
 im-online,heartbeat
 im-online,validate_unsigned
 im-online,validate_unsigned_and_then_heartbeat
+indices,claim
+indices,transfer
+indices,free
+indices,force_transfer
 offences,report_offence_im_online
 offences,report_offence_grandpa
 offences,report_offence_babe
