@@ -178,6 +178,8 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet indices --extrinsic free --raw --execution=wasm --wasm-execution=compiled > ./output/indices_free.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet indices --extrinsic force_transfer --log state=trace,benchmark=trace 2> ./output/indices_force_transfer.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet indices --extrinsic force_transfer --raw --execution=wasm --wasm-execution=compiled > ./output/indices_force_transfer.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet indices --extrinsic freeze --log state=trace,benchmark=trace 2> ./output/indices_freeze.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet indices --extrinsic freeze --raw --execution=wasm --wasm-execution=compiled > ./output/indices_freeze.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet offences --extrinsic report_offence_im_online --log state=trace,benchmark=trace 2> ./output/offences_report_offence_im_online.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet offences --extrinsic report_offence_im_online --raw --execution=wasm --wasm-execution=compiled > ./output/offences_report_offence_im_online.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet offences --extrinsic report_offence_grandpa --log state=trace,benchmark=trace 2> ./output/offences_report_offence_grandpa.log

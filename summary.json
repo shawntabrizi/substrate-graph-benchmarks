@@ -376,6 +376,22 @@
 		"k": "0.106",
 		"e": "0.327"
 	},
+	"indices_claim": {
+		"base": "28.69",
+		"i": "0"
+	},
+	"indices_force_transfer": {
+		"base": "26.83",
+		"i": "0"
+	},
+	"indices_free": {
+		"base": "25.53",
+		"i": "0"
+	},
+	"indices_transfer": {
+		"base": "33.74",
+		"i": "0"
+	},
 	"offences_on_initialize": {
 		"base": "0",
 		"d": "146100"

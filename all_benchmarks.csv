@@ -89,6 +89,7 @@ indices,claim
 indices,transfer
 indices,free
 indices,force_transfer
+indices,freeze
 offences,report_offence_im_online
 offences,report_offence_grandpa
 offences,report_offence_babe
