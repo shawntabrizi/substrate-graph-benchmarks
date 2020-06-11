@@ -388,9 +388,58 @@
 		"base": "25.53",
 		"i": "0"
 	},
+	"indices_freeze": {
+		"base": "30.86",
+		"i": "0"
+	},
 	"indices_transfer": {
 		"base": "33.74",
 		"i": "0"
+	},
+	"multisig_approve_as_multi_approve": {
+		"base": "25.49",
+		"s": "0.153",
+		"z": "0"
+	},
+	"multisig_approve_as_multi_complete": {
+		"base": "45.12",
+		"s": "0.26",
+		"z": "0.004"
+	},
+	"multisig_approve_as_multi_create": {
+		"base": "37.15",
+		"s": "0.129",
+		"z": "0"
+	},
+	"multisig_as_multi_approve": {
+		"base": "31.39",
+		"s": "0.136",
+		"z": "0.002"
+	},
+	"multisig_as_multi_complete": {
+		"base": "39.94",
+		"s": "0.26",
+		"z": "0.002"
+	},
+	"multisig_as_multi_create": {
+		"base": "41.89",
+		"s": "0.118",
+		"z": "0.002"
+	},
+	"multisig_as_multi_create_store": {
+		"base": "53.57",
+		"s": "0.119",
+		"z": "0.003"
+	},
+	"multisig_cancel_as_multi": {
+		"base": "40.25",
+		"s": "0.118",
+		"z": "0"
+	},
+	"multisig_cancel_as_multi_store": {
+		"base": "44.95",
+		"s": "0.117",
+		"z": "0.004"
 	},
 	"offences_on_initialize": {
 		"base": "0",
@@ -639,31 +688,6 @@
 		"r": "0.002",
 		"t": "0.168"
 	},
-	"utility_approve_as_multi_approve": {
-		"base": "31.48",
-		"s": "0.116",
-		"z": "0"
-	},
-	"utility_approve_as_multi_create": {
-		"base": "44.71",
-		"s": "0.088",
-		"z": "0"
-	},
-	"utility_as_multi_approve": {
-		"base": "34.03",
-		"s": "0.112",
-		"z": "0.002"
-	},
-	"utility_as_multi_complete": {
-		"base": "40.36",
-		"s": "0.225",
-		"z": "0.002"
-	},
-	"utility_as_multi_create": {
-		"base": "46.55",
-		"s": "0.089",
-		"z": "0.002"
-	},
 	"utility_as_sub": {
 		"base": "2.816",
 		"u": "0"
@@ -671,11 +695,6 @@
 	"utility_batch": {
 		"base": "14.39",
 		"c": "0.988"
-	},
-	"utility_cancel_as_multi": {
-		"base": "37.6",
-		"s": "0.084",
-		"z": "0"
 	},
 	"vesting_vest_locked": {
 		"base": "44.43",
