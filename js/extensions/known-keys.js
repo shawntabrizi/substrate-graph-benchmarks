@@ -101,8 +101,12 @@ let storageKeys = [{
         "key": "0x26aa394eea5630e07c48ae0c9558cef7ff553b5a9862a516939d82b3d3d8661a"
     },
     {
-        "name": "utility multisigs",
-        "key": "0xd5e1a2fa16732ce6906189438c0a82c63cd15a3fd6e04e47bee3922dbfa92c8d"
+        "name": "multisig multisigs",
+        "key": "0x7474449cca95dc5d0c00e71735a6d17d3cd15a3fd6e04e47bee3922dbfa92c8d"
+    },
+    {
+        "name": "multisig calls",
+        "key": "0x7474449cca95dc5d0c00e71735a6d17d99cb677bc149d4450f9c0e1ec4d0d9c0"
     },
     {
         "name": "babe epochIndex",
