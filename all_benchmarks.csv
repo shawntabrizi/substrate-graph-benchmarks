@@ -90,6 +90,7 @@ indices,transfer
 indices,free
 indices,force_transfer
 indices,freeze
+multisig,as_multi_threshold_1
 multisig,as_multi_create
 multisig,as_multi_create_store
 multisig,as_multi_approve

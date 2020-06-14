@@ -180,6 +180,8 @@
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet indices --extrinsic force_transfer --raw --execution=wasm --wasm-execution=compiled > ./output/indices_force_transfer.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet indices --extrinsic freeze --log state=trace,benchmark=trace 2> ./output/indices_freeze.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet indices --extrinsic freeze --raw --execution=wasm --wasm-execution=compiled > ./output/indices_freeze.txt
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet multisig --extrinsic as_multi_threshold_1 --log state=trace,benchmark=trace 2> ./output/multisig_as_multi_threshold_1.log
+./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet multisig --extrinsic as_multi_threshold_1 --raw --execution=wasm --wasm-execution=compiled > ./output/multisig_as_multi_threshold_1.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet multisig --extrinsic as_multi_create --log state=trace,benchmark=trace 2> ./output/multisig_as_multi_create.log
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 50 --repeat 20 --pallet multisig --extrinsic as_multi_create --raw --execution=wasm --wasm-execution=compiled > ./output/multisig_as_multi_create.txt
 ./polkadot/target/release/polkadot benchmark --chain kusama-dev --steps 5 --pallet multisig --extrinsic as_multi_create_store --log state=trace,benchmark=trace 2> ./output/multisig_as_multi_create_store.log
