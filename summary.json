@@ -655,42 +655,77 @@
 		"base": "7.678",
 		"t": "0"
 	},
+	"treasury_approve_bounty": {
+		"base": "13.7",
+		"u": "0"
+	},
 	"treasury_approve_proposal": {
-		"base": "10.26",
+		"base": "11.44",
+		"u": "0"
+	},
+	"treasury_award_bounty": {
+		"base": "27.44",
+		"u": "0"
+	},
+	"treasury_cancel_bounty": {
+		"base": "65.84",
+		"u": "0"
+	},
+	"treasury_claim_bounty": {
+		"base": "117.3",
 		"u": "0"
 	},
 	"treasury_close_tip": {
-		"base": "84.12",
-		"t": "0.349"
+		"base": "80.02",
+		"t": "0.342"
+	},
+	"treasury_create_sub_bounty": {
+		"base": "84.98",
+		"u": "0",
+		"r": "0.001"
+	},
+	"treasury_extend_bounty_expiry": {
+		"base": "26.4",
+		"u": "0"
 	},
 	"treasury_on_initialize": {
-		"base": "48.64",
-		"p": "53.78"
+		"base": "327",
+		"p": "51.15",
+		"q": "51.93"
+	},
+	"treasury_propose_bounty": {
+		"base": "43.76",
+		"u": "0",
+		"r": "0.001"
 	},
 	"treasury_propose_spend": {
-		"base": "33.81",
+		"base": "41.58",
+		"u": "0"
+	},
+	"treasury_reject_bounty": {
+		"base": "43.57",
 		"u": "0"
 	},
 	"treasury_reject_proposal": {
-		"base": "71.1",
+		"base": "34.48",
 		"u": "0"
 	},
 	"treasury_report_awesome": {
-		"base": "43.69",
+		"base": "50.72",
 		"r": "0.002"
 	},
 	"treasury_retract_tip": {
-		"base": "35.58",
+		"base": "43.45",
 		"r": "0"
 	},
 	"treasury_tip": {
-		"base": "20.3",
-		"t": "0.667"
+		"base": "24",
+		"t": "0.671"
 	},
 	"treasury_tip_new": {
-		"base": "31.68",
+		"base": "32.45",
 		"r": "0.002",
-		"t": "0.168"
+		"t": "0.155"
 	},
 	"utility_as_sub": {
 		"base": "2.816",

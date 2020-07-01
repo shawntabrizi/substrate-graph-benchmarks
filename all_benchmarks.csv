@@ -159,6 +159,14 @@ treasury,retract_tip
 treasury,tip_new
 treasury,tip
 treasury,close_tip
+treasury,propose_bounty
+treasury,create_sub_bounty
+treasury,approve_bounty
+treasury,reject_bounty
+treasury,award_bounty
+treasury,claim_bounty
+treasury,cancel_bounty
+treasury,extend_bounty_expiry
 treasury,on_initialize
 utility,batch
 utility,as_sub

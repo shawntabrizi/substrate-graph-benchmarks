@@ -71,7 +71,7 @@ function createAnalysisTable(data) {
     let thead = document.createElement('thead');
     let tbody = document.createElement('tbody');
 
-    let keys = ["Median Slopes Analysis", "Min Squares Analysis", "Min Squares Quality and Confidence"];
+    let keys = ["Median Slopes Analysis", "Min Squares Analysis", "Min Squares Quality and Confidence", "DB Tracking"];
 
     let tr = document.createElement('tr');
     for (key of keys) {
@@ -82,7 +82,7 @@ function createAnalysisTable(data) {
 
     let tr2 = document.createElement('tr');
     // These are the elements corresponding to the keys above
-    let indices = [1, 5, 4];
+    let indices = [1, 5, 4, 6];
     for (index of indices) {
         let td = document.createElement('td');
         let pre = document.createElement('pre');
