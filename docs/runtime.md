@@ -40,6 +40,7 @@ Using this information, you can execute a runtime benchmark by running:
     --extrinsic transfer \ # Select the extrinsic
     --steps 50 \ # Modify the range of values to test for this extrinsic
     --repeat 20 \ # Adjust the number of times we repeat a benchmark
+    --raw \ # Output the raw data from the benchmark process
 > balances_transfer.txt # Results are outputted to file
 ```
 
