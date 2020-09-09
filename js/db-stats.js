@@ -71,6 +71,9 @@ async function parseData(pallet, extrinsic, text) {
                 if (line.type != "TRACE") { continue; }
 
                 let [key, value] = line.value.split("=");
+                if (!value) {
+                    value = "";
+                }
                 let length = 0;
 
                 if (line.operation.toUpperCase() == "CLEARPREFIX") {
@@ -109,7 +112,7 @@ async function parseData(pallet, extrinsic, text) {
                     value: value,
                 };
 
-                if (line.operation.toUpperCase() == "GET") {
+                if (line.operation.toUpperCase() == "GET" || line.operation.toUpperCase() == "READ:") {
                     // Is this the first time we are seeing this value
                     if (!get_tracker[key]) {
                         // Track it
@@ -123,7 +126,11 @@ async function parseData(pallet, extrinsic, text) {
                         table_row.uid = get_tracker[key];
                         counter.readRepeat++;
                     }
-                } else if (line.operation.toUpperCase() == "PUT" || line.operation.toUpperCase() == "APPEND") {
+                } else if (
+                    line.operation.toUpperCase() == "PUT" ||
+                    line.operation.toUpperCase() == "APPEND" ||
+                    line.operation.toUpperCase() == "WRITE:"
+                ) {
                     // Is this the first time we are seeing this value
                     if (!put_tracker[key]) {
                         // Track it
