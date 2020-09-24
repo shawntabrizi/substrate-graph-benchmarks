@@ -20,16 +20,16 @@ async function parseData(pallet, extrinsic, text) {
     let all_metadata = {...component_metadata["common"], ...component_metadata[pallet] }
 
     // Rough format of the substrate logs
-    var headers = ["date", "time", "main", "type", "topic", "", "status", "operation", "value", "component_value"].join(" ");
+    var headers = ["month", "day", "time", "type", "operation", "value", "component", "component_value"].join(" ");
     let logs = await ssv.parse(headers + "\n" + text);
 
     let all_data = {};
 
     // Parse all the logs
     for (let i = 0; i < logs.length; i++) {
-        if (logs[i].status.toUpperCase() == "START") {
-            let component = logs[i].value;
-            let component_value = logs[i].component_value;
+        if (logs[i].operation.toUpperCase() == "START") {
+            let component = logs[i].component.replace('[(', '').replace(',', '');
+            let component_value = logs[i].component_value.replace(')]', '');
 
             // Skip start line
             i++;
@@ -64,7 +64,7 @@ async function parseData(pallet, extrinsic, text) {
                 uid++;
             }
 
-            while (logs[i].status.toUpperCase() != "END") {
+            while (logs[i].operation.toUpperCase() != "END") {
                 let line = logs[i];
 
                 // Skip any non-trace logs
