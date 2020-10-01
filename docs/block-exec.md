@@ -36,7 +36,7 @@ pub fn execute_block(block: Block) {
 To execute this benchmark, simply run:
 
 ```bash
-cargo run --release -p node-bench -- ::node::import::wasm::sr25519::noop::empty
+cargo run --release -p node-bench -- ::node::import::wasm::sr25519::noop::rocksdb::empty
 ```
 
 The output will look like:

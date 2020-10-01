@@ -24,7 +24,7 @@ This is the `ExtrinsicBaseWeight` we allow you to configure in the runtime. Rega
 To execute this benchmark, simply run:
 
 ```bash
-cargo run --release -p node-bench -- ::node::import::wasm::sr25519::noop::custom --transactions 10000
+cargo run --release -p node-bench -- ::node::import::wasm::sr25519::noop::rocksdb::custom --transactions 10000
 ```
 
 The output will look like:
