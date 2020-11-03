@@ -1,0 +1,6 @@
+2020-05-10 18:54:36.685 main TRACE benchmark  Start Benchmark: i 0
+2020-05-10 18:54:36.685 main TRACE state  88c6: Put 5f3e4907f716ac89b6347d15ececedcaf7dad0317324aecae8744b87fc95f2f3=Some(02)
+2020-05-10 18:54:36.685 main TRACE benchmark  End Benchmark: 7407 ns
+2020-05-10 18:54:36.685 main TRACE benchmark  Start Benchmark: i 1
+2020-05-10 18:54:36.685 main TRACE state  88c6: Put 5f3e4907f716ac89b6347d15ececedcaf7dad0317324aecae8744b87fc95f2f3=Some(02)
+2020-05-10 18:54:36.685 main TRACE benchmark  End Benchmark: 5212 ns
