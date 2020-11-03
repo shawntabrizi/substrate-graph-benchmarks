@@ -1,0 +1,24 @@
+2020-05-03 19:33:32.507 main TRACE benchmark  Start Benchmark: t 1
+2020-05-03 19:33:32.507 main TRACE state  e950: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-05-03 19:33:32.507 main TRACE state  e950: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-05-03 19:33:32.507 main TRACE benchmark  End Benchmark: 12890 ns
+2020-05-03 19:33:32.507 main TRACE benchmark  Start Benchmark: t 20
+2020-05-03 19:33:32.507 main TRACE state  e950: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-05-03 19:33:32.507 main TRACE state  e950: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-05-03 19:33:32.507 main TRACE benchmark  End Benchmark: 10949 ns
+2020-05-03 19:33:32.507 main TRACE benchmark  Start Benchmark: t 39
+2020-05-03 19:33:32.507 main TRACE state  e950: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-05-03 19:33:32.507 main TRACE state  e950: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-05-03 19:33:32.507 main TRACE benchmark  End Benchmark: 17460 ns
+2020-05-03 19:33:32.507 main TRACE benchmark  Start Benchmark: t 58
+2020-05-03 19:33:32.507 main TRACE state  e950: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-05-03 19:33:32.507 main TRACE state  e950: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-05-03 19:33:32.507 main TRACE benchmark  End Benchmark: 10650 ns
+2020-05-03 19:33:32.507 main TRACE benchmark  Start Benchmark: t 77
+2020-05-03 19:33:32.507 main TRACE state  e950: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-05-03 19:33:32.507 main TRACE state  e950: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-05-03 19:33:32.507 main TRACE benchmark  End Benchmark: 10577 ns
+2020-05-03 19:33:32.508 main TRACE benchmark  Start Benchmark: t 96
+2020-05-03 19:33:32.508 main TRACE state  e950: Get f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=Some(01)
+2020-05-03 19:33:32.508 main TRACE state  e950: Put f0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065=None
+2020-05-03 19:33:32.508 main TRACE benchmark  End Benchmark: 11238 ns

@@ -1,0 +1,87 @@
+{
+    "common": {
+        "extrinsic_time": "nanoseconds",
+        "storage_root_time": "nanoseconds",
+        "time": "nanoseconds"
+    },
+    "balances": {
+        "u": "User Seed",
+        "e": "# of Existential Deposits"
+    },
+    "collective": {
+        "m": "# of Members",
+        "n": "# of New Members",
+        "b": "# of Bytes in Pre-image Proposal",
+        "p": "# of Proposals"
+    },
+    "democracy": {
+        "p": "# of Proposals",
+        "s": "# of Seconds",
+        "r": "# of Referendums",
+        "v": "# of Vetoes"
+    },
+    "elections": {
+        "x": "# of Candidates Voted For",
+        "l": "# of Locks",
+        "c": "# of Candidates",
+        "m": "# of Members",
+        "u": "User Seed",
+        "b": "# of Bytes in Pre-image Proposal"
+    },
+    "offences": {
+        "r": "# of Reporters",
+        "o": "# of Offenders",
+        "n": "# of Nominators",
+        "d": "# of Deferred Offences"
+    },
+    "identity": {
+        "p": "# of Previous Sub Accounts",
+        "r": "# of Registrars",
+        "s": "# of Sub Accounts",
+        "x": "# of Additional Fields"
+    },
+    "im-online": {
+        "k": "# of Keys",
+        "e": "# of External Addresses"
+    },
+    "scheduler": {
+        "s": "# of Scheduled Calls"
+    },
+    "session": {
+        "n": "# of Nominations"
+    },
+    "staking": {
+        "v": "# of Validators",
+        "n": "# of Nominators",
+        "s": "# of Slash Indices",
+        "u": "User Seed"
+    },
+    "system": {
+        "b": "# of Bytes",
+        "i": "Number of",
+        "d": "# of Digest Logs",
+        "p": "# of Prefix",
+        "n": "Number of"
+    },
+    "treasury": {
+        "r": "# of Bytes",
+        "t": "# of Tippers",
+        "p": "# of Approved Proposals"
+    },
+    "utility": {
+        "c": "# of Batch Calls",
+        "s": "# of Signatories",
+        "z": "Transaction Length"
+    },
+    "vesting": {
+        "l": "# of Locks"
+    },
+    "claims": {
+        "u": "User Seed",
+        "c": "# of Claims",
+        "i": "Seed"
+    },
+    "timestamp": {
+        "t": "timestamp value"
+    }
+}

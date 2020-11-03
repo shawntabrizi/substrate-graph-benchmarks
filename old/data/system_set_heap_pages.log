@@ -1,0 +1,18 @@
+2020-05-04 22:59:35.836 main TRACE benchmark  Start Benchmark: i 0
+2020-05-04 22:59:35.836 main TRACE state  90ac: Put 3a686561707061676573=Some(0000000000000000)
+2020-05-04 22:59:35.836 main TRACE benchmark  End Benchmark: 10346 ns
+2020-05-04 22:59:35.836 main TRACE benchmark  Start Benchmark: i 858993459
+2020-05-04 22:59:35.836 main TRACE state  90ac: Put 3a686561707061676573=Some(3333333300000000)
+2020-05-04 22:59:35.836 main TRACE benchmark  End Benchmark: 4453 ns
+2020-05-04 22:59:35.836 main TRACE benchmark  Start Benchmark: i 1717986918
+2020-05-04 22:59:35.836 main TRACE state  90ac: Put 3a686561707061676573=Some(6666666600000000)
+2020-05-04 22:59:35.836 main TRACE benchmark  End Benchmark: 4280 ns
+2020-05-04 22:59:35.836 main TRACE benchmark  Start Benchmark: i 2576980377
+2020-05-04 22:59:35.836 main TRACE state  90ac: Put 3a686561707061676573=Some(9999999900000000)
+2020-05-04 22:59:35.836 main TRACE benchmark  End Benchmark: 4119 ns
+2020-05-04 22:59:35.836 main TRACE benchmark  Start Benchmark: i 3435973836
+2020-05-04 22:59:35.836 main TRACE state  90ac: Put 3a686561707061676573=Some(cccccccc00000000)
+2020-05-04 22:59:35.836 main TRACE benchmark  End Benchmark: 4111 ns
+2020-05-04 22:59:35.836 main TRACE benchmark  Start Benchmark: i 4294967295
+2020-05-04 22:59:35.836 main TRACE state  90ac: Put 3a686561707061676573=Some(ffffffff00000000)
+2020-05-04 22:59:35.836 main TRACE benchmark  End Benchmark: 4131 ns
