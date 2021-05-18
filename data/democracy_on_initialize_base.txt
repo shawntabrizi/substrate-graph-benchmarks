@@ -1,5 +1,5 @@
 Pallet: "democracy", Extrinsic: "on_initialize_public", Lowest values: [], Highest values: [], Steps: [50], Repeat: 20
-r,extrinsic_time,storage_root_time
+r,extrinsic_time_ns,storage_root_time_ns
 1,105422,45428
 1,97948,41619
 1,96707,40789
@@ -2123,4 +2123,3 @@ Model:
 Time ~=    62.78
     + r    31.12
               µs
-

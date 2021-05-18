@@ -1,5 +1,5 @@
 Pallet: "staking", Extrinsic: "payout_stakers", Lowest values: [], Highest values: [], Steps: [50], Repeat: 20
-n,extrinsic_time,storage_root_time
+n,extrinsic_time_ns,storage_root_time_ns
 1,134918,58254
 1,128897,55797
 1,115601,55256
@@ -1367,4 +1367,3 @@ Model:
 Time ~=        0
     + n    56.76
               µs
-

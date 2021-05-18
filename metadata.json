@@ -1,7 +1,7 @@
 {
     "common": {
-        "extrinsic_time": "nanoseconds",
-        "storage_root_time": "nanoseconds",
+        "extrinsic_time_ns": "nanoseconds",
+        "storage_root_time_ns": "nanoseconds",
         "time": "nanoseconds"
     },
     "balances": {

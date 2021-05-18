@@ -137,7 +137,7 @@ function splitBenchmarks(data, repeat) {
     let keys = Object.keys(data[0]);
 
     // Remove known column names
-    keys = keys.filter(item => item !== "extrinsic_time" && item !== "storage_root_time")
+    keys = keys.filter(item => item !== "extrinsic_time_ns" && item !== "storage_root_time_ns")
 
     let split_data = {};
     for (key of keys) {
@@ -174,7 +174,7 @@ function createCharts(split_data, keys, metadata, components) {
 
     var counter = 0;
     for (key of keys) {
-        let time_names = ["extrinsic_time"] //, "storage_root_time"];
+        let time_names = ["extrinsic_time_ns"] //, "storage_root_time"];
         for (time_name of time_names) {
             let data = split_data[key];
 
