@@ -13,7 +13,7 @@ async function parseData(pallet, extrinsic, text) {
 
     let component_metadata = await d3.json('./metadata.json');
 
-    let components = {...component_metadata["common"], ...component_metadata[pallet] }
+    let components = { ...component_metadata["common"], ...component_metadata[pallet] }
 
     let charts = document.getElementsByClassName('chart');
 
@@ -71,7 +71,24 @@ function createAnalysisTable(data) {
     let thead = document.createElement('thead');
     let tbody = document.createElement('tbody');
 
-    let keys = ["Median Slopes Analysis", "Min Squares Analysis", "Min Squares Quality and Confidence", "DB Tracking"];
+    let data2 = data.join("\n").split("\n");
+
+    let splitPoints = data2.reduce(function (a, e, i) {
+        if (e.includes('========'))
+            a.push(i);
+        return a;
+    }, []);
+
+    console.log("split points", splitPoints)
+
+    let keys = [];
+    let texts = [];
+    for (let index in splitPoints) {
+        let breakLine = splitPoints[index];
+        let nextBreakLine = splitPoints[parseInt(index) + 1] || data2.length + 1;
+        keys.push(data2[breakLine - 1]);
+        texts.push(data2.slice(breakLine + 1, nextBreakLine - 1).join("\n"));
+    }
 
     let tr = document.createElement('tr');
     for (key of keys) {
@@ -81,12 +98,10 @@ function createAnalysisTable(data) {
     }
 
     let tr2 = document.createElement('tr');
-    // These are the elements corresponding to the keys above
-    let indices = [1, 5, 4, 6];
-    for (index of indices) {
+    for (text of texts) {
         let td = document.createElement('td');
         let pre = document.createElement('pre');
-        pre.innerText = data[index];
+        pre.innerText = text;
         td.appendChild(pre);
         tr2.appendChild(td);
     }
@@ -300,7 +315,7 @@ function createCharts(split_data, keys, metadata, components) {
     }
 }
 
-document.getElementById("paste-raw").addEventListener("input", async function(event) {
+document.getElementById("paste-raw").addEventListener("input", async function (event) {
     let input = event.target.value;
     parseData("", "", input);
 });
